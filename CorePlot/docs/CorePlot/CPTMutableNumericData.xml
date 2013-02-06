@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="CPTMutableNumericData" FullName="CorePlot.CPTMutableNumericData">
+  <TypeSignature Language="C#" Value="public class CPTMutableNumericData : CorePlot.CPTNumericData" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CPTMutableNumericData extends CorePlot.CPTNumericData" />
+  <AssemblyInfo>
+    <AssemblyName>CorePlotiOS</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>CorePlot.CPTNumericData</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("CPTMutableNumericData", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      <para>An annotated NSMutableData type. </para>
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:CorePlot.CPTNumericData" /> combines a mutable data buffer with information about the data (shape, data type, size, etc.). The data is assumed to be an array of one or more dimensions of a single type of numeric data. Each numeric value in the array, which can be more than one byte in size, is referred to as a "sample". The structure of this object is similar to the NumPy ndarray object. </para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTMutableNumericData ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTMutableNumericData (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTMutableNumericData (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CPTMutableNumericData (MonoTouch.Foundation.NSData newData, IntPtr newDataType, MonoTouch.Foundation.NSNumber[] shapeArray);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSData newData, native int newDataType, class MonoTouch.Foundation.NSNumber[] shapeArray) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithData:dataType:shape:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="newData" Type="MonoTouch.Foundation.NSData" />
+        <Parameter Name="newDataType" Type="System.IntPtr" />
+        <Parameter Name="shapeArray" Type="MonoTouch.Foundation.NSNumber[]" />
+      </Parameters>
+      <Docs>
+        <param name="newData">The data buffer. </param>
+        <param name="newDataType">The type of data stored in the buffer. </param>
+        <param name="shapeArray">The shape of the data buffer array. </param>
+        <summary>
+          <para>Initializes a newly allocated <see cref="T:CorePlot.CPTMutableNumericData" /> object with the provided data. This is the designated initializer. </para>
+        </summary>
+        <remarks>
+          <para>
+            <para>The initialized <see cref="T:CorePlot.CPTMutableNumericData" /> instance. </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FromData">
+      <MemberSignature Language="C#" Value="public static CorePlot.CPTMutableNumericData FromData (MonoTouch.Foundation.NSData newData, IntPtr newDataType, MonoTouch.Foundation.NSNumber[] shapeArray);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class CorePlot.CPTMutableNumericData FromData(class MonoTouch.Foundation.NSData newData, native int newDataType, class MonoTouch.Foundation.NSNumber[] shapeArray) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("numericDataWithData:dataType:shape:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>CorePlot.CPTMutableNumericData</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="newData" Type="MonoTouch.Foundation.NSData" />
+        <Parameter Name="newDataType" Type="System.IntPtr" />
+        <Parameter Name="shapeArray" Type="MonoTouch.Foundation.NSNumber[]" />
+      </Parameters>
+      <Docs>
+        <param name="newData">The data buffer. </param>
+        <param name="newDataType">The type of data stored in the buffer. </param>
+        <param name="shapeArray">The shape of the data buffer array. </param>
+        <summary>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTMutableNumericData" /> instance. </para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTMutableNumericData" /> instance. </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FromData">
+      <MemberSignature Language="C#" Value="public static CorePlot.CPTMutableNumericData FromData (MonoTouch.Foundation.NSData newData, string newDataTypeString, MonoTouch.Foundation.NSNumber[] shapeArray);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class CorePlot.CPTMutableNumericData FromData(class MonoTouch.Foundation.NSData newData, string newDataTypeString, class MonoTouch.Foundation.NSNumber[] shapeArray) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("numericDataWithData:dataTypeString:shape:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>CorePlot.CPTMutableNumericData</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="newData" Type="MonoTouch.Foundation.NSData" />
+        <Parameter Name="newDataTypeString" Type="System.String" />
+        <Parameter Name="shapeArray" Type="MonoTouch.Foundation.NSNumber[]" />
+      </Parameters>
+      <Docs>
+        <param name="newData">The data buffer. </param>
+        <param name="newDataTypeString">The type of data stored in the buffer. </param>
+        <param name="shapeArray">The shape of the data buffer array. </param>
+        <summary>
+          <para>Creates and returns a new <see cref="T:CorePlot.CPTMutableNumericData" /> instance. </para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>
+            <para>A new <see cref="T:CorePlot.CPTMutableNumericData" /> instance. </para>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MutableBytes">
+      <MemberSignature Language="C#" Value="public virtual IntPtr MutableBytes { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int MutableBytes" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("mutableBytes")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Returns a pointer to the data buffer’s contents. </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Shape">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSNumber[] Shape { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSNumber[] Shape" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("shape")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setShape:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSNumber[]</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The shape of the data buffer array. Set a new shape to change the size of the data buffer. </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The shape describes the dimensions of the sample array stored in the data buffer. Each entry in the shape array represents the size of the corresponding array dimension and should be an unsigned integer encoded in an instance of NSNumber. </para>
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

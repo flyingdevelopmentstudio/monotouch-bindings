@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="FBSessionTokenCachingStrategy" FullName="MonoTouch.FacebookConnect.FBSessionTokenCachingStrategy">
+  <TypeSignature Language="C#" Value="public class FBSessionTokenCachingStrategy : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBSessionTokenCachingStrategy extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>Facebook</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("FBSessionTokenCachingStrategy", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBSessionTokenCachingStrategy ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Initializes and returns an instance </para>
+        </summary>
+        <remarks>
+          <para>Initializes and returns an instance </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBSessionTokenCachingStrategy (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBSessionTokenCachingStrategy (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public FBSessionTokenCachingStrategy (string tokenInformationKeyName);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string tokenInformationKeyName) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithUserDefaultTokenInformationKeyName:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="tokenInformationKeyName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="tokenInformationKeyName">
+          <para>Specifies a key name to use for cached token information in NSUserDefaults, nil indicates a default value of "FBAccessTokenInformationKey" </para>
+        </param>
+        <summary>
+          <para>Initializes and returns an instance</para>
+        </summary>
+        <remarks>
+          <para>Initializes and returns an instance</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CacheTokenInformation">
+      <MemberSignature Language="C#" Value="public virtual void CacheTokenInformation (MonoTouch.Foundation.NSDictionary tokenInformation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void CacheTokenInformation(class MonoTouch.Foundation.NSDictionary tokenInformation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("cacheTokenInformation:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tokenInformation" Type="MonoTouch.Foundation.NSDictionary" />
+      </Parameters>
+      <Docs>
+        <param name="tokenInformation">
+          <para>Dictionary containing token information to be cached by the method </para>
+        </param>
+        <summary>
+          <para>Called by &lt;FBSession&gt; (and overridden by inheritors), in order to cache token information.</para>
+        </summary>
+        <remarks>
+          <para>Called by &lt;FBSession&gt; (and overridden by inheritors), in order to cache token information.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClearToken">
+      <MemberSignature Language="C#" Value="public virtual void ClearToken ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ClearToken() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("clearToken")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Called by &lt;FBSession&gt; (and overridden by inheritors), in order delete any cached information for the current token </para>
+        </summary>
+        <remarks>
+          <para>Called by &lt;FBSession&gt; (and overridden by inheritors), in order delete any cached information for the current token </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DefaultInstance">
+      <MemberSignature Language="C#" Value="public static MonoTouch.FacebookConnect.FBSessionTokenCachingStrategy DefaultInstance { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.FacebookConnect.FBSessionTokenCachingStrategy DefaultInstance" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("defaultInstance")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.FacebookConnect.FBSessionTokenCachingStrategy</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FetchTokenInformation">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSDictionary FetchTokenInformation ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.Foundation.NSDictionary FetchTokenInformation() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("fetchTokenInformation")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSDictionary</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Called by &lt;FBSession&gt; (and overridden by inheritors), in order to fetch cached token information</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Called by &lt;FBSession&gt; (and overridden by inheritors), in order to fetch cached token information</para>
+          <para>An overriding implementation should only return a token if it can also return an expiration date, otherwise return nil </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsValidTokenInformation">
+      <MemberSignature Language="C#" Value="public static bool IsValidTokenInformation (MonoTouch.Foundation.NSDictionary tokenInformation);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsValidTokenInformation(class MonoTouch.Foundation.NSDictionary tokenInformation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("isValidTokenInformation:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tokenInformation" Type="MonoTouch.Foundation.NSDictionary" />
+      </Parameters>
+      <Docs>
+        <param name="tokenInformation">
+          <para>Dictionary containing token information to be validated </para>
+        </param>
+        <summary>
+          <para>Helper function called by the SDK as well as application code, used to determine whether a given dictionary contains the minimum token information usable by the &lt;FBSession&gt;.</para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Helper function called by the SDK as well as application code, used to determine whether a given dictionary contains the minimum token information usable by the &lt;FBSession&gt;.</para>
+          <para />
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

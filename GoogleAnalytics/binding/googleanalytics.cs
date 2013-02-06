@@ -10,67 +10,177 @@ using System;
 using MonoTouch.Foundation;
 
 namespace GoogleAnalytics {
+
 	[BaseType (typeof (NSObject))]
-	interface GANTracker {
-		[Static][Export ("sharedTracker")]
-		GANTracker SharedTracker { get; }
-
-		[Export ("startTrackerWithAccountID:dispatchPeriod:delegate:")]
-		void StartTracker (string accountiD, int dispatchPeriod, [NullAllowed] GANTrackerDelegate ganDelegate);
-
-		[Export ("stopTracker")]
-		void StopTracker ();
-
-		// Not supported until Google fixes their library
-		[Export ("trackPageview:withError:")]
-		bool TrackPageView (string pageUrl, out NSError nsError);
-
-		[Export ("trackEvent:action:label:value:withError:")]
-		bool TrackEvent (string category, string action, string label, int value, out NSError nsError);
-
-		[Export ("setCustomVariableAtIndex:name:value:scope:withError:")]
-		bool SetCustomVariable (int index, string name, string value, GanCVScope scope, out NSError nsError);
+	interface GAI {
+		[Internal]
+		[Export ("defaultTracker")]
+		IntPtr InternalDefaultTracker { get; set;  }
 		
-		[Export ("setCustomVariableAtIndex:name:value:withError:")]
-		bool SetCustomVariable (int index, string name, string value, out NSError nsError);
-
-		[Export ("addTransaction:totalPrice:storeName:totalTax:shippingCost:withError:")]
-		bool AddTransaction (string orderId, double price, string storeName, double totalTax, double shippingCost, out NSError error);
-
-		[Export ("addItem:itemSKU:itemPrice:itemCount:itemName:itemCategory:withError:")]
-		void AddItem (string orderId, string itemSKU, double itemPrice, double itemCount, string itemName, string itemCategory, out NSError error);
-
-		[Export ("trackTransactions:")]
-		bool TrackTransactions (out NSError error);
-
-		[Export ("clearTransactions:")]
-		bool ClearTransactions (out NSError error);
-
-		[Export ("setReferrer:withError:")]
-		bool SetReferrer (string referrer, out NSError error);
-	       
 		[Export ("debug")]
-		bool Debug { get; set; }
-
-		[Export ("dryRun")]
-		bool DryRun { get; set; }
-
-		[Export ("anonymizeIp")]
-		bool AnonymizeIp { get; set; }
-
-		[Export ("sampleRate")]
-		uint SampleRate { get; set; }
+		bool Debug { get; set;  }
+		
+		[Export ("optOut")]
+		bool OptOut { get; set;  }
+		
+		[Export ("dispatchInterval")]
+		double DispatchInterval { get; set;  }
+		
+		[Export ("trackUncaughtExceptions")]
+		bool TrackUncaughtExceptions { get; set;  }
+		
+		[Static]
+		[Export ("sharedInstance")]
+		GAI SharedInstance { get; }
+		
+		[Internal]
+		[Export ("trackerWithTrackingId:")]
+		IntPtr InternalGetTracker (string trackingId);
 		
 		[Export ("dispatch")]
-		bool Dispatch ();
-
-		[Export ("dispatchSynchronous")]
-		bool dispatchSynchronous (double timeout);
+		void Dispatch ();
+		
 	}
 
 	[BaseType (typeof (NSObject))]
-	interface GANTrackerDelegate {
-		[Export ("trackerDispatchDidComplete:eventsDispatched:eventsFailedDispatch:")]
-		void DispatchCompleted (GANTracker tracker, int eventsDispatched, int eventsFailedDispatch);
+	interface GAITracker {
+		[Export ("trackingId")]
+		string TrackingId { get;  }
+
+		[Export ("appName")]
+		string AppName { get; set;  }
+		
+		[Export ("appId")]
+		string AppId { get; set;  }
+		
+		[Export ("appVersion")]
+		string AppVersion { get; set;  }
+		
+		[Export ("anonymize")]
+		bool Anonymize { get; set;  }
+
+		[Export ("useHttps")]
+		bool UseHttps { get; set;  }
+		
+		[Export ("sampleRate")]
+		double SampleRate { get; set;  }
+		
+		[Export ("clientId")]
+		string ClientId { get;  }
+		
+		[Export ("appScreen")]
+		string AppScreen { get; set;  }
+		
+		[Export ("referrerUrl")]
+		string ReferrerUrl { get; set;  }
+		
+		[Export ("campaignUrl")]
+		string CampaignUrl { get; set;  }
+		
+		[Export ("sessionStart")]
+		bool SessionStart { get; set;  }
+		
+		[Export ("sessionTimeout")]
+		double SessionTimeout { get; set;  }
+		
+		[Export ("trackView")]
+		bool TrackView ();
+		
+		[Export ("trackView:")]
+		bool TrackView (string screen);
+		
+		[Export ("trackEventWithCategory:withAction:withLabel:withValue:")]
+		bool TrackEvent(string category, string action, string label, NSNumber value);
+		
+		[Export ("trackTransaction:")]
+		bool TrackTransaction (GAITransaction transaction);
+		
+		[Export ("trackException:withDescription:")]
+		bool TrackException (bool isFatal, string format );
+		
+		[Export ("trackException:withNSException:")]
+		bool TrackException (bool isFatal, NSException exception);
+		
+		[Export ("trackException:withNSError:")]
+		bool TrackException (bool isFatal, NSError error);
+		
+		[Export ("trackTimingWithCategory:withValue:withName:withLabel:")]
+		bool TrackTiming (string category, double time, string name, string label);
+		
+		[Export ("trackSocial:withAction:withTarget:")]
+		bool TrackSocial (string network, string action, string target);
+		
+		[Export ("set:value:")]
+		bool Setvalue (string parameterName, string value);
+		
+		[Export ("get:")]
+		string Get (string parameterName);
+		
+		[Export ("send:params:")]
+		bool Sendparams (string trackType, NSDictionary parameters);
+		
+		[Export ("setCustom:dimension:")]
+		bool SetCustom (int index, string dimension);
+		
+		[Export ("setCustom:metric:")]
+		bool SetCustom (int index, NSNumber metric);
+		
+		[Export ("close")]
+		void Close ();
+		
 	}
+	[BaseType (typeof (NSObject))]
+	interface GAITransaction {
+		[Export ("transactionId")]
+		string TransactionId { get;  }
+		
+		[Export ("affiliation")]
+		string Affiliation { get;  }
+		
+		[Export ("revenueMicros")]
+		int RevenueMicros { get; set;  }
+		
+		[Export ("taxMicros")]
+		int TaxMicros { get; set;  }
+		
+		[Export ("shippingMicros")]
+		int ShippingMicros { get; set;  }
+		
+		[Export ("items")]
+		GAITransactionItem[] Items { get;  }
+		
+		[Static]
+		[Export ("transactionWithId:withAffiliation:")]
+		GAITransaction TransactionFrom (string transactionId, string affiliation);
+		
+		[Export ("addItem:")]
+		void AddItem (GAITransactionItem item);
+		
+		[Export ("addItemWithCode:name:category:priceMicros:quantity:")]
+		void AddItem (string productCode, string productName, string productCategory, int priceMicros, int quantity);
+		
+	}
+	[BaseType (typeof (NSObject))]
+	interface GAITransactionItem {
+		[Export ("productCode")]
+		string ProductCode { get;  }
+		
+		[Export ("productName")]
+		string ProductName { get; set;  }
+		
+		[Export ("productCategory")]
+		string ProductCategory { get; set;  }
+		
+		[Export ("priceMicros")]
+		int PriceMicros { get; set;  }
+		
+		[Export ("quantity")]
+		int Quantity { get; set;  }
+		
+		[Static]
+		[Export ("itemWithCode:name:category:priceMicros:quantity:")]
+		GAITransactionItem ItemFrom (string productCode, string productName, string productCategory, int priceMicros, int quantity);
+		
+	}
+	
 }

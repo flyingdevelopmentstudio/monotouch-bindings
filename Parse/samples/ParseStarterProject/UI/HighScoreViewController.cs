@@ -14,7 +14,7 @@
 //    limitations under the License.
 using System;
 using MonoTouch.Dialog;
-using ParseLib;
+using Parse;
 using MonoTouch.Foundation;
 using System.Linq;
 
@@ -34,14 +34,23 @@ namespace ParseStarterProject
 
 		public void GetHighScores()
 		{
-			PFQuery query = new PFQuery("GameScore");
+			ParseQuery query = new ParseQuery("GameScore");
 			query.Limit = 100;
 			query.OrderByDescending("Score");
 			query.FindObjectsAsync(FoundResults);
 		}
 
-		private void FoundResults(PFObject[] array, NSError error)
+		private void FoundResults(ParseObject[] array, NSError error)
 		{
+			//If there was an error or no High scores found, create an emtpy list.
+			if (array == null || error != null) {
+				Root = new RootElement("High Scores"){
+					new Section(){
+						new StringElement("No Scores Found"),
+					}
+				};
+				return;
+			}
 			var easySection = new Section("Easy");
 			var mediumSection = new Section("Medium");
 			var hardSection = new Section("Hard");

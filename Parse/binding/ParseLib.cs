@@ -3,7 +3,7 @@ using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
 using MonoTouch.UIKit;
 
-namespace ParseLib
+namespace Parse
 {
 	public delegate void ParseBooleanResult (bool succeeded,NSError error);
 
@@ -27,13 +27,13 @@ namespace ParseLib
 
 	public delegate void ParseImageResult (UIImage image,NSError error);
 
-	[BaseType (typeof(NSObject))]
-	public interface Parse
+	[BaseType (typeof(NSObject), Name="Parse")]
+	public interface ParseService
 	{
 
 		[Static]
 		[Export ("setApplicationId:clientKey:")]
-		void SetApplicationIdclientKey (string applicationId, string clientKey);
+		void SetAppId (string applicationId, string clientKey);
 
 		[Static]
 		[Export ("offlineMessagesEnabled:")]
@@ -52,6 +52,43 @@ namespace ParseLib
 		string ClientKey{ get; }
 
 
+	}
+	[BaseType (typeof (UIView))]
+	interface PF_EGORefreshTableHeaderView {
+		[Export ("lastUpdatedLabel")]
+		UILabel LastUpdatedLabel { get;  }
+		
+		[Export ("statusLabel")]
+		UILabel StatusLabel { get;  }
+		
+		[Export ("activityView")]
+		UIActivityIndicatorView ActivityView { get;  }
+		
+		[Export ("refreshLastUpdatedDate")]
+		void RefreshLastUpdatedDate ();
+		
+		[Export ("egoRefreshScrollViewDidScroll:")]
+		void ScrollViewDidScroll (UIScrollView scrollView);
+		
+		[Export ("egoRefreshScrollViewDidEndDragging:")]
+		void ScrollViewDidEndDragging (UIScrollView scrollView);
+		
+		[Export ("egoRefreshScrollViewDataSourceDidFinishedLoading:")]
+		void FinishedLoading (UIScrollView scrollView);
+		
+	}
+	
+	[BaseType (typeof (NSObject))]
+	[Model]
+	interface PF_EGORefreshTableHeaderDelegate {
+		[Abstract]
+		[Export ("egoRefreshTableHeaderDataSourceIsLoading:")]
+		bool DataSourceIsLoading (PF_EGORefreshTableHeaderView view);
+		
+		[Abstract]
+		[Export ("egoRefreshTableHeaderDataSourceLastUpdated:")]
+		NSDate DataSourceLastUpdated (PF_EGORefreshTableHeaderView view);
+		
 	}
 	
 	[BaseType (typeof(NSObject), Name="PFACL")]
@@ -171,7 +208,7 @@ namespace ParseLib
 		void SaveAsync (ParseBooleanResult result);
 
 		[Export ("saveInBackgroundWithBlock:progressBlock:")]
-		void SaveInBackgroundWithBlockprogressBlock (ParseBooleanResult result, ParseProgress progress);
+		void SaveAsync (ParseBooleanResult result, ParseProgress progress);
 
 		[Export ("saveInBackgroundWithTarget:selector:"), Internal]
 		void SaveAsync (NSObject target, Selector selector);
@@ -826,7 +863,7 @@ namespace ParseLib
                 string DeviceToken { get; }	
 
 	        [Export ("badge")]
-                int Badge { get; }	
+                int Badge { get; set; }	
 
 	        [Export ("timeZone")]
                 string TimeZone { get; }	
@@ -1146,9 +1183,18 @@ namespace ParseLib
 	{
 		[Export ("className")]
 		string ClassName { get; set; }
-
-		[Export ("keyToDisplay")]
-		string KeyToDisplay { get; set; }
+		
+		[Export ("textKey")]
+		string TextKey { get; set;  }
+		
+		[Export ("imageKey")]
+		string ImageKey { get; set;  }
+		
+		[Export ("placeholderImage")]
+		UIImage PlaceholderImage { get; set;  }
+		
+		[Export ("loadingViewEnabled")]
+		bool LoadingViewEnabled { get; set;  }
 
 		[Export ("pullToRefreshEnabled")]
 		bool PullToRefreshEnabled { get; set; }
@@ -1157,16 +1203,13 @@ namespace ParseLib
 		bool PaginationEnabled { get; set; }
 
 		[Export ("objectsPerPage")]
-		uint ObjectsPerPage { get; set; }
+		int ObjectsPerPage { get; set; }
 
 		[Export ("isLoading")]
 		bool IsLoading { get; set; }
 
 		[Export ("objects")]
 		ParseObject[] Objects { get; set; }
-
-		[Export ("pageThatIsLoading")]
-		int PageThatIsLoading { get; set; }
 
 		[Export ("initWithStyle:className:")]
 		IntPtr Constructor (UITableViewStyle style, string aClassName);
@@ -1198,8 +1241,11 @@ namespace ParseLib
 		[Export ("loadNextPage")]
 		void LoadNextPage ();
 
+		[Export ("loadObjects:clear:")]
+		void LoadObjectsclear (int page, bool clear);
+
 		[Export ("tableView:cellForRowAtIndexPath:object:")]
-		UITableViewCell TableViewcellForRowAtIndexPathobject (UITableView tableView, NSIndexPath indexPath, ParseObject obj);
+		UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath, ParseObject obj);
 
 		[Export ("tableView:cellForNextPageAtIndexPath:")]
 		UITableViewCell TableViewcellForNextPageAtIndexPath (UITableView tableView, NSIndexPath indexPath);

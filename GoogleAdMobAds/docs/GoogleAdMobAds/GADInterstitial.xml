@@ -15,8 +15,29 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>	Rich ads that provide an in-app browsing experience. Richer and more immersive than <see cref="T:GoogleAdMobs.GADBannerView" />s.
+    </summary>
+    <remarks>
+      <para>
+        <see cref="T:GoogleAdMobAds.GADInterstitial" />s provide immediate rich in-app browsing experiences, in contrast with <see cref="T:MonoTouch.UIKit.GADBannerView" />s,
+        which initially present a small ad. <see cref="T:GoogleAdMobAds.GADInterstitial" />s are intended to be placed at natural transition points within an app, 
+        such as at launch, before loading an article or level, before launching video, etc. 
+      </para>
+      <para>
+        Because <see cref="T:GoogleAdMobAds.GADInterstitial" />s have more responsibilities than <see cref="T:GoogleAdMobAds.GADBannerView" />s, they are not <see cref="T:MonoTouch.UIKit.UIView" />s
+        but descend directly from <see cref="T:MonoTouch.Foundation.NSObject" />. However, for the application developer, instantiating and creating a <see cref="T:GoogleAdMobAds.GADInterstitial" />
+        is similar to the process for a <see cref="T:GoogleAdMobAds.GADBannerView" />. #tk code
+      </para>
+      <para>
+        One important difference between <see cref="T:GoogleAdMobAds.GADInterstitial" />s and <see cref="T:GoogleAdMobAds.GADBannerView" />s is that <see cref="T:GoogleAdMobAds.GADInterstitial" />s
+        are single-use. Any request to load or display an interstitial after the first request will cause the <see cref="M:GoogleAdMobAds.GADInterstitialDelegate.Interstitial(GADInterstitial, GADRequestError)" />
+        method to be called.  
+      </para>
+      <para>
+        All publishers can run interstitial house ads, but paid interstitial ads are only offered to some publishers. Google's documntation states 
+        "if you become eligible, Google will be sure to contact you."
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -30,9 +51,36 @@
         <Attribute>
           <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
         </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
       </Attributes>
       <Parameters />
       <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GADInterstitial (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -44,6 +92,11 @@
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
       <Parameters>
         <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
       </Parameters>
@@ -60,6 +113,11 @@
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
       <Parameters>
         <Parameter Name="handle" Type="System.IntPtr" />
       </Parameters>
@@ -88,6 +146,22 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
+        <summary>	The application developer's AdMob Publisher ID.</summary>
+        <value>The application developer's AdMob Publisher ID.</value>
+        <remarks>The Publisher ID is a 15-digit hexadecimal string retrieved from the "Sites &amp; Apps" section of the AdMobs account. </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
         <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
@@ -104,8 +178,54 @@
         <ReturnType>GoogleAdMobAds.GADInterstitialDelegate</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>		The <see cref="T:GoogleAdMobAds.GADBInterstitialDelegate" /> delegate with which to handle events relating to this <see cref="T:GoogleAdMobAds.GADInterstitial" />.
+          .</summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidDismissScreen">
+      <MemberSignature Language="C#" Value="public event EventHandler DidDismissScreen;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler DidDismissScreen" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidFailToReceiveAd">
+      <MemberSignature Language="C#" Value="public event EventHandler&lt;GoogleAdMobAds.GADInterstitialDidFailToReceiveAdWithErrorEventArgs&gt; DidFailToReceiveAd;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class GoogleAdMobAds.GADInterstitialDidFailToReceiveAdWithErrorEventArgs&gt; DidFailToReceiveAd" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler&lt;GoogleAdMobAds.GADInterstitialDidFailToReceiveAdWithErrorEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidReceiveAd">
+      <MemberSignature Language="C#" Value="public event EventHandler DidReceiveAd;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler DidReceiveAd" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -128,6 +248,27 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="HasBeenUsed">
+      <MemberSignature Language="C#" Value="public virtual bool HasBeenUsed { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool HasBeenUsed" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("hasBeenUsed")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="IsReady">
       <MemberSignature Language="C#" Value="public virtual bool IsReady { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool IsReady" />
@@ -144,9 +285,19 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>
+          <see langword="true" /> when the <see cref="T:GoogleAdMobAds.GADInterstitial" /> is ready to display. Used for "splash interstitials."
+        </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>
+          <para>
+            A "splash interstitial" appears at app launch. In this scenario, the <see cref="M:GADInterstitial.LoadAndDisplayRequest" /> method is called
+            by the notification-handler registered with the <see cref="M:MonoTouch.UIKit.UIApplication.DidFinishLaunching" /> method.
+          </para>
+          <para>
+            Subsequently, as soon as the interstitial is ready, it will appear #tk check
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LoadAndDisplayRequest">
@@ -170,11 +321,21 @@
         <Parameter Name="image" Type="MonoTouch.UIKit.UIImage" />
       </Parameters>
       <Docs>
-        <param name="request">To be added.</param>
-        <param name="window">To be added.</param>
-        <param name="image">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="request">	The <see cref="T:GoogleAdMobAds.GADRequest" /> for an ad.
+        </param>
+        <param name="window">	The <see cref="T:MonoTouch.UIKit.UIWindow" /> in which the interstitial will appear #tk check
+        </param>
+        <param name="image">	The initial image (such as a splash image) to display prior to the interstitial load completing.
+        </param>
+        <summary>	Used to create a "splash interstitial." The <paramref name="image" /> will display until the load request succeeds or fails.
+        </summary>
+        <remarks>
+          <para>
+            A "splash interstitial" appears at app launch. Typically, one calls this method a notification-handler registered with the 
+            <see cref="M:MonoTouch.UIKit.UIApplication.DidFinishLaunching" /> method. The <paramref name="image" /> will typically be an app's default splash
+            screen. It remains on-screen until the load request succeeds or fails.
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LoadRequest">
@@ -196,9 +357,20 @@
         <Parameter Name="request" Type="GoogleAdMobAds.GADRequest" />
       </Parameters>
       <Docs>
-        <param name="request">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="request">	A <see cref="T:GoogleAdMobAds.GADRequest" /> that can be customized with demographic data or flagged as a test request.
+        </param>
+        <summary>	Requests an interstitial ad.
+        </summary>
+        <remarks>
+          <para>
+            This method requests an interstitial ad. The default timeout for an interstitial ad is 5 seconds but can be adjusted in the AdMob account.
+          </para>
+          <para>
+            The application developer must not attempt to display the content of an interstitial until 
+            <see cref="M:GoogleAdMobAds.GADInterstitialDelegate.InterstitialDidReceiveAd" /> is called. If the load is unsuccessful, 
+            <see cref="M:GoogleAdMobAds.GADInterstitialDelegate.Interstitial(GADInterstitial, GADRequestError)" /> will be called instead.
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="PresentFromRootViewController">
@@ -221,8 +393,15 @@
       </Parameters>
       <Docs>
         <param name="rootViewController">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Presents a <see cref="T:GoogleAdMobAds.GADInterstitial" />.
+        </summary>
+        <remarks>
+          <para>
+            The application developer must not call this prior to the 
+            <see cref="M:GoogleAdMobAds.GADInterstitialDelegate.interstitialDidReceiveAd" /> method having been called. Also, the 
+            <see cref="P:GoogleAdMobAds.GADInterstitial.IsReady" /> property must be <see langword="true" /> #tk check#
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WeakDelegate">
@@ -246,6 +425,51 @@
       <Docs>
         <summary>To be added.</summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WillDismissScreen">
+      <MemberSignature Language="C#" Value="public event EventHandler WillDismissScreen;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler WillDismissScreen" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WillLeaveApplication">
+      <MemberSignature Language="C#" Value="public event EventHandler WillLeaveApplication;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler WillLeaveApplication" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WillPresentScreen">
+      <MemberSignature Language="C#" Value="public event EventHandler WillPresentScreen;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler WillPresentScreen" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

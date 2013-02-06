@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="CCSpriteFrameCache" FullName="MonoTouch.Cocos2D.CCSpriteFrameCache">
+  <TypeSignature Language="C#" Value="public class CCSpriteFrameCache : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCSpriteFrameCache extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>Cocos2D</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("CCSpriteFrameCache", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      <para>Singleton that handles the loading of the sprite frames. It saves in a cache the sprite frames. <simplesect kind="since"><para>v0.9 </para></simplesect></para>
+    </summary>
+    <remarks>
+      <para>Singleton that handles the loading of the sprite frames. It saves in a cache the sprite frames. <simplesect kind="since"><para>v0.9 </para></simplesect></para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CCSpriteFrameCache ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CCSpriteFrameCache (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CCSpriteFrameCache (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CCSpriteFrameCache (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddSpriteFrame">
+      <MemberSignature Language="C#" Value="public virtual void AddSpriteFrame (MonoTouch.Cocos2D.CCSpriteFrame frame, string frameName);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddSpriteFrame(class MonoTouch.Cocos2D.CCSpriteFrame frame, string frameName) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("addSpriteFrame:name:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="frame" Type="MonoTouch.Cocos2D.CCSpriteFrame" />
+        <Parameter Name="frameName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="frame">To be added.</param>
+        <param name="frameName">To be added.</param>
+        <summary>
+          <para>Adds an sprite frame with a given name. If the name already exists, then the contents of the old name will be replaced with the new one. </para>
+        </summary>
+        <remarks>
+          <para>Adds an sprite frame with a given name. If the name already exists, then the contents of the old name will be replaced with the new one. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddSpriteFrames">
+      <MemberSignature Language="C#" Value="public virtual void AddSpriteFrames (string plist);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddSpriteFrames(string plist) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("addSpriteFramesWithFile:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="plist" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="plist">To be added.</param>
+        <summary>
+          <para>Adds multiple Sprite Frames from a plist file. A texture will be loaded automatically. The texture name will composed by replacing the .plist suffix with .png . If you want to use another texture, you should use the addSpriteFramesWithFile:texture method. </para>
+        </summary>
+        <remarks>
+          <para>Adds multiple Sprite Frames from a plist file. A texture will be loaded automatically. The texture name will composed by replacing the .plist suffix with .png . If you want to use another texture, you should use the addSpriteFramesWithFile:texture method. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddSpriteFrames">
+      <MemberSignature Language="C#" Value="public virtual void AddSpriteFrames (string plist, MonoTouch.Cocos2D.CCTexture2D texture);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddSpriteFrames(string plist, class MonoTouch.Cocos2D.CCTexture2D texture) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("addSpriteFramesWithFile:texture:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="plist" Type="System.String" />
+        <Parameter Name="texture" Type="MonoTouch.Cocos2D.CCTexture2D" />
+      </Parameters>
+      <Docs>
+        <param name="plist">To be added.</param>
+        <param name="texture">To be added.</param>
+        <summary>
+          <para>Adds multiple Sprite Frames from a plist file. The texture will be associated with the created sprite frames. </para>
+        </summary>
+        <remarks>
+          <para>Adds multiple Sprite Frames from a plist file. The texture will be associated with the created sprite frames. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddSpriteFrames">
+      <MemberSignature Language="C#" Value="public virtual void AddSpriteFrames (string plist, string textureFilename);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddSpriteFrames(string plist, string textureFilename) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("addSpriteFramesWithFile:textureFilename:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="plist" Type="System.String" />
+        <Parameter Name="textureFilename" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="plist">To be added.</param>
+        <param name="textureFilename">To be added.</param>
+        <summary>
+          <para>Adds multiple Sprite Frames from a plist file. The texture filename will be associated with the created sprite frames. </para>
+        </summary>
+        <remarks>
+          <para>Adds multiple Sprite Frames from a plist file. The texture filename will be associated with the created sprite frames. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveSpriteFrameByName">
+      <MemberSignature Language="C#" Value="public virtual void RemoveSpriteFrameByName (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveSpriteFrameByName(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeSpriteFrameByName:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>
+          <para>Deletes an sprite frame from the sprite frame cache. </para>
+        </summary>
+        <remarks>
+          <para>Deletes an sprite frame from the sprite frame cache. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveSpriteFrames">
+      <MemberSignature Language="C#" Value="public virtual void RemoveSpriteFrames ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveSpriteFrames() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeSpriteFrames")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Purges the dictionary of loaded sprite frames. Call this method if you receive the "Memory Warning". In the short term: it will free some resources preventing your app from being killed. In the medium term: it will allocate more resources. In the long term: it will be the same. </para>
+        </summary>
+        <remarks>
+          <para>Purges the dictionary of loaded sprite frames. Call this method if you receive the "Memory Warning". In the short term: it will free some resources preventing your app from being killed. In the medium term: it will allocate more resources. In the long term: it will be the same. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveSpriteFramesFromFile">
+      <MemberSignature Language="C#" Value="public virtual void RemoveSpriteFramesFromFile (string plist);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveSpriteFramesFromFile(string plist) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeSpriteFramesFromFile:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="plist" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="plist">To be added.</param>
+        <summary>
+          <para>Removes multiple Sprite Frames from a plist file. Sprite Frames stored in this file will be removed. It is convinient to call this method when a specific texture needs to be removed. <simplesect kind="since"><para>v0.99.5 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Removes multiple Sprite Frames from a plist file. Sprite Frames stored in this file will be removed. It is convinient to call this method when a specific texture needs to be removed. <simplesect kind="since"><para>v0.99.5 </para></simplesect></para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveSpriteFramesFromTexture">
+      <MemberSignature Language="C#" Value="public virtual void RemoveSpriteFramesFromTexture (MonoTouch.Cocos2D.CCTexture2D texture);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveSpriteFramesFromTexture(class MonoTouch.Cocos2D.CCTexture2D texture) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeSpriteFramesFromTexture:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="texture" Type="MonoTouch.Cocos2D.CCTexture2D" />
+      </Parameters>
+      <Docs>
+        <param name="texture">To be added.</param>
+        <summary>
+          <para>Removes all Sprite Frames associated with the specified textures. It is convinient to call this method when a specific texture needs to be removed. <simplesect kind="since"><para>v0.995. </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Removes all Sprite Frames associated with the specified textures. It is convinient to call this method when a specific texture needs to be removed. <simplesect kind="since"><para>v0.995. </para></simplesect></para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveUnusedSpriteFrames">
+      <MemberSignature Language="C#" Value="public virtual void RemoveUnusedSpriteFrames ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void RemoveUnusedSpriteFrames() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("removeUnusedSpriteFrames")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Removes unused sprite frames. Sprite Frames that have a retain count of 1 will be deleted. It is convinient to call this method after when starting a new Scene. </para>
+        </summary>
+        <remarks>
+          <para>Removes unused sprite frames. Sprite Frames that have a retain count of 1 will be deleted. It is convinient to call this method after when starting a new Scene. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SpriteFrameByName">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Cocos2D.CCSpriteFrame SpriteFrameByName (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.Cocos2D.CCSpriteFrame SpriteFrameByName(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("spriteFrameByName:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Cocos2D.CCSpriteFrame</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>
+          <para>Returns an Sprite Frame that was previously added. If the name is not found it will return nil. You should retain the returned copy if you are going to use it. </para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>Returns an Sprite Frame that was previously added. If the name is not found it will return nil. You should retain the returned copy if you are going to use it. </para>
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

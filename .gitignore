@@ -6,9 +6,8 @@
 [Dd]ebug*/
 obj/
 tmp/
-
 GoogleAnalytics/binding/Google Analytics SDK/
-
+*.g.cs
 ATMHud/sample/sample.pidb
 
 TestFlight/binding/TestFlightSDK1.0/README.txt
@@ -22,3 +21,12 @@ flite/sample/TextToSpeech/TextToSpeech/TextToSpeech.pidb
 Parse/binding/Parse.framework/
 
 Kiip/binding/libKiip.a
+
+/FlurryAnalytics/binding/libFlurry.a
+CorePlot/binding/CorePlot_0.9/
+
+GoogleAnalytics/binding/ios/temp.dll
+
+GoogleAnalytics/binding/ios/temp.dll
+
+GoogleAnalytics/binding/ios/temp.dll
