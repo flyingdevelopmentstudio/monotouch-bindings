@@ -1,0 +1,1124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Type Name="CCDirector" FullName="MonoTouch.Cocos2D.CCDirector">
+  <TypeSignature Language="C#" Value="public class CCDirector : MonoTouch.UIKit.UIViewController" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit CCDirector extends MonoTouch.UIKit.UIViewController" />
+  <AssemblyInfo>
+    <AssemblyName>Cocos2D</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.UIKit.UIViewController</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("CCDirector", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      <para>Class that creates and handle the main Window and manages how and when to execute the Scenes.</para>
+    </summary>
+    <remarks>
+      <para>Class that creates and handle the main Window and manages how and when to execute the Scenes.</para>
+      <para>The <see cref="T:MonoTouch.Cocos2D.CCDirector" /> is also resposible for:<list type="bullet"><item><description>initializing the OpenGL ES context</description></item><item><description>setting the OpenGL pixel format (default on is RGB565)</description></item><item><description>setting the OpenGL buffer depth (default one is 0-bit)</description></item><item><description>setting the projection (default one is 3D)</description></item></list></para>
+      <para>Since the <see cref="T:MonoTouch.Cocos2D.CCDirector" /> is a singleton, the standard way to use it is by calling:<list type="bullet"><item><description>[[CCDirector sharedDirector] methodName];</description></item></list></para>
+      <para>The <see cref="T:MonoTouch.Cocos2D.CCDirector" /> also sets the default OpenGL context:<list type="bullet"><item><description>GL_TEXTURE_2D is enabled</description></item><item><description>GL_VERTEX_ARRAY is enabled</description></item><item><description>GL_COLOR_ARRAY is enabled</description></item><item><description>GL_TEXTURE_COORD_ARRAY is enabled </description></item></list></para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CCDirector (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CCDirector (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public CCDirector (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ActionManager">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Cocos2D.CCActionManager ActionManager { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Cocos2D.CCActionManager ActionManager" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("actionManager")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setActionManager:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Cocos2D.CCActionManager</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>
+            <see cref="T:MonoTouch.Cocos2D.CCActionManager" /> associated with this director <simplesect kind="since"><para>v2.0 </para></simplesect></para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>
+            <see cref="T:MonoTouch.Cocos2D.CCActionManager" /> associated with this director <simplesect kind="since"><para>v2.0 </para></simplesect></para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AnimationInterval">
+      <MemberSignature Language="C#" Value="public virtual double AnimationInterval { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float64 AnimationInterval" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("animationInterval")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setAnimationInterval:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The FPS value </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The FPS value </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ConvertToGL">
+      <MemberSignature Language="C#" Value="public virtual System.Drawing.PointF ConvertToGL (System.Drawing.PointF point);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance valuetype System.Drawing.PointF ConvertToGL(valuetype System.Drawing.PointF point) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("convertToGL:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Drawing.PointF</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="point" Type="System.Drawing.PointF" />
+      </Parameters>
+      <Docs>
+        <param name="point">To be added.</param>
+        <summary>
+          <para>converts a UIKit coordinate to an OpenGL coordinate Useful to convert (multi) touchs coordinates to the current layout (portrait or landscape) </para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>converts a UIKit coordinate to an OpenGL coordinate Useful to convert (multi) touchs coordinates to the current layout (portrait or landscape) </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ConvertToUI">
+      <MemberSignature Language="C#" Value="public virtual System.Drawing.PointF ConvertToUI (System.Drawing.PointF point);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance valuetype System.Drawing.PointF ConvertToUI(valuetype System.Drawing.PointF point) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("convertToUI:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Drawing.PointF</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="point" Type="System.Drawing.PointF" />
+      </Parameters>
+      <Docs>
+        <param name="point">To be added.</param>
+        <summary>
+          <para>converts an OpenGL coordinate to a UIKit coordinate Useful to convert node points to window points for calls such as glScissor </para>
+        </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>converts an OpenGL coordinate to a UIKit coordinate Useful to convert node points to window points for calls such as glScissor </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateStatsLabel">
+      <MemberSignature Language="C#" Value="public virtual void CreateStatsLabel ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void CreateStatsLabel() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("createStatsLabel")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>creates the Stats labels </para>
+        </summary>
+        <remarks>
+          <para>creates the Stats labels </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DisplayStats">
+      <MemberSignature Language="C#" Value="public virtual bool DisplayStats { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool DisplayStats" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("displayStats")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setDisplayStats:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Whether or not to display director statistics </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Whether or not to display director statistics </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Dispose(bool disposing) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DrawScene">
+      <MemberSignature Language="C#" Value="public virtual void DrawScene ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void DrawScene() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("drawScene")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Draw the scene. This method is called every frame. Don't call it manually. </para>
+        </summary>
+        <remarks>
+          <para>Draw the scene. This method is called every frame. Don't call it manually. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="End">
+      <MemberSignature Language="C#" Value="public virtual void End ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void End() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("end")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Ends the execution, releases the running scene. It doesn't remove the OpenGL view from its parent. You have to do it manually. </para>
+        </summary>
+        <remarks>
+          <para>Ends the execution, releases the running scene. It doesn't remove the OpenGL view from its parent. You have to do it manually. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsAnimating">
+      <MemberSignature Language="C#" Value="public virtual bool IsAnimating { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IsAnimating" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("isAnimating")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Whether or not the Director is active (animating) </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Whether or not the Director is active (animating) </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsPaused">
+      <MemberSignature Language="C#" Value="public virtual bool IsPaused { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IsPaused" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("isPaused")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Whether or not the Director is paused </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Whether or not the Director is paused </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NextDeltaTimeZero">
+      <MemberSignature Language="C#" Value="public virtual bool NextDeltaTimeZero { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool NextDeltaTimeZero" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("nextDeltaTimeZero")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setNextDeltaTimeZero:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>whether or not the next delta time will be zero </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>whether or not the next delta time will be zero </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NotificationNode">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject NotificationNode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSObject NotificationNode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("notificationNode")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setNotificationNode:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSObject</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>This object will be visited after the main scene is visited. This object MUST implement the "visit" selector. Useful to hook a notification object, like CCNotifications (<ulink url="http://github.com/manucorporat/CCNotifications">http://github.com/manucorporat/CCNotifications</ulink>) <simplesect kind="since"><para>v0.99.5 </para></simplesect></para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>This object will be visited after the main scene is visited. This object MUST implement the "visit" selector. Useful to hook a notification object, like CCNotifications (<ulink url="http://github.com/manucorporat/CCNotifications">http://github.com/manucorporat/CCNotifications</ulink>) <simplesect kind="since"><para>v0.99.5 </para></simplesect></para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Pause">
+      <MemberSignature Language="C#" Value="public virtual void Pause ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Pause() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("pause")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Pauses the running scene. The running scene will be <emphasis>drawed</emphasis> but all scheduled timers will be paused While paused, the draw rate will be 4 FPS to reduce CPU consuption </para>
+        </summary>
+        <remarks>
+          <para>Pauses the running scene. The running scene will be <emphasis>drawed</emphasis> but all scheduled timers will be paused While paused, the draw rate will be 4 FPS to reduce CPU consuption </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PopScene">
+      <MemberSignature Language="C#" Value="public virtual void PopScene ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void PopScene() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("popScene")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Pops out a scene from the queue. This scene will replace the running one. The running scene will be deleted. If there are no more scenes in the stack the execution is terminated. ONLY call it if there is a running scene. </para>
+        </summary>
+        <remarks>
+          <para>Pops out a scene from the queue. This scene will replace the running one. The running scene will be deleted. If there are no more scenes in the stack the execution is terminated. ONLY call it if there is a running scene. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PopToRootScene">
+      <MemberSignature Language="C#" Value="public virtual void PopToRootScene ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void PopToRootScene() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("popToRootScene")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Pops out all scenes from the queue until the root scene in the queue. This scene will replace the running one. The running scene will be deleted. If there are no more scenes in the stack the execution is terminated. ONLY call it if there is a running scene. </para>
+        </summary>
+        <remarks>
+          <para>Pops out all scenes from the queue until the root scene in the queue. This scene will replace the running one. The running scene will be deleted. If there are no more scenes in the stack the execution is terminated. ONLY call it if there is a running scene. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Projection">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Cocos2D.CCDirectorProjection Projection { set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype MonoTouch.Cocos2D.CCDirectorProjection Projection" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setProjection:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Cocos2D.CCDirectorProjection</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PurgeCachedData">
+      <MemberSignature Language="C#" Value="public virtual void PurgeCachedData ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void PurgeCachedData() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("purgeCachedData")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Removes all the cocos2d data that was cached automatically. It will purge the <see cref="T:MonoTouch.Cocos2D.CCTextureCache" />, <see cref="T:MonoTouch.Cocos2D.CCLabelBMFont" /> cache. IMPORTANT: The <see cref="T:MonoTouch.Cocos2D.CCSpriteFrameCache" /> won't be purged. If you want to purge it, you have to purge it manually. <simplesect kind="since"><para>v0.99.3 </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>Removes all the cocos2d data that was cached automatically. It will purge the <see cref="T:MonoTouch.Cocos2D.CCTextureCache" />, <see cref="T:MonoTouch.Cocos2D.CCLabelBMFont" /> cache. IMPORTANT: The <see cref="T:MonoTouch.Cocos2D.CCSpriteFrameCache" /> won't be purged. If you want to purge it, you have to purge it manually. <simplesect kind="since"><para>v0.99.3 </para></simplesect></para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Push">
+      <MemberSignature Language="C#" Value="public void Push (MonoTouch.Cocos2D.CCScene scene);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Push(class MonoTouch.Cocos2D.CCScene scene) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("Poorly named, use PushScene instead")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scene" Type="MonoTouch.Cocos2D.CCScene" />
+      </Parameters>
+      <Docs>
+        <param name="scene">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PushScene">
+      <MemberSignature Language="C#" Value="public virtual void PushScene (MonoTouch.Cocos2D.CCScene scene);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void PushScene(class MonoTouch.Cocos2D.CCScene scene) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("pushScene:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scene" Type="MonoTouch.Cocos2D.CCScene" />
+      </Parameters>
+      <Docs>
+        <param name="scene">To be added.</param>
+        <summary>
+          <para>Suspends the execution of the running scene, pushing it on the stack of suspended scenes. The new scene will be executed. Try to avoid big stacks of pushed scenes to reduce memory allocation. ONLY call it if there is a running scene. </para>
+        </summary>
+        <remarks>
+          <para>Suspends the execution of the running scene, pushing it on the stack of suspended scenes. The new scene will be executed. Try to avoid big stacks of pushed scenes to reduce memory allocation. ONLY call it if there is a running scene. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReplaceScene">
+      <MemberSignature Language="C#" Value="public virtual void ReplaceScene (MonoTouch.Cocos2D.CCScene scene);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ReplaceScene(class MonoTouch.Cocos2D.CCScene scene) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("replaceScene:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scene" Type="MonoTouch.Cocos2D.CCScene" />
+      </Parameters>
+      <Docs>
+        <param name="scene">To be added.</param>
+        <summary>
+          <para>Replaces the running scene with a new one. The running scene is terminated. ONLY call it if there is a running scene. </para>
+        </summary>
+        <remarks>
+          <para>Replaces the running scene with a new one. The running scene is terminated. ONLY call it if there is a running scene. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ReshapeProjection">
+      <MemberSignature Language="C#" Value="public virtual void ReshapeProjection (System.Drawing.SizeF newWindowSize);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void ReshapeProjection(valuetype System.Drawing.SizeF newWindowSize) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("reshapeProjection:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="newWindowSize" Type="System.Drawing.SizeF" />
+      </Parameters>
+      <Docs>
+        <param name="newWindowSize">To be added.</param>
+        <summary>
+          <para>changes the projection size </para>
+        </summary>
+        <remarks>
+          <para>changes the projection size </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Resume">
+      <MemberSignature Language="C#" Value="public virtual void Resume ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Resume() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("resume")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Resumes the paused scene The scheduled timers will be activated again. The "delta time" will be 0 (as if the game wasn't paused) </para>
+        </summary>
+        <remarks>
+          <para>Resumes the paused scene The scheduled timers will be activated again. The "delta time" will be 0 (as if the game wasn't paused) </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Run">
+      <MemberSignature Language="C#" Value="public virtual void Run (MonoTouch.Cocos2D.CCScene scene);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Run(class MonoTouch.Cocos2D.CCScene scene) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("runWithScene:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scene" Type="MonoTouch.Cocos2D.CCScene" />
+      </Parameters>
+      <Docs>
+        <param name="scene">To be added.</param>
+        <summary>
+          <para>Enters the Director's main loop with the given Scene. Call it to run only your FIRST scene. Don't call it if there is already a running scene.</para>
+        </summary>
+        <remarks>
+          <para>Enters the Director's main loop with the given Scene. Call it to run only your FIRST scene. Don't call it if there is already a running scene.</para>
+          <para>It will call pushScene: and then it will call startAnimation </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RunningScene">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Cocos2D.CCScene RunningScene { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Cocos2D.CCScene RunningScene" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("runningScene")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Cocos2D.CCScene</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>The current running Scene. Director can only run one Scene at the time </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>The current running Scene. Director can only run one Scene at the time </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RunningThread">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSThread RunningThread { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSThread RunningThread" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("runningThread")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSThread</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>returns the cocos2d thread. If you want to run any cocos2d task, run it in this thread. On iOS usually it is the main thread. <simplesect kind="since"><para>v0.99.5 </para></simplesect></para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>returns the cocos2d thread. If you want to run any cocos2d task, run it in this thread. On iOS usually it is the main thread. <simplesect kind="since"><para>v0.99.5 </para></simplesect></para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Scheduler">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Cocos2D.CCScheduler Scheduler { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Cocos2D.CCScheduler Scheduler" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("scheduler")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setScheduler:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Cocos2D.CCScheduler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>CCScheduler associated with this director <simplesect kind="since"><para>v2.0 </para></simplesect></para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>CCScheduler associated with this director <simplesect kind="since"><para>v2.0 </para></simplesect></para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SecondsPerFrame">
+      <MemberSignature Language="C#" Value="public virtual float SecondsPerFrame { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 SecondsPerFrame" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("secondsPerFrame")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>seconds per frame </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>seconds per frame </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SendCleanupToScene">
+      <MemberSignature Language="C#" Value="public virtual bool SendCleanupToScene { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool SendCleanupToScene" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("sendCleanupToScene")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>Whether or not the replaced scene will receive the cleanup message. If the new scene is pushed, then the old scene won't receive the "cleanup" message. If the new scene replaces the old one, the it will receive the "cleanup" message. <simplesect kind="since"><para>v0.99.0 </para></simplesect></para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>Whether or not the replaced scene will receive the cleanup message. If the new scene is pushed, then the old scene won't receive the "cleanup" message. If the new scene replaces the old one, the it will receive the "cleanup" message. <simplesect kind="since"><para>v0.99.0 </para></simplesect></para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetAlphaBlending">
+      <MemberSignature Language="C#" Value="public virtual void SetAlphaBlending (bool on);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetAlphaBlending(bool on) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setAlphaBlending:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="on" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="on">To be added.</param>
+        <summary>
+          <para>enables/disables OpenGL alpha blending </para>
+        </summary>
+        <remarks>
+          <para>enables/disables OpenGL alpha blending </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetDepthTest">
+      <MemberSignature Language="C#" Value="public virtual void SetDepthTest (bool on);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetDepthTest(bool on) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setDepthTest:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="on" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="on">To be added.</param>
+        <summary>
+          <para>enables/disables OpenGL depth test </para>
+        </summary>
+        <remarks>
+          <para>enables/disables OpenGL depth test </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetGLDefaultValues">
+      <MemberSignature Language="C#" Value="public virtual void SetGLDefaultValues ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void SetGLDefaultValues() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setGLDefaultValues")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>sets the OpenGL default values </para>
+        </summary>
+        <remarks>
+          <para>sets the OpenGL default values </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SharedDirector">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Cocos2D.CCDirector SharedDirector { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Cocos2D.CCDirector SharedDirector" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("sharedDirector")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Cocos2D.CCDirector</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShouldAutorotateToInterfaceOrientation">
+      <MemberSignature Language="C#" Value="public MonoTouch.Cocos2D.AutorotateCondition ShouldAutorotateToInterfaceOrientation { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Cocos2D.AutorotateCondition ShouldAutorotateToInterfaceOrientation" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Cocos2D.AutorotateCondition</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StartAnimation">
+      <MemberSignature Language="C#" Value="public virtual void StartAnimation ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void StartAnimation() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("startAnimation")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>The main loop is triggered again. Call this function only if [stopAnimation] was called earlier <simplesect kind="warning"><para>Dont' call this function to start the main loop. To run the main loop call runWithScene </para></simplesect></para>
+        </summary>
+        <remarks>
+          <para>The main loop is triggered again. Call this function only if [stopAnimation] was called earlier <simplesect kind="warning"><para>Dont' call this function to start the main loop. To run the main loop call runWithScene </para></simplesect></para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StopAnimation">
+      <MemberSignature Language="C#" Value="public virtual void StopAnimation ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void StopAnimation() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("stopAnimation")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+          <para>Stops the animation. Nothing will be drawn. The main loop won't be triggered anymore. If you wan't to pause your animation call [pause] instead. </para>
+        </summary>
+        <remarks>
+          <para>Stops the animation. Nothing will be drawn. The main loop won't be triggered anymore. If you wan't to pause your animation call [pause] instead. </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TotalFrames">
+      <MemberSignature Language="C#" Value="public virtual uint TotalFrames { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 TotalFrames" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("totalFrames")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>How many frames were called since the director started </para>
+        </summary>
+        <value>To be added.</value>
+        <remarks>
+          <para>How many frames were called since the director started </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WinSize">
+      <MemberSignature Language="C#" Value="public virtual System.Drawing.SizeF WinSize { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Drawing.SizeF WinSize" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("winSize")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Drawing.SizeF</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WinSizeInPixels">
+      <MemberSignature Language="C#" Value="public virtual System.Drawing.SizeF WinSizeInPixels { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Drawing.SizeF WinSizeInPixels" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("winSizeInPixels")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Drawing.SizeF</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ZEye">
+      <MemberSignature Language="C#" Value="public virtual float ZEye { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 ZEye" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("getZEye")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

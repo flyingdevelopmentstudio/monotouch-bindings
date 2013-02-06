@@ -15,8 +15,40 @@
     </Attribute>
   </Attributes>
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>	A <see cref="T:MonoTouch.UIKit.UIView" /> that displays small HTML5 ads that respond to user events.
+    </summary>
+    <remarks>
+      <para>
+        Application developers should prefer to use the more-recently-released <see cref="T:GoogleAdMobAds.DFPBannerView" /> "Double-Click for Publishers" ads, which are more flexible than <see cref="T:GoogleAdMobAds.GADBannerView" />s. 
+      </para>
+      <para>
+        Google AdMob Ads banners allow the application user to click-through to a full-screen advertising experience.
+        The user may exit that full-screen experience either by returning to the application or by activating other applications
+        such as iTunes.
+      </para>
+      <para>
+        There may be a delay of up to 2 minutes the first time AdMob sees the application's publisher ID (see 
+        <see cref="T:GoogleAdMobAds.GADBannerView.AdUnitId" />) in any 24-hour period. During development, application developers 
+        should request test ads (see <see cref="P:GoogleAdMobAds.GADRequest.TestDevices" /> and 
+        <see cref="P:GoogleAdMobAds.GADRequest.Testing" />).
+      </para>
+      <para>
+        A <see cref="T:GoogleAdMobAds.GADBannerView" /> must have its <see cref="P:GoogleAdMobAds.GADBannerView.RootViewController" /> property
+        set prior to calling <see cref="M:GoogleAdMobAds.GADBannerView.LoadRequest" /> as shown in the following code:
+      </para>
+      <example>
+        <code lang="C#">
+          myBanner = new GADBannerView (GADAdSizeCons.Banner);
+          //Set the AdMob Publisher ID
+          myBanner.AdUnitID = MY_PUBLISHER_ID;  //A 15-digit hexadecimal string
+          //The RootViewController *must* be set prior to calling LoadRequest()
+          myBanner.RootViewController = this;
+          
+          var request = CreateAdRequest ();
+          myBanner.LoadRequest (request);
+        </code>
+      </example>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -30,9 +62,57 @@
         <Attribute>
           <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
         </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
       </Attributes>
       <Parameters />
       <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GADBannerView (GoogleAdMobAds.GADAdSize size);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype GoogleAdMobAds.GADAdSize size) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithAdSize:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="size" Type="GoogleAdMobAds.GADAdSize" />
+      </Parameters>
+      <Docs>
+        <param name="size">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GADBannerView (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -44,6 +124,11 @@
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
       <Parameters>
         <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
       </Parameters>
@@ -58,7 +143,6 @@
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype System.Drawing.RectangleF frame) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
@@ -69,8 +153,9 @@
         <Parameter Name="frame" Type="System.Drawing.RectangleF" />
       </Parameters>
       <Docs>
-        <param name="frame">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="frame">		The <see cref="T:System.Drawing.RectangleF" /> specifying the frame for the <see cref="T:GoogleAdMobAds.GADBannerView" /></param>
+        <summary>	Initializes the <see cref="T:GoogleAdMobAds.GADBannerView" /> with the specified frame.
+        </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -81,12 +166,64 @@
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
       <Parameters>
         <Parameter Name="handle" Type="System.IntPtr" />
       </Parameters>
       <Docs>
         <param name="handle">To be added.</param>
         <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public GADBannerView (GoogleAdMobAds.GADAdSize size, System.Drawing.PointF origin);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(valuetype GoogleAdMobAds.GADAdSize size, valuetype System.Drawing.PointF origin) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithAdSize:origin:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="size" Type="GoogleAdMobAds.GADAdSize" />
+        <Parameter Name="origin" Type="System.Drawing.PointF" />
+      </Parameters>
+      <Docs>
+        <param name="size">To be added.</param>
+        <param name="origin">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AdSize">
+      <MemberSignature Language="C#" Value="public virtual GoogleAdMobAds.GADAdSize AdSize { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype GoogleAdMobAds.GADAdSize AdSize" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("adSize")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setAdSize:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>GoogleAdMobAds.GADAdSize</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -109,6 +246,22 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
+        <summary>	The application developer's AdMob Publisher ID.</summary>
+        <value>The application developer's AdMob Publisher ID.</value>
+        <remarks>The Publisher ID is a 15-digit hexadecimal string retrieved from the "Sites &amp; Apps" section of the AdMobs account. </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
         <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
@@ -125,8 +278,53 @@
         <ReturnType>GoogleAdMobAds.GADBannerViewDelegate</ReturnType>
       </ReturnValue>
       <Docs>
+        <summary>	The <see cref="T:GoogleAdMobAds.GADBannerViewDelegate" /> delegate with which to handle events relating to this <see cref="T:GoogleAdMobAds.GADBannerView" />.</summary>
+        <value>The <see cref="T:GoogleAdMobAds.GADBannerViewDelegate" /> delegate with which to handle events relating to this <see cref="T:GoogleAdMobAds.GADBannerView" /> or <see langword="null" />.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidDismissScreen">
+      <MemberSignature Language="C#" Value="public event EventHandler DidDismissScreen;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler DidDismissScreen" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
         <summary>To be added.</summary>
-        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidFailToReceiveAd">
+      <MemberSignature Language="C#" Value="public event EventHandler&lt;GoogleAdMobAds.GADBannerViewErrorEventArgs&gt; DidFailToReceiveAd;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler`1&lt;class GoogleAdMobAds.GADBannerViewErrorEventArgs&gt; DidFailToReceiveAd" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler&lt;GoogleAdMobAds.GADBannerViewErrorEventArgs&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DidReceiveAd">
+      <MemberSignature Language="C#" Value="public event EventHandler DidReceiveAd;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler DidReceiveAd" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -154,14 +352,16 @@
       <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype System.Drawing.SizeF GAD_SIZE_300x250" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Drawing.SizeF</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>IAB Medium Banner Size.</summary>
         <remarks>To be added.</remarks>
+        <altmember cref="M:GoogleAdMobAds.GADBannerView.GAD_SIZE_320x50" />
+        <altmember cref="M:GoogleAdMobAds.GADBannerView.GAD_SIZE_468x60" />
+        <altmember cref="M:GoogleAdMobAds.GADBannerView.GAD_SIZE_728x90" />
       </Docs>
     </Member>
     <Member MemberName="GAD_SIZE_320x50">
@@ -169,14 +369,16 @@
       <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype System.Drawing.SizeF GAD_SIZE_320x50" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Drawing.SizeF</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Standard Banner Size.</summary>
+        <remarks>Intended for both phones and tablets.</remarks>
+        <altmember cref="M:GoogleAdMobAds.GADBannerView.GAD_SIZE_320x250" />
+        <altmember cref="M:GoogleAdMobAds.GADBannerView.GAD_SIZE_468x60" />
+        <altmember cref="M:GoogleAdMobAds.GADBannerView.GAD_SIZE_728x90" />
       </Docs>
     </Member>
     <Member MemberName="GAD_SIZE_468x60">
@@ -184,14 +386,16 @@
       <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype System.Drawing.SizeF GAD_SIZE_468x60" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Drawing.SizeF</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>IAB Full-Size Banner.</summary>
+        <remarks>Intended for tablets only.</remarks>
+        <altmember cref="M:GoogleAdMobAds.GADBannerView.GAD_SIZE_320x50" />
+        <altmember cref="M:GoogleAdMobAds.GADBannerView.GAD_SIZE_320x250" />
+        <altmember cref="M:GoogleAdMobAds.GADBannerView.GAD_SIZE_728x90" />
       </Docs>
     </Member>
     <Member MemberName="GAD_SIZE_728x90">
@@ -199,14 +403,16 @@
       <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype System.Drawing.SizeF GAD_SIZE_728x90" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Drawing.SizeF</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>IAB Leaderboard.</summary>
+        <remarks>Intended for tablets only.</remarks>
+        <altmember cref="M:GoogleAdMobAds.GADBannerView.GAD_SIZE_320x50" />
+        <altmember cref="M:GoogleAdMobAds.GADBannerView.GAD_SIZE_320x250" />
+        <altmember cref="M:GoogleAdMobAds.GADBannerView.GAD_SIZE_468x60" />
       </Docs>
     </Member>
     <Member MemberName="HasAutoRefreshed">
@@ -225,9 +431,17 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>
+          <see langword="true" /> if the current ad (or error) is the result of an autorefresh, <see langword="false" /> if direct result of call to <see cref="M:GoogleAdMobAds.GADBannerView.LoadRequest" />.
+        </summary>
+        <value>The default value is <see langword="false" />.</value>
+        <remarks>
+          <para>
+            This property will remain <see langword="false" /> until either the current banner or the current error has been set via autorefresh.
+          </para>
+        </remarks>
+        <altmember cref="M:GoogleAdMobAds.GADBannerViewDelegate.AdView" />
+        <altmember cref="M:GoogleAdMobAds.GADBannerViewDelegate.AdViewDidReceiveAd" />
       </Docs>
     </Member>
     <Member MemberName="LoadRequest">
@@ -249,8 +463,89 @@
         <Parameter Name="request" Type="GoogleAdMobAds.GADRequest" />
       </Parameters>
       <Docs>
-        <param name="request">To be added.</param>
+        <param name="request">A <see cref="T:GoogleAdMobAds.GADRequest" /> that can be customized with demographic data or flagged as a test request.
+        </param>
+        <summary>	Requests an ad to be displayed in this <see cref="T:GoogleAdMobAds.GADBannerView" />.</summary>
+        <remarks>
+          <para>
+            The returned ad will be the largest ad that fits in the <see cref="T:GoogleAdMobAds.GADBannerView" />. Standard sizes for iOS ads are shown in the following table.
+          </para>
+          <para>
+            <list type="table">
+              <listheader>
+                <term>Size</term>
+                <description>Description</description>
+                <description>Devices</description>
+                <description>Property</description>
+              </listheader>
+              <item>
+                <term>320 x 50</term>
+                <description>Standard Banner</description>
+                <description>Phones &amp; Tablets</description>
+                <description>
+                  <see cref="P:GoogleAdMobs.GADBannerView.GAD_SIZE_320x50" />
+                </description>
+              </item>
+              <item>
+                <term>300 x 250</term>
+                <description>IAB Medium Banner</description>
+                <description>Tablets</description>
+                <description>
+                  <see cref="P:GoogleAdMobs.GADBannerView.GAD_SIZE_300x250" />
+                </description>
+              </item>
+              <item>
+                <term>468 x 60</term>
+                <description>IAB Full-Size Banner</description>
+                <description>Tablets</description>
+                <description>
+                  <see cref="P:GoogleAdMobs.GADBannerView.GAD_SIZE_468x60" />
+                </description>
+              </item>
+              <item>
+                <term>728 x 90</term>
+                <description>IAB Leaderboard</description>
+                <description>Tablets</description>
+                <description>
+                  <see cref="P:GoogleAdMobs.GADBannerView.GAD_SIZE_728x90" />
+                </description>
+              </item>
+            </list>
+          </para>
+          <para>
+            If the <see cref="T:GoogleAdMobAds.GADBannerView" /> is smaller than the smallest size (320x50), no ads will be served to it.
+          </para>
+          <para>
+            Banner will auto-refresh every 30-120 seconds, if the application developer's AdMob account on the server specifies auto-refresh.
+            Otherwise, banners can be programmatically refreshed by
+            calling <see cref="M:GoogleAdMobAds.GADBannerView.LoadRequest" />.
+          </para>
+          <para>
+            Ad targeting can be improved by specifying demographic data in the <paramref name="request" />.
+          </para>
+          <para>
+            The application developer must set <see cref="P:GoogleAdMobs.GADBannerView.RootViewController" /> prior to calling this method.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MediatedAdView">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIView MediatedAdView { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIView MediatedAdView" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("mediatedAdView")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.UIKit.UIView</ReturnType>
+      </ReturnValue>
+      <Docs>
         <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -273,9 +568,15 @@
         <ReturnType>MonoTouch.UIKit.UIViewController</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>	The <see cref="T:MonoTouch.UIKit.UIViewController" /> to restore after the ad has been visited.
+        </summary>
+        <value>The root <see cref="T:MonoTouch.UIKit.UViewController" />. Mandatory.</value>
+        <remarks>
+          <para>
+            The application developer must set this value prior to calling <see cref="M:GoogleAdMobs.GADBannerView.LoadRequest" />. If this value is <see langword="null" /> when <see cref="M:GoogleAdMobAds.GADBannerView.LoadRequest" />
+            is called, the application may crash.
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WeakDelegate">
@@ -299,6 +600,51 @@
       <Docs>
         <summary>To be added.</summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WillDismissScreen">
+      <MemberSignature Language="C#" Value="public event EventHandler WillDismissScreen;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler WillDismissScreen" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WillLeaveApplication">
+      <MemberSignature Language="C#" Value="public event EventHandler WillLeaveApplication;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler WillLeaveApplication" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WillPresentScreen">
+      <MemberSignature Language="C#" Value="public event EventHandler WillPresentScreen;" />
+      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler WillPresentScreen" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.EventHandler</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

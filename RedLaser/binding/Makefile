@@ -1,6 +1,6 @@
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
-BUILDVER=build154
-VERSION=3.3.0
+BUILDVER=build194
+VERSION=3.4.0
 
 all: RedLaser.dll
 
@@ -15,7 +15,7 @@ libRedLaserSDK.a: RedLaserDevSDK-$(VERSION).zip
 	unzip -p $< 'RedLaserDevSDK-$(VERSION)$(BUILDVER)/RedLaser SDK Files/$@' > $@
 
 RedLaser.dll: Makefile AssemblyInfo.cs redlaser.cs enums.cs extra.cs libRedLaserSDK.a
-	$(BTOUCH) -unsafe --out=$@ -e redlaser.cs -s:enums.cs -x:AssemblyInfo.cs -x:extra.cs --link-with=libRedLaserSDK.a,libRedLaserSDK.a
+	$(BTOUCH) -unsafe --out=$@ redlaser.cs -s:enums.cs -x:AssemblyInfo.cs -x:extra.cs --link-with=libRedLaserSDK.a,libRedLaserSDK.a
 
 clean:
 	-rm -rf *.a *.dll

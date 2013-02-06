@@ -1,7 +1,7 @@
 using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
 
-namespace ParseLib {
+namespace Parse {
 
 	// Use this for synchronous operations
 	[Register ("__My_NSActionDispatcher")]
@@ -31,6 +31,7 @@ namespace ParseLib {
 			SaveAsync (d, NSActionDispatcher.Selector);
 		}
 
+
 		public void GetDataAsync (NSAction callback)
 		{
 			var d = new NSActionDispatcher (callback);
@@ -39,6 +40,13 @@ namespace ParseLib {
 	}
 
 	public partial class ParseObject {
+
+		public NSObject this [string key]
+		{
+			get{ return this.ObjectForKey (key);}
+			set{ this.SetObjectforKey (value,key);}
+		}
+
 		public void SaveAsync (NSAction callback)
 		{
 			var d = new NSActionDispatcher (callback);

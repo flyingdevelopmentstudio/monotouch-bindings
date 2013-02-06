@@ -36,6 +36,7 @@ namespace Jumpy
 			SpriteManager = 0,
 			Bird,
 			ScoreLabel,
+			Particles,
 			CloudsStart = 100,
 			PlatformsStart = 200,
 			BomusStart = 300,
@@ -83,7 +84,7 @@ namespace Jumpy
 			case 1: 
 				rect = new RectangleF(336,128,257,110); 
 				break;
-			case 2: 
+			default:
 				rect = new RectangleF(336,240,252,119); 
 				break;
 			}	

@@ -24,6 +24,8 @@ using System;
 using System.Drawing;
 using MonoTouch.UIKit;
 using MonoTouch.Cocos2D;
+using MonoTouch.OpenGLES;
+using OpenTK;
 
 namespace Jumpy
 {
@@ -49,8 +51,8 @@ namespace Jumpy
 		bool birdLookingRight;
 
 		PointF bird_pos;
-		Vertex2F bird_vel;
-		Vertex2F bird_acc;
+		Vector2 bird_vel;
+		Vector2 bird_acc;
 
 		public static CCScene Scene
 		{
@@ -82,7 +84,6 @@ namespace Jumpy
 
 			var scoreLabel = new CCLabelBMFont("0", "Fonts/bitmapFont.fnt") {Position = new PointF(160,430)};
 			Add(scoreLabel, 5, (int)Tags.ScoreLabel);
-
 
 
 		}
@@ -120,7 +121,7 @@ namespace Jumpy
 			case 0: 
 				rect = new RectangleF(608,64,102,36); 
 				break;
-			case 1: 
+			default:
 				rect = new RectangleF(608,128,90,32); 
 				break;
 			}
@@ -243,6 +244,7 @@ namespace Jumpy
 
 			var batchnode = GetChild((int)Tags.SpriteManager) as CCSpriteBatchNode;
 			var bird = batchnode.GetChild((int)Tags.Bird) as CCSprite;
+			var particles = GetChild((int)Tags.Particles) as CCParticleSystem;
 
 			bird_pos.X += bird_vel.X * dt;
 
@@ -368,11 +370,27 @@ namespace Jumpy
 			}
 			
 			bird.Position = bird_pos;
+
+			if (particles !=null) {
+				var particle_pos = new PointF(bird_pos.X,bird_pos.Y-17);
+				particles.Position = particle_pos;
+			}
 		}
 
 		void Jump ()
 		{
 			bird_vel.Y = 400.0f + Math.Abs(bird_vel.X);
+
+			var old_part = GetChild((int)Tags.Particles);
+			if (old_part!=null)
+				Remove(old_part,true);
+
+			var particle = new CCParticleFireworks() {
+				Position = bird_pos,
+				Gravity = new PointF(0,-5000),
+				Duration = .3f,
+			};
+			Add (particle,-1,(int)Tags.Particles);
 		}
 
 		void DidAccelerate (UIAccelerometer accelerometer, UIAcceleration acceleration)
@@ -387,7 +405,7 @@ namespace Jumpy
 		{
 			gameSuspended = true;
 			UIApplication.SharedApplication.IdleTimerDisabled=false;
-			CCDirector.SharedDirector.ReplaceScene(new CCTransitionFade(1, HighScoreLayer.Scene(score),Color3B.White));
+			CCDirector.SharedDirector.ReplaceScene(new CCTransitionFade(1, HighScoreLayer.Scene(score),CCColor3B.White));
 		}
 	}
 
