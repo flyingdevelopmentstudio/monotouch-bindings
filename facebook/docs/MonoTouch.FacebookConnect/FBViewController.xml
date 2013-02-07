@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Type Name="FBViewController" FullName="MonoTouch.FacebookConnect.FBViewController">
   <TypeSignature Language="C#" Value="public class FBViewController : MonoTouch.UIKit.UIViewController" />
   <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit FBViewController extends MonoTouch.UIKit.UIViewController" />
@@ -115,21 +114,6 @@
         </remarks>
       </Docs>
     </Member>
-    <Member MemberName="CancelWasPressed">
-      <MemberSignature Language="C#" Value="public event EventHandler CancelWasPressed;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler CancelWasPressed" />
-      <MemberType>Event</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.EventHandler</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="CanvasView">
       <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIView CanvasView { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIView CanvasView" />
@@ -216,21 +200,6 @@
         <remarks>
           <para>The Done button to display when presented modally. If nil, no Done button is displayed. If this button is provided, its target and action will be redirected to internal handlers, replacing any previous target that may have been set. </para>
         </remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DoneWasPressed">
-      <MemberSignature Language="C#" Value="public event EventHandler DoneWasPressed;" />
-      <MemberSignature Language="ILAsm" Value=".event class System.EventHandler DoneWasPressed" />
-      <MemberType>Event</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.EventHandler</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="PresentModallyFromViewController">

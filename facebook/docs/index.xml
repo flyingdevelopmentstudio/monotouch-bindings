@@ -18,11 +18,12 @@
       <Type Name="Messaging" Kind="Class" />
     </Namespace>
     <Namespace Name="MonoTouch.FacebookConnect">
-      <Type Name="Facebook" Kind="Class" />
       <Type Name="FBCacheDescriptor" Kind="Class" />
       <Type Name="FBErrorCode" Kind="Enumeration" />
       <Type Name="FBFriendDisplayOrdering" Kind="Enumeration" />
+      <Type Name="FBFriendPickerCondition" Kind="Delegate" />
       <Type Name="FBFriendPickerDelegate" Kind="Class" />
+      <Type Name="FBFriendPickerErrorEventArgs" Kind="Class" />
       <Type Name="FBFriendPickerViewController" Kind="Class" />
       <Type Name="FBFriendSortOrdering" Kind="Enumeration" />
       <Type Name="FBGraphLocation" Kind="Class" />
@@ -31,12 +32,14 @@
       <Type Name="FBGraphUser" Kind="Class" />
       <Type Name="FBLoginView" Kind="Class" />
       <Type Name="FBLoginViewDelegate" Kind="Class" />
-      <Type Name="FBLoginViewDelegateUserInfoArgsEventArgs" Kind="Class" />
+      <Type Name="FBLoginViewUserInfoEventArgs" Kind="Class" />
       <Type Name="FBModalCompletionHandler" Kind="Delegate" />
       <Type Name="FBNativeDialogResult" Kind="Enumeration" />
       <Type Name="FBNativeDialogs" Kind="Class" />
       <Type Name="FBOpenGraphAction" Kind="Class" />
+      <Type Name="FBPlacePickerCondition" Kind="Delegate" />
       <Type Name="FBPlacePickerDelegate" Kind="Class" />
+      <Type Name="FBPlacePickerErrorEventArgs" Kind="Class" />
       <Type Name="FBPlacePickerViewController" Kind="Class" />
       <Type Name="FBProfilePictureCropping" Kind="Enumeration" />
       <Type Name="FBProfilePictureView" Kind="Class" />
