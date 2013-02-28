@@ -231,9 +231,6 @@ namespace MonoTouch.Cocos2D {
 		[Export ("visible")]
 		bool Visible { get; set; }
 
-		[Export ("nodeToParentTransform")]
-		CGAffineTransform NodeToParentTransform ();
-
 		// master
 		//[Export ("grid")]
 		//CCGridBase Grid { get; set;  }
@@ -255,9 +252,6 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("onExit")]
 		void OnExit ();
-
-		[Export ("removeFromParentAndCleanup:")]
-		void RemoveFromParentAndCleanup (bool cleanup);
 
 		[Export ("removeAllChildrenWithCleanup:")]
 		void RemoveAllChildrenWithCleanup (bool cleanup);
@@ -310,6 +304,12 @@ namespace MonoTouch.Cocos2D {
 		[Export ("pauseSchedulerAndActions")]
 		void PauseSchedulerAndActions ();
 
+		[Export ("update:")]
+		void Update (float delta);
+
+		[Export ("nodeToParentTransform")]
+		CGAffineTransform NodeToParentTransform { get; }
+		
 		[Export ("parentToNodeTransform")]
 		CGAffineTransform ParentToNodeTransform { get; } 
 
@@ -1099,6 +1099,9 @@ namespace MonoTouch.Cocos2D {
 
 	[BaseType (typeof (NSObject))]
 	interface CCTouchDispatcher {
+		[Export ("dispatchEvents")]
+		bool DispatchEvents { get; set; }
+
 		[Export("addStandardDelegate:priority:")]
 		void AddStandardDelegate(NSObject delegate_, int priority);
 
@@ -1136,39 +1139,33 @@ namespace MonoTouch.Cocos2D {
 
 	}
 
+	[Model]
 	interface CCTargetedTouchDelegate {
 		[Export ("ccTouchBegan:withEvent:")]
-		[PrologueSnippet ("return false;")]
 		bool OnTouchBegan(UITouch touch, UIEvent ev);
 
 		[Export ("ccTouchMoved:withEvent:")]
-		[PrologueSnippet ("return;")]
 		void OnTouchMoved(UITouch touch, UIEvent ev);
 
 		[Export ("ccTouchEnded:withEvent:")]
-		[PrologueSnippet ("return;")]
 		void OnTouchEnded(UITouch touch, UIEvent ev);
 
 		[Export ("ccTouchCancelled:withEvent:")]
-		[PrologueSnippet ("return;")]
 		void OnTouchCancelled(UITouch touch, UIEvent ev);
 	}
 
+	[Model]
 	interface CCStandardTouchDelegate {
 		[Export ("ccTouchesBegan:withEvent:")]
-		[PrologueSnippet ("return;")]
 		void OnTouchesBegan(NSSet touches, UIEvent ev);
 
 		[Export ("ccTouchesMoved:withEvent:")]
-		[PrologueSnippet ("return;")]
 		void OnTouchesMoved(NSSet touches, UIEvent ev);
 
 		[Export ("ccTouchesEnded:withEvent:")]
-		[PrologueSnippet ("return;")]
 		void OnTouchesEnded(NSSet touches, UIEvent ev);
 
 		[Export ("ccTouchesCancelled:withEvent:")]
-		[PrologueSnippet ("return;")]
 		void OnTouchesCancelled(NSSet touches, UIEvent ev);	
 	}
 
@@ -1265,9 +1262,6 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("initWithString:fontName:fontSize:dimensions:halignment:vAlignment:lineBreakMode:")]
 		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment, CCVerticalTextAlignment vertAlignment, UILineBreakMode lineBreakMode);
-
-		[Export ("setString:")]
-		void SetString (string value);
 	}
 	
 	[BaseType (typeof(CCSpriteBatchNode))]
@@ -1296,9 +1290,6 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("setWidth:")]
 		void SetWidth (float value);
-
-		[Export ("setAlignment:")]
-		void SetAlignment (UITextAlignment alignment);
 	}
 
 	[BaseType (typeof (CCGrid3DAction))]
@@ -1501,6 +1492,7 @@ namespace MonoTouch.Cocos2D {
 		CCTextureAtlas TextureAtlas { get; set;  }
 
 		[Export ("batchNode")]
+		[NullAllowed]
 		CCSpriteBatchNode BatchNode { get; set;  }
 
 		[Export ("offsetPosition")]
@@ -1508,9 +1500,6 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("updateTransform")]
 		void UpdateTransform ();
-
-		[Export ("setTextureRect:")]
-		void SetTextureRect (RectangleF rect);
 
 		[Export ("setTextureRect:rotated:untrimmedSize:")]
 		void SetTextureRect (RectangleF rect, bool rotated, SizeF untrimmedSize);
@@ -1686,7 +1675,7 @@ namespace MonoTouch.Cocos2D {
 
 	[BaseType (typeof (CCTransitionSceneOriented))]
 	[DisableDefaultCtor] // instance has no valid handle
-	interface CCTransitionFlipAnguled {
+	interface CCTransitionFlipAngular {
 		[Export ("initWithDuration:scene:")]
 		IntPtr Constructor (float duration, CCScene scene);
 	}
@@ -1792,10 +1781,10 @@ namespace MonoTouch.Cocos2D {
 
 	[BaseType (typeof (CCMenuItemLabel))]
 	interface CCMenuItemAtlasFont {
-		[Export ("initFromString:charMapFile:itemWidth:itemHeight:startCharMap:target:selector:")]
+		[Export ("initWithString:charMapFile:itemWidth:itemHeight:startCharMap:target:selector:")]
 		IntPtr Constructor (string value, string charMapFile, int itemWidth, int itemHeight, char startCharMap, NSObject target, Selector selector);
 
-		[Export ("itemFromString:charMapFile:itemWidth:itemHeight:startCharMap:block:")]
+		[Export ("initWithString:charMapFile:itemWidth:itemHeight:startCharMap:block:")]
 		IntPtr Constructor (string value, string charMapFile, int itemWidth, int itemHeight, char startCharMap, NSCallbackWithSender callback);
 	}
 
@@ -1816,10 +1805,10 @@ namespace MonoTouch.Cocos2D {
 		[Export ("fontName")]
 		string FontName { get; set; }
 
-		[Export ("initFromString:target:selector:")]
+		[Export ("initWithString:target:selector:")]
 		IntPtr Constructor (string value, NSObject r, Selector s);
 
-		[Export ("initFromString:block:")]
+		[Export ("initWithString:block:")]
 		IntPtr Constructor (string value, NSCallbackWithSender callback);
 	}
 
@@ -2782,9 +2771,11 @@ namespace MonoTouch.Cocos2D {
 
 #if ENABLE_CHIPMUNK_INTEGRATION
 	[BaseType(typeof(CCDrawNode))]
+	[DisableDefaultCtor]
 	interface CCPhysicsDebugNode {
 		[Export("debugNodeForCPSpace:")]
 		[Static]
+		[Internal]
 		CCPhysicsDebugNode DebugNode (IntPtr space);
 	}
 
@@ -2795,9 +2786,6 @@ namespace MonoTouch.Cocos2D {
 
 		[Export ("initWithTexture:rect:")]
 		IntPtr Constructor (CCTexture2D texture, RectangleF rect);
-
-		[Export ("initWithTexture:rect:")]
-		IntPtr Constructor (CCTexture2D texture);
 
 		[Export ("initWithFile:")]
 		IntPtr Constructor (string filename);

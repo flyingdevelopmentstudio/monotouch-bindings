@@ -223,11 +223,9 @@
         <Parameter Name="handler" Type="MonoTouch.FacebookConnect.FBModalCompletionHandler" />
       </Parameters>
       <Docs>
-        <param name="viewController">
-          <para>The view controller that is presenting this view controller. </para>
-        </param>
-        <param name="animated">To be added.</param>
-        <param name="handler">To be added.</param>
+        <param name="viewController">The view controller that is presenting this view controller. </param>
+        <param name="animated">If true, presenting and dismissing the view controller is animated. </param>
+        <param name="handler">The block called when the Done or Cancel button is pressed. </param>
         <summary>
           <para>Provides a wrapper that presents the view controller modally and automatically dismisses it when either the Done or Cancel button is pressed. If Done is pressed, the block provided by the doneHandler parameter is called.</para>
         </summary>

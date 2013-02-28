@@ -3,7 +3,7 @@ using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
 using MonoTouch.UIKit;
 
-namespace Parse
+namespace ParseTouch
 {
 	public delegate void ParseBooleanResult (bool succeeded,NSError error);
 
@@ -28,7 +28,7 @@ namespace Parse
 	public delegate void ParseImageResult (UIImage image,NSError error);
 
 	[BaseType (typeof(NSObject), Name="Parse")]
-	public interface ParseService
+	public interface Parse
 	{
 
 		[Static]
@@ -845,31 +845,34 @@ namespace Parse
 	[BaseType (typeof(ParseObject), Name="PFInstallation")]
 	public interface ParseInstallation
 	{
-	        [Static]
+		[Static]
 		[Export ("currentInstallation")]
-                ParseInstallation CurrentInstallation { get; }	
-	        
-	        [Static]
+		ParseInstallation CurrentInstallation { get; }
+
+		[Static]
 		[Export ("query")]
-                ParseQuery CreateQuery ();	
-		
+		ParseQuery CreateQuery ();
+
 		[Export ("deviceType")]
-                string DeviceType { get; }	
+		string DeviceType { get; }
 
-	        [Export ("installationId")]
-                string InstallationId { get; }	
+		[Export ("installationId")]
+		string InstallationId { get; }
 
-	        [Export ("deviceToken")]
-                string DeviceToken { get; }	
+		[Export ("deviceToken")]
+		string DeviceToken { get; }
+		
+		[Export ("setDeviceTokenFromData:")]
+		void SetDeviceToken (NSData deviceToken);
 
-	        [Export ("badge")]
-                int Badge { get; set; }	
+		[Export ("badge")]
+		int Badge { get; set; }
 
-	        [Export ("timeZone")]
-                string TimeZone { get; }	
+		[Export ("timeZone")]
+		string TimeZone { get; }
 
-	        [Export ("channels")]
-                string[] Channels { get; set; }	
+		[Export ("channels")]
+		string[] Channels { get; set; }	
 
 	}
 	

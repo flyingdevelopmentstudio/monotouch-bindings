@@ -19,6 +19,8 @@
     </Namespace>
     <Namespace Name="MonoTouch.FacebookConnect">
       <Type Name="FBCacheDescriptor" Kind="Class" />
+      <Type Name="FBDialog" Kind="Class" />
+      <Type Name="FBDialogDelegate" Kind="Class" />
       <Type Name="FBErrorCode" Kind="Enumeration" />
       <Type Name="FBFriendDisplayOrdering" Kind="Enumeration" />
       <Type Name="FBFriendPickerCondition" Kind="Delegate" />
@@ -45,9 +47,12 @@
       <Type Name="FBProfilePictureView" Kind="Class" />
       <Type Name="FBRequest" Kind="Class" />
       <Type Name="FBRequestConnection" Kind="Class" />
+      <Type Name="FBRequestDelegate" Kind="Class" />
       <Type Name="FBRequestHandler" Kind="Delegate" />
+      <Type Name="FBRequestState" Kind="Enumeration" />
       <Type Name="FBSession" Kind="Class" />
       <Type Name="FBSessionDefaultAudience" Kind="Enumeration" />
+      <Type Name="FBSessionDelegate" Kind="Class" />
       <Type Name="FBSessionLoginBehavior" Kind="Enumeration" />
       <Type Name="FBSessionLoginType" Kind="Enumeration" />
       <Type Name="FBSessionReauthorizeResultHandler" Kind="Delegate" />
