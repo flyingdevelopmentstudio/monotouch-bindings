@@ -21,7 +21,16 @@ namespace Chipmunk
         public Shape (IntPtr handle) : base (handle)
         {
         }		
-    
+
+   	internal static Shape FromIntPtr (IntPtr ptr)
+	{
+	    var userdata = __cpShapeGetUserData (ptr);
+	    if (userdata == IntPtr.Zero)
+		return new Shape (ptr);
+	    var gchandle = GCHandle.FromIntPtr (__cpShapeGetUserData (ptr));
+	    return (Shape)gchandle.Target;
+	}
+	 
         [DllImport ("__Internal")]
         extern static void cpShapeFree (IntPtr shape);
     	
@@ -38,7 +47,7 @@ namespace Chipmunk
         extern static void cpShapeSetBody (IntPtr shape, IntPtr body);
     
         public Body Body {
-	   get { return new Body (__cpShapeGetBody (Handle.Handle)); }
+	   get { return Body.FromIntPtr (__cpShapeGetBody (Handle.Handle)); }
 	   set { cpShapeSetBody (Handle.Handle, value.Handle.Handle); }
         }
     
@@ -154,6 +163,17 @@ namespace Chipmunk
 
 	[DllImport ("__Internal", EntryPoint="cpResetShapeIdCounter")]
 	public extern static void ResetShapeIdCounter ();
+
+    	[DllImport("__Internal")]
+	extern static IntPtr __cpShapeGetUserData (IntPtr body);
+
+	[DllImport("__Internal")]
+	extern static void __cpShapeSetUserData (IntPtr body, IntPtr userData);
+
+	internal override IntPtr UserData {
+	    get { return __cpShapeGetUserData (Handle.Handle); }
+	    set { __cpShapeSetUserData (Handle.Handle, value); }
+	}
     }
 
     public partial class CircleShape : Shape
