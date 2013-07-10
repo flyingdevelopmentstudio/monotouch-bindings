@@ -17,7 +17,7 @@ using MonoTouch.UIKit;
 
 namespace Chipmunk
 {
-	public partial class Space : ChipmunkObject
+	public sealed partial class Space : ChipmunkObject
 	{
 		[DllImport ("__Internal")]
 		extern static IntPtr cpSpaceNew ();
@@ -155,7 +155,7 @@ namespace Chipmunk
 		extern static IntPtr __cpSpaceGetStaticBody(IntPtr space);
 
 		public Body StaticBody {
-			get { return new Body (__cpSpaceGetStaticBody(Handle.Handle)); }
+			get { return Body.FromIntPtr (__cpSpaceGetStaticBody(Handle.Handle)); }
 		}
 
 		//operations on the space
@@ -242,7 +242,7 @@ namespace Chipmunk
 		{
 		    return cpSpaceContainsConstraint (Handle.Handle, constraint.Handle.Handle);
 		}
-
+	
 		[DllImport("__Internal")]
 		extern static IntPtr cpSpaceAddStaticShape (IntPtr space, IntPtr shape);
 
@@ -279,43 +279,67 @@ namespace Chipmunk
 		}
 		
 		//iterators
-		delegate void BodyIterator (IntPtr body, IntPtr data);
+		delegate void BodyIteratorFunc (IntPtr body, IntPtr data);
 
+		[MonoTouch.MonoPInvokeCallback (typeof (BodyIteratorFunc))] 
+		static void BodyIterator (IntPtr body, IntPtr data)
+		{
+		    var handle = GCHandle.FromIntPtr (data);
+		    var action = (Action<Body>)handle.Target;
+		    action (Body.FromIntPtr (body));
+		}
+		
 		[DllImport ("__Internal")]
-		extern static void cpSpaceEachBody (IntPtr space, BodyIterator iterator, IntPtr data);
+		extern static void cpSpaceEachBody (IntPtr space, BodyIteratorFunc iterator, IntPtr data);
 
 		public void EachBody (Action<Body> action)
 		{
-		    BodyIterator iterator = (body, data) => {
-			action (new Body (body));
-		    };
-		    cpSpaceEachBody (Handle.Handle, iterator, IntPtr.Zero);
+		    var handle = GCHandle.Alloc (action);
+		    var data = GCHandle.ToIntPtr(handle);
+		    cpSpaceEachBody (Handle.Handle, BodyIterator, data);
+		    handle.Free ();
 		}
 		
-		delegate void ShapeIterator (IntPtr shape, IntPtr data);
+		delegate void ShapeIteratorFunc (IntPtr shape, IntPtr data);
 
+		[MonoTouch.MonoPInvokeCallback (typeof (ShapeIteratorFunc))] 
+		static void ShapeIterator (IntPtr shape, IntPtr data)
+		{
+		    var handle = GCHandle.FromIntPtr (data);
+		    var action = (Action<Shape>)handle.Target;
+		    action (Shape.FromIntPtr (shape));
+		}
+	
 		[DllImport ("__Internal")]
-		extern static void cpSpaceEachShape (IntPtr space, ShapeIterator iterator, IntPtr data);
+		extern static void cpSpaceEachShape (IntPtr space, ShapeIteratorFunc iterator, IntPtr data);
 		
 		public void EachShape (Action<Shape> action)
 		{
-		    ShapeIterator iterator = (shape, data) => {
-			action (new Shape(shape));
-		    };
-		    cpSpaceEachShape (Handle.Handle, iterator, IntPtr.Zero);
+		    var handle = GCHandle.Alloc (action);
+		    var data = GCHandle.ToIntPtr(handle);
+		    cpSpaceEachShape (Handle.Handle, ShapeIterator, data);
+		    handle.Free ();
 		}
 
-		delegate void ConstraintIterator (IntPtr constraint, IntPtr data);
+		delegate void ConstraintIteratorFunc (IntPtr constraint, IntPtr data);
 
+		[MonoTouch.MonoPInvokeCallback (typeof (ConstraintIteratorFunc))] 
+		static void ConstraintIterator (IntPtr constraint, IntPtr data)
+		{
+		    var handle = GCHandle.FromIntPtr (data);
+		    var action = (Action<Constraint>)handle.Target;
+		    action (Constraint.FromIntPtr (constraint));
+		}
+		
 		[DllImport ("__Internal")]
-		extern static void cpSpaceEachConstraint(IntPtr body, ConstraintIterator iterator, IntPtr data);
+		extern static void cpSpaceEachConstraint(IntPtr body, ConstraintIteratorFunc iterator, IntPtr data);
 
 		public void EachConstraint (Action<Constraint> action)
 		{
-		    ConstraintIterator iterator = (constraint, data) => {
-			action (new Constraint(constraint));
-		    };
-		    cpSpaceEachConstraint (Handle.Handle, iterator, IntPtr.Zero);
+		    var handle = GCHandle.Alloc (action);
+		    var data = GCHandle.ToIntPtr(handle);
+		    cpSpaceEachConstraint (Handle.Handle, ConstraintIterator, data);
+		    handle.Free ();
 		}
 
 		//simulating the space
@@ -324,9 +348,60 @@ namespace Chipmunk
 
 		public void Step (float dt)
 		{
-			cpSpaceStep(Handle.Handle, dt);
+		    cpSpaceStep(Handle.Handle, dt);
 		}
 
+		//Post step
+		delegate void PostStepFunc (IntPtr space, IntPtr obj, IntPtr data);
+
+		[MonoTouch.MonoPInvokeCallback (typeof (PostStepFunc))]
+		static void PostStepForBody (IntPtr space, IntPtr obj, IntPtr data)
+		{
+		    var handle = GCHandle.FromIntPtr (data);
+		    var action = (Action<Body>)handle.Target;
+		    handle.Free ();
+		    action (obj == IntPtr.Zero ? null :  Body.FromIntPtr (obj));
+		}
+
+		[MonoTouch.MonoPInvokeCallback (typeof (PostStepFunc))]
+		static void PostStepForShape (IntPtr space, IntPtr obj, IntPtr data)
+		{
+		    var handle = GCHandle.FromIntPtr (data);
+		    var action = (Action<Shape>)handle.Target;
+		    handle.Free ();
+		    action (obj == IntPtr.Zero ? null :  Shape.FromIntPtr (obj));
+		}
+
+		[MonoTouch.MonoPInvokeCallback (typeof (PostStepFunc))]
+		static void PostStepForConstraint (IntPtr space, IntPtr obj, IntPtr data)
+		{
+		    var handle = GCHandle.FromIntPtr (data);
+		    var action = (Action<Constraint>)handle.Target;
+		    handle.Free ();
+		    action (obj == IntPtr.Zero ? null :  Constraint.FromIntPtr (obj));
+		}
+
+		[DllImport ("__Internal")]
+		extern static void cpSpaceAddPostStepCallback (IntPtr space, PostStepFunc func, IntPtr key, IntPtr data); 
+
+		public void AddPostStepCallback (Action<Body> action, Body obj)
+		{
+		    var data = GCHandle.ToIntPtr(GCHandle.Alloc (action));
+		    cpSpaceAddPostStepCallback (Handle.Handle, PostStepForBody, obj.Handle.Handle, data);
+		}
+
+		public void AddPostStepCallback (Action<Shape> action, Shape obj)
+		{
+		    var data = GCHandle.ToIntPtr(GCHandle.Alloc (action));
+		    cpSpaceAddPostStepCallback (Handle.Handle, PostStepForShape, obj.Handle.Handle, data);
+		}
+		
+		public void AddPostStepCallback (Action<Constraint> action, Constraint obj)
+		{
+		    var data = GCHandle.ToIntPtr(GCHandle.Alloc (action));
+		    cpSpaceAddPostStepCallback (Handle.Handle, PostStepForConstraint, obj.Handle.Handle, data);
+		}
+		
 		//spatial hash
 		[DllImport ("__Internal")]
 		extern static void cpSpaceUseSpatialHash(IntPtr space, float dim, int count);
@@ -342,12 +417,82 @@ namespace Chipmunk
 		delegate void PostSolveFunc (IntPtr arbiter, IntPtr space, IntPtr data);
 		delegate void SeparateFunc (IntPtr arbiter, IntPtr space, IntPtr data);
 
+		[MonoTouch.MonoPInvokeCallback (typeof (BeginFunc))]
+		static bool CollisionBegin (IntPtr arb, IntPtr space, IntPtr data)
+		{
+		    var handle = GCHandle.FromIntPtr (data);
+		    var callbacks = (Tuple<Func<Arbiter,bool>, 
+					   Func<Arbiter,bool>,
+					   Action<Arbiter>,
+					   Action<Arbiter>>)handle.Target;
+		    //handle.Free ();
+		    var arbiter = (arb == IntPtr.Zero ? null : new Arbiter (arb));
+		    var func = callbacks.Item1;
+		    if (func == null)
+			return false;
+		    return func (arbiter);
+		}
+		
+		[MonoTouch.MonoPInvokeCallback (typeof (PreSolveFunc))]
+		static bool CollisionPreSolve (IntPtr arb, IntPtr space, IntPtr data)
+		{
+		    var handle = GCHandle.FromIntPtr (data);
+		    var callbacks = (Tuple<Func<Arbiter,bool>, 
+					   Func<Arbiter,bool>,
+					   Action<Arbiter>,
+					   Action<Arbiter>>)handle.Target;
+		    //handle.Free ();
+		    var arbiter = (arb == IntPtr.Zero ? null : new Arbiter (arb));
+		    var func = callbacks.Item2;
+		    if (func == null)
+			return false;
+		    return func (arbiter);
+		}
+
+		[MonoTouch.MonoPInvokeCallback (typeof (PostSolveFunc))]
+		static void CollisionPostSolve (IntPtr arb, IntPtr space, IntPtr data)
+		{
+		    var handle = GCHandle.FromIntPtr (data);
+		    var callbacks = (Tuple<Func<Arbiter,bool>, 
+					   Func<Arbiter,bool>,
+					   Action<Arbiter>,
+					   Action<Arbiter>>)handle.Target;
+		    //handle.Free ();
+		    var arbiter = (arb == IntPtr.Zero ? null : new Arbiter (arb));
+		    var func = callbacks.Item3;
+		    if (func == null)
+			return;
+		    func (arbiter);
+		}
+
+		[MonoTouch.MonoPInvokeCallback (typeof (SeparateFunc))]
+		static void CollisionSeparate (IntPtr arb, IntPtr space, IntPtr data)
+		{
+		    var handle = GCHandle.FromIntPtr (data);
+		    var callbacks = (Tuple<Func<Arbiter,bool>, 
+					   Func<Arbiter,bool>,
+					   Action<Arbiter>,
+					   Action<Arbiter>>)handle.Target;
+		    //handle.Free ();
+		    var arbiter = (arb == IntPtr.Zero ? null : new Arbiter (arb));
+		    var func = callbacks.Item4;
+		    if (func == null)
+			return;
+		    func (arbiter);
+		}
+
 		[DllImport ("__Internal")]
 		extern static void cpSpaceAddCollisionHandler (IntPtr space, uint collisionTypeA, uint collisionTypeB, BeginFunc begin, PreSolveFunc presolve, PostSolveFunc postsolve, SeparateFunc separate, IntPtr data);
 
-		public void AddCollisionHandler (uint collisionTypeA, uint collisionTypeB, Func<Arbiter,Space, bool> beginFunc, Func<Arbiter,Space,bool> preSolveFunc, Action<Arbiter,Space> postSolveFunc, Action<Arbiter,Space> separateFunc)
+		public void AddCollisionHandler (uint collisionTypeA, uint collisionTypeB, Func<Arbiter,bool> beginFunc, Func<Arbiter,bool> preSolveFunc, Action<Arbiter> postSolveFunc, Action<Arbiter> separateFunc)
 		{
+		    var callbacks = new Tuple<Func<Arbiter,bool>,Func<Arbiter,bool>,Action<Arbiter>,Action<Arbiter>> (beginFunc, preSolveFunc, postSolveFunc, separateFunc);
+		    var data = GCHandle.ToIntPtr(GCHandle.Alloc (callbacks));
+
+		    cpSpaceAddCollisionHandler (Handle.Handle, collisionTypeA, collisionTypeB, CollisionBegin, CollisionPreSolve, CollisionPostSolve, CollisionSeparate, data);
+		    /*
 		    BeginFunc begin = beginFunc == null ? (BeginFunc)null : (arbiter, space, data) => {
+			Console.Write("b");
 			return beginFunc(new Arbiter(arbiter), this);
 		    };
 		    PreSolveFunc presolve = preSolveFunc == null ? (PreSolveFunc)null : (arbiter, space, data) => {
@@ -360,6 +505,7 @@ namespace Chipmunk
 			separateFunc (new Arbiter(arbiter), this);
 		    };
 		    cpSpaceAddCollisionHandler (Handle.Handle, collisionTypeA, collisionTypeB, begin, presolve, postsolve, separate, IntPtr.Zero);
+		    */
 		}
 
 		[DllImport ("__Internal")]
@@ -389,5 +535,18 @@ namespace Chipmunk
 		    };
 		    cpSpaceSetDefaultCollisionHandler (Handle.Handle, begin, presolve, postsolve, separate, IntPtr.Zero);
 		}
+
+		[DllImport("__Internal")]
+		extern static IntPtr __cpSpaceGetUserData (IntPtr body);
+
+		[DllImport("__Internal")]
+		extern static void __cpSpaceSetUserData (IntPtr body, IntPtr userData);
+
+		internal override IntPtr UserData {
+		    get { return __cpSpaceGetUserData (Handle.Handle); }
+		    set { __cpSpaceSetUserData (Handle.Handle, value); }
+		}
+
+	
 	}
 }

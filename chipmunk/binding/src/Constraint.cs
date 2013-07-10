@@ -18,6 +18,15 @@ namespace Chipmunk
 	{
 	}
 
+	internal static Constraint FromIntPtr (IntPtr ptr)
+	{
+	    var userdata = __cpConstraintGetUserData (ptr);
+	    if (userdata == IntPtr.Zero)
+		return new Constraint (ptr);
+	    var gchandle = GCHandle.FromIntPtr (__cpConstraintGetUserData (ptr));
+	    return (Constraint)gchandle.Target;
+	}
+
 	[DllImport ("__Internal")]
 	extern static void cpConstraintFree (IntPtr constraint);
 	
@@ -30,14 +39,14 @@ namespace Chipmunk
 	extern static IntPtr __cpConstraintGetA (IntPtr constraint);
 
 	public Body A {
-	    get { return new Body (__cpConstraintGetA (Handle.Handle)); }
+	    get { return Body.FromIntPtr (__cpConstraintGetA (Handle.Handle)); }
 	}
 
 	[DllImport("__Internal")]
 	extern static IntPtr __cpConstraintGetB (IntPtr constraint);
 
 	public Body B {
-	    get { return new Body (__cpConstraintGetA (Handle.Handle)); }
+	    get { return Body.FromIntPtr (__cpConstraintGetA (Handle.Handle)); }
 	}
 
 	[DllImport("__Internal")]
@@ -73,12 +82,12 @@ namespace Chipmunk
 	    set { __cpConstraintSetMaxBias (Handle.Handle, value); }
 	}
 	
-	[DllImport ("__Internal")]
-	extern static IntPtr __cpConstraintGetSpace (IntPtr constraint);
+	//[DllImport ("__Internal")]
+	//extern static IntPtr __cpConstraintGetSpace (IntPtr constraint);
 
-	public Space Space {
-	    get { return new Space (__cpConstraintGetSpace (Handle.Handle)); }
-	}
+	//public Space Space {
+	//    get { return new Space (__cpConstraintGetSpace (Handle.Handle)); }
+	//}
 
 	[DllImport("__Internal")]
 	extern static float __cpConstraintGetImpulse (IntPtr constraint);
@@ -86,7 +95,17 @@ namespace Chipmunk
 	public float Impulse {
 	    get { return __cpConstraintGetImpulse (Handle.Handle); }
 	}
+	
+	[DllImport("__Internal")]
+	extern static IntPtr __cpConstraintGetUserData (IntPtr body);
 
+	[DllImport("__Internal")]
+	extern static void __cpConstraintSetUserData (IntPtr body, IntPtr userData);
+
+	internal override IntPtr UserData {
+	    get { return __cpConstraintGetUserData (Handle.Handle); }
+	    set { __cpConstraintSetUserData (Handle.Handle, value); }
+	}
     }
 
     public partial class PinJoint : Constraint
@@ -504,4 +523,3 @@ namespace Chipmunk
 	}
     }
 }
-

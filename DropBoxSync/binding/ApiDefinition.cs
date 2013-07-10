@@ -65,7 +65,7 @@ namespace DropBoxSync.iOS
 
 		[Export ("addObserver:block:")]
 		void AddObserver (NSObject observer, DBAccountManagerObserverHandler handler);
-
+		
 		[Export ("removeObserver:")]
 		void RemoveObserver (NSObject observer);
 	}
@@ -77,12 +77,11 @@ namespace DropBoxSync.iOS
 		DBErrorCode Code { get; }
 	}
 
-	[BaseType (typeof (NSError))]
+	[BaseType (typeof (NSObject))]
 	interface DBFile {
 
-		// TODO: Missing for now
-//		[Export ("readHandle:")]
-//		NSFileHandle ReadHandle (out DBError error);
+		[Export ("readHandle:")]
+		NSFileHandle ReadHandle (out DBError error);
 
 		[Export ("readData:")]
 		NSData ReadData (out DBError error);
@@ -119,14 +118,14 @@ namespace DropBoxSync.iOS
 
 		[Export ("addObserver:block:")]
 		void AddObserver (NSObject observer, DBObserverHandler handler);
-
+		
 		[Export ("removeObserver:")]
 		void RemoveObserver (NSObject observer);
 	}
 
-	[BaseType (typeof (NSError))]
+	[BaseType (typeof (NSObject))]
 	interface DBFileInfo {
-
+		
 		[Export ("path")]
 		DBPath Path { get; }
 
@@ -140,25 +139,25 @@ namespace DropBoxSync.iOS
 		long Size { get; }
 	}
 
-	[BaseType (typeof (NSError))]
+	[BaseType (typeof (NSObject))]
 	interface DBFileStatus {
-
+		
 		[Export ("cached")]
 		bool Cached { get; }
-
+		
 		[Export ("state")]
 		DBFileState State { get; }
-
+		
 		[Export ("progress")]
 		float Progress { get; }
-
+		
 		[Export ("error")]
 		DBError Error { get; }
 	}
 
-	[BaseType (typeof (NSError))]
+	[BaseType (typeof (NSObject))]
 	interface DBFilesystem {
-
+		
 		[Export ("initWithAccount:")]
 		IntPtr Constructor (DBAccount account);
 
@@ -214,18 +213,18 @@ namespace DropBoxSync.iOS
 		void RemoveObserver (NSObject observer);
 	}
 
-	[BaseType (typeof (NSError))]
+	[BaseType (typeof (NSObject))]
 	interface DBPath {
-
+		
 		[Static, Export ("root")]
 		DBPath Root { get; }
-
+		
 		[Export ("initWithString:")]
 		IntPtr Constructor (string path);
-
+		
 		[Export ("name")]
 		string Name { get; }
-
+		
 		[Export ("childPath:")]
 		DBPath ChildPath (string childName);
 
