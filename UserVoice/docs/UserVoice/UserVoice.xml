@@ -1,0 +1,399 @@
+<Type Name="UserVoice" FullName="UserVoice.UserVoice">
+  <TypeSignature Language="C#" Value="public class UserVoice : MonoTouch.Foundation.NSObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit UserVoice extends MonoTouch.Foundation.NSObject" />
+  <AssemblyInfo>
+    <AssemblyName>UserVoice</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>MonoTouch.Foundation.NSObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>MonoTouch.Foundation.Register("UserVoice", true)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public UserVoice ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("init")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public UserVoice (MonoTouch.Foundation.NSCoder coder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSCoder coder) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initWithCoder:")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="coder" Type="MonoTouch.Foundation.NSCoder" />
+      </Parameters>
+      <Docs>
+        <param name="coder">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public UserVoice (MonoTouch.Foundation.NSObjectFlag t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class MonoTouch.Foundation.NSObjectFlag t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="t" Type="MonoTouch.Foundation.NSObjectFlag" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public UserVoice (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClassHandle">
+      <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Delegate">
+      <MemberSignature Language="C#" Value="public static UserVoice.UVDelegate Delegate { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property class UserVoice.UVDelegate Delegate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("delegate")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setDelegate:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>UserVoice.UVDelegate</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentUserVoiceContactUsFormForParentViewController">
+      <MemberSignature Language="C#" Value="public static void PresentUserVoiceContactUsFormForParentViewController (MonoTouch.UIKit.UIViewController parentViewController, UserVoice.UVConfig config);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PresentUserVoiceContactUsFormForParentViewController(class MonoTouch.UIKit.UIViewController parentViewController, class UserVoice.UVConfig config) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentUserVoiceContactUsFormForParentViewController:andConfig:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="parentViewController" Type="MonoTouch.UIKit.UIViewController" />
+        <Parameter Name="config" Type="UserVoice.UVConfig" />
+      </Parameters>
+      <Docs>
+        <param name="parentViewController">To be added.</param>
+        <param name="config">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentUserVoiceForumForParentViewController">
+      <MemberSignature Language="C#" Value="public static void PresentUserVoiceForumForParentViewController (MonoTouch.UIKit.UIViewController parentViewController, UserVoice.UVConfig config);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PresentUserVoiceForumForParentViewController(class MonoTouch.UIKit.UIViewController parentViewController, class UserVoice.UVConfig config) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentUserVoiceForumForParentViewController:andConfig:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="parentViewController" Type="MonoTouch.UIKit.UIViewController" />
+        <Parameter Name="config" Type="UserVoice.UVConfig" />
+      </Parameters>
+      <Docs>
+        <param name="parentViewController">To be added.</param>
+        <param name="config">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentUserVoiceInterfaceForParentViewController">
+      <MemberSignature Language="C#" Value="public static void PresentUserVoiceInterfaceForParentViewController (MonoTouch.UIKit.UIViewController parentViewController, UserVoice.UVConfig config);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PresentUserVoiceInterfaceForParentViewController(class MonoTouch.UIKit.UIViewController parentViewController, class UserVoice.UVConfig config) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentUserVoiceInterfaceForParentViewController:andConfig:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="parentViewController" Type="MonoTouch.UIKit.UIViewController" />
+        <Parameter Name="config" Type="UserVoice.UVConfig" />
+      </Parameters>
+      <Docs>
+        <param name="parentViewController">To be added.</param>
+        <param name="config">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentUserVoiceModalViewControllerForParent">
+      <MemberSignature Language="C#" Value="public static void PresentUserVoiceModalViewControllerForParent (MonoTouch.UIKit.UIViewController viewController, string site, string key, string secret);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PresentUserVoiceModalViewControllerForParent(class MonoTouch.UIKit.UIViewController viewController, string site, string key, string secret) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentUserVoiceModalViewControllerForParent:andSite:andKey:andSecret:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="viewController" Type="MonoTouch.UIKit.UIViewController" />
+        <Parameter Name="site" Type="System.String" />
+        <Parameter Name="key" Type="System.String" />
+        <Parameter Name="secret" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="viewController">To be added.</param>
+        <param name="site">To be added.</param>
+        <param name="key">To be added.</param>
+        <param name="secret">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentUserVoiceModalViewControllerForParent">
+      <MemberSignature Language="C#" Value="public static void PresentUserVoiceModalViewControllerForParent (MonoTouch.UIKit.UIViewController viewController, string site, string key, string secret, string token);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PresentUserVoiceModalViewControllerForParent(class MonoTouch.UIKit.UIViewController viewController, string site, string key, string secret, string token) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentUserVoiceModalViewControllerForParent:andSite:andKey:andSecret:andSsoToken:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="viewController" Type="MonoTouch.UIKit.UIViewController" />
+        <Parameter Name="site" Type="System.String" />
+        <Parameter Name="key" Type="System.String" />
+        <Parameter Name="secret" Type="System.String" />
+        <Parameter Name="token" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="viewController">To be added.</param>
+        <param name="site">To be added.</param>
+        <param name="key">To be added.</param>
+        <param name="secret">To be added.</param>
+        <param name="token">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentUserVoiceModalViewControllerForParent">
+      <MemberSignature Language="C#" Value="public static void PresentUserVoiceModalViewControllerForParent (MonoTouch.UIKit.UIViewController viewController, string site, string key, string secret, string email, string displayName, string guid);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PresentUserVoiceModalViewControllerForParent(class MonoTouch.UIKit.UIViewController viewController, string site, string key, string secret, string email, string displayName, string guid) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentUserVoiceModalViewControllerForParent:andSite:andKey:andSecret:andEmail:andDisplayName:andGUID:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="viewController" Type="MonoTouch.UIKit.UIViewController" />
+        <Parameter Name="site" Type="System.String" />
+        <Parameter Name="key" Type="System.String" />
+        <Parameter Name="secret" Type="System.String" />
+        <Parameter Name="email" Type="System.String" />
+        <Parameter Name="displayName" Type="System.String" />
+        <Parameter Name="guid" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="viewController">To be added.</param>
+        <param name="site">To be added.</param>
+        <param name="key">To be added.</param>
+        <param name="secret">To be added.</param>
+        <param name="email">To be added.</param>
+        <param name="displayName">To be added.</param>
+        <param name="guid">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentUserVoiceNewIdeaFormForParentViewController">
+      <MemberSignature Language="C#" Value="public static void PresentUserVoiceNewIdeaFormForParentViewController (MonoTouch.UIKit.UIViewController parentViewController, UserVoice.UVConfig config);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PresentUserVoiceNewIdeaFormForParentViewController(class MonoTouch.UIKit.UIViewController parentViewController, class UserVoice.UVConfig config) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentUserVoiceNewIdeaFormForParentViewController:andConfig:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="parentViewController" Type="MonoTouch.UIKit.UIViewController" />
+        <Parameter Name="config" Type="UserVoice.UVConfig" />
+      </Parameters>
+      <Docs>
+        <param name="parentViewController">To be added.</param>
+        <param name="config">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetExternalId">
+      <MemberSignature Language="C#" Value="public static void SetExternalId (string identifier, string scope);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetExternalId(string identifier, string scope) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("setExternalId:forScope:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="identifier" Type="System.String" />
+        <Parameter Name="scope" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="identifier">To be added.</param>
+        <param name="scope">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Version">
+      <MemberSignature Language="C#" Value="public static string Version { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property string Version" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("version")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
