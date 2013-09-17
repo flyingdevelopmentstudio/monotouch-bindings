@@ -12,7 +12,7 @@ using MonoTouch.Foundation;
 namespace GoogleAnalytics {
 
 	[BaseType (typeof (NSObject))]
-	interface GAI {
+	public interface GAI {
 		[Internal]
 		[Export ("defaultTracker")]
 		IntPtr InternalDefaultTracker { get; set;  }
@@ -43,7 +43,7 @@ namespace GoogleAnalytics {
 	}
 
 	[BaseType (typeof (NSObject))]
-	interface GAITracker {
+	public interface GAITracker {
 		[Export ("trackingId")]
 		string TrackingId { get;  }
 
@@ -130,7 +130,7 @@ namespace GoogleAnalytics {
 		
 	}
 	[BaseType (typeof (NSObject))]
-	interface GAITransaction {
+	public interface GAITransaction {
 		[Export ("transactionId")]
 		string TransactionId { get;  }
 		
@@ -138,13 +138,13 @@ namespace GoogleAnalytics {
 		string Affiliation { get;  }
 		
 		[Export ("revenueMicros")]
-		long RevenueMicros { get; set;  }
+		int RevenueMicros { get; set;  }
 		
 		[Export ("taxMicros")]
-		long TaxMicros { get; set;  }
+		int TaxMicros { get; set;  }
 		
 		[Export ("shippingMicros")]
-		long ShippingMicros { get; set;  }
+		int ShippingMicros { get; set;  }
 		
 		[Export ("items")]
 		GAITransactionItem[] Items { get;  }
@@ -157,11 +157,11 @@ namespace GoogleAnalytics {
 		void AddItem (GAITransactionItem item);
 		
 		[Export ("addItemWithCode:name:category:priceMicros:quantity:")]
-		void AddItem (string productCode, string productName, string productCategory, long priceMicros, int quantity);
+		void AddItem (string productCode, string productName, string productCategory, int priceMicros, int quantity);
 		
 	}
 	[BaseType (typeof (NSObject))]
-	interface GAITransactionItem {
+	public interface GAITransactionItem {
 		[Export ("productCode")]
 		string ProductCode { get;  }
 		
@@ -172,14 +172,14 @@ namespace GoogleAnalytics {
 		string ProductCategory { get; set;  }
 		
 		[Export ("priceMicros")]
-		long PriceMicros { get; set;  }
+		int PriceMicros { get; set;  }
 		
 		[Export ("quantity")]
 		int Quantity { get; set;  }
 		
 		[Static]
 		[Export ("itemWithCode:name:category:priceMicros:quantity:")]
-		GAITransactionItem ItemFrom (string productCode, string productName, string productCategory, long priceMicros, int quantity);
+		GAITransactionItem ItemFrom (string productCode, string productName, string productCategory, int priceMicros, int quantity);
 		
 	}
 	
