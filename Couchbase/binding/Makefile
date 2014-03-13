@@ -1,15 +1,12 @@
+BTOUCH=/Developer/MonoTouch/usr/bin/btouch
+SMCS=/Developer/MonoTouch/usr/bin/smcs
+MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
 
-Couchbase.dll: libCouchCocoa.a libTouchDB.a bin/Debug/Couchbase.dll
-	cp bin/Debug/Couchbase.dll .
+all: Couchbase.dll
 
-bin/Debug/Couchbase.dll: Couchbase.csproj ApiDefinition.cs StructsAndEnums.cs libCouchCocoa.linkwith.cs	libTouchDB.linkwith.cs
-	/Applications/MonoDevelop.app/Contents/MacOS/mdtool build -p:Couchbase
+Couchbase.dll: Makefile ApiDefinition.cs StructsAndEnums.cs libCouchbaseLite.a
+	$(MONOXBUILD) /p:Configuration=Release Couchbase.iOS.csproj
+	cp bin/Release/Couchbase.dll Couchbase.dll
 
 clean:
-	-rm -rf bin *dll
-
-foo:
-	git clone git://github.com/couchbaselabs/TouchDB-iOS.git
-	(cd TouchDB-iOS; git submodule init; git submodule update)
-
-
+	-rm -rf list ios *.dll *.zip *.mdb bin/ obj/

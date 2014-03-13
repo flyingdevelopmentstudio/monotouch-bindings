@@ -21,6 +21,25 @@ namespace Google.Maps
 		None	
 	} 
 
+	public enum MarkerAnimation
+	{
+		None = 0,
+		Pop
+	}
+
+	public enum GeocoderErrorCode
+	{
+		InvalidCoordinate = 1,
+		ErrorInternal
+	}
+
+	public enum LengthKind
+	{
+		Geodesic,
+		Rhumb,
+		Projected
+	}
+
 	[StructLayout (LayoutKind.Sequential)]
 	public struct VisibleRegion {
 
@@ -39,6 +58,30 @@ namespace Google.Maps
 			FarLeft = new CLLocationCoordinate2D (farLeftLatitude, farLeftLongitude);
 			FarRight = new CLLocationCoordinate2D (farRightLatitude, farRightLongitude);
 		}	
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct Orientation {
+		public float Heading;
+		public float Pitch;
+
+		public Orientation (float heading, float pitch)
+		{
+			Heading = heading;
+			Pitch = pitch;
+		}
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct MapPoint {
+		public double X;
+		public double Y;
+
+		public MapPoint (float x, float y)
+		{
+			X = x;
+			Y = y;
+		}
 	}
 }
 

@@ -11,6 +11,11 @@ using System;
 
 namespace MonoTouch.FacebookConnect
 {
+	public enum FBAppEventsFlushBehavior
+	{
+		Auto,
+		ExplicitOnly
+	}
 
 	public enum FBOSIntegratedShareDialogResult
 	{
@@ -29,12 +34,14 @@ namespace MonoTouch.FacebookConnect
 		HTTPError,
 		NonTextMimeTypeReturned,
 		Dialog,
-		Insights,
+		AppEvents,
 		SystemAPI,
 		PublishInstallResponse,
 		AppActivatedWhilePendingAppCall,
 		UntrustedURL,
-		MalformedURL
+		MalformedURL,
+		SessionReconnectInProgess,
+		OperationDisallowedForRestrictedTreament
 	}
 
 	public enum FBNativeApplicationErrorCode
@@ -93,7 +100,15 @@ namespace MonoTouch.FacebookConnect
 		Square = 0,
 		Original = 1
 	}
-	
+
+	public enum FBRequestConnectionErrorBehavior
+	{
+		None = 0,
+		Retry = 1,
+		AlertUser = 2,
+		ReconnectSession = 4
+	}
+
 	public enum FBSessionState 
 	{
 		Created = 0,
@@ -142,6 +157,12 @@ namespace MonoTouch.FacebookConnect
 	{
 		Completed,
 		NotCompleted
+	}
+
+	public enum FBRestrictedTreatment : uint
+	{
+		No,
+		Yes
 	}
 
 	#region Old Facebook Api

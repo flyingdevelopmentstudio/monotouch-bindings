@@ -684,6 +684,7 @@ namespace RouteMe
 	#region Tile Cache
 	
 	[Model]
+	[Protocol]
 	// RMTileCache has multiple base types defined, 'NSObject' and 'NSObject'
 	[BaseType (typeof (NSObject))]
 	interface RMTileCache {
@@ -1434,6 +1435,30 @@ namespace RouteMe
 		//@property (nonatomic, readonly) CLHeading *heading;
 		[Export ("heading")]
 		CLHeading Heading { get;  }		
+	}
+
+	#endregion
+	
+	#region DBMap
+
+	[BaseType (typeof(RMAbstractMercatorTileSource))]
+	interface RMDBMapSource{
+		//- (id)initWithPath:(NSString *)path;
+		[Export ("initWithPath:")]
+		IntPtr Constructor (string path);
+
+		//- (CLLocationCoordinate2D)topLeftOfCoverage;
+		[Export("topLeftOfCoverage")]
+		CLLocationCoordinate2D TopLeftOfCoverage { get; }
+
+		//- (CLLocationCoordinate2D)bottomRightOfCoverage;
+		[Export("bottomRightOfCoverage")]
+		CLLocationCoordinate2D BottomRightOfCoverage { get; }
+
+		//- (CLLocationCoordinate2D)centerOfCoverage;
+		[Export("centerOfCoverage")]
+		CLLocationCoordinate2D CenterOfCoverage { get; }
+
 	}
 
 	#endregion

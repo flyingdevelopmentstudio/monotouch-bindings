@@ -14,19 +14,25 @@ namespace FacebookiOSSample
 {
 	public partial class DVCActions : DialogViewController
 	{
-		FBGraphUser user;
+		IFBGraphUser user;
 		FBProfilePictureView pictureView;
 		bool IsHiPosted = false;
 		string HelloId = null;
 
-		public DVCActions (FBGraphUser facebookUser) : base (UITableViewStyle.Grouped, null, true)
+		public DVCActions (IFBGraphUser facebookUser) : base (UITableViewStyle.Grouped, null, true)
 		{
 			this.user = facebookUser;
 
 			pictureView = new FBProfilePictureView () {
-				Frame = new RectangleF (110, 0, 80, 80),
-				ProfileID = user.Id
+				ProfileID = user.GetId()
 			};
+
+			if (UIDevice.CurrentDevice.CheckSystemVersion (7,0)) {
+				pictureView.Frame = new RectangleF (120, 0, 80, 80);
+			}
+			else {
+				pictureView.Frame = new RectangleF (110, 0, 80, 80);
+			}
 
 			Root = new RootElement ("Menu") {
 				new Section (){
@@ -35,7 +41,7 @@ namespace FacebookiOSSample
 					}
 				},
 				new Section () {
-					new StringElement (user.Name) {
+					new StringElement (user.GetName()) {
 						Alignment = UITextAlignment.Center
 					}
 				},
@@ -223,7 +229,7 @@ namespace FacebookiOSSample
 				else {
 					var ctrl = sender as FBFriendPickerViewController;
 					foreach (var friend in ctrl.Selection)
-						Console.WriteLine (friend.Name);
+						Console.WriteLine (friend.GetName ());
 					InvokeOnMainThread (() => new UIAlertView ("Success", "You Picked " + ctrl.Selection.Count () + " friend(s)", null, "Ok", null).Show ());
 				}
 			});
@@ -246,7 +252,7 @@ namespace FacebookiOSSample
 					InvokeOnMainThread (() => new UIAlertView ("Error", "User canceled.", null, "Ok", null).Show ());
 				else {
 					var ctrl = sender as FBPlacePickerViewController;
-					InvokeOnMainThread (() => new UIAlertView ("Success", "You Picked " + ctrl.Selection.Name, null, "Ok", null).Show ());
+					InvokeOnMainThread (() => new UIAlertView ("Success", "You Picked " + ctrl.Selection.GetName(), null, "Ok", null).Show ());
 				}
 			});
 		}

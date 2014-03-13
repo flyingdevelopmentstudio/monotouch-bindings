@@ -40,9 +40,6 @@ namespace Google.Maps
 		[Static, Export ("kGMSGroundOverlayDefaultAnchorGlobal")]
 		PointF GroundOverlayDefaultAnchor { get; }
 
-		[Static, Export ("kGMSGroundOverlayDefaultZoomGlobal")]
-		float GroundOverlayDefaultZoom { get; }
-
 		[Static, Export ("kGMSMarkerDefaultGroundAnchorGlobal")]
 		PointF MarkerDefaultGroundAnchor { get; }
 
@@ -51,11 +48,143 @@ namespace Google.Maps
 
 		[Static, Export ("kGMSTileLayerNoTileGlobal")]
 		UIImage TileLayerNoTile { get; }
+
+		[Static, Export ("kGMSLayerPanoramaFOVKeyGlobal")]
+		NSString LayerPanoramaFOVKey { get; }
+
+		[Static, Export ("kGMSLayerPanoramaHeadingKeyGlobal")]
+		NSString LayerPanoramaHeadingKey { get; }
+
+		[Static, Export ("kGMSLayerPanoramaPitchKeyGlobal")]
+		NSString LayerPanoramaPitchKey { get; }
+
+		[Static, Export ("kGMSLayerPanoramaZoomKeyGlobal")]
+		NSString LayerPanoramaZoomKey { get; }
+
+		[Static, Export ("kGMSMarkerLayerLatitudeGlobal")]
+		NSString MarkerLayerLatitude { get; }
+
+		[Static, Export ("kGMSMarkerLayerLongitudeGlobal")]
+		NSString MarkerLayerLongitude { get; }
+
+		[Static, Export ("kGMSMarkerLayerRotationGlobal")]
+		NSString MarkerLayerRotation { get; }
+
+		[Static, Export ("kGMSEarthRadiusGlobal")]
+		double EarthRadius { get; }
+
+		[Static, Export ("kGMSAccessibilityCompassGlobal")]
+		NSString AccessibilityCompass { get; }
+
+		[Static, Export ("kGMSAccessibilityMyLocationGlobal")]
+		NSString AccessibilityMyLocation { get; }
+
+		[Static, Export ("kGMSEquatorProjectedMeterGlobal")]
+		double EquatorProjectedMeter { get; }
+	}
+
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject))]
+	interface GeometryUtils
+	{
+		[Static, Export ("projectWithCoordinate:")]
+		MapPoint Project (CLLocationCoordinate2D coordinate);
+
+		[Static, Export ("unprojectWithMapPoint:")]
+		CLLocationCoordinate2D Unproject (MapPoint point);
+
+		[Static, Export ("mapPointInterpolateWithMapPoint:andMapPoint:andT:")]
+		MapPoint MapPointInterpolate (MapPoint a, MapPoint b, double t);
+
+		[Static, Export ("mapPointDistanceFromPoint:andMapPoint:")]
+		double MapPointDistance (MapPoint a, MapPoint b);
+
+		[Static, Export ("geometryContainsLocation:path:geodesic:")]
+		bool ContainsLocation (CLLocationCoordinate2D point, Google.Maps.Path path, bool geodesic);
+
+		[Static, Export ("geometryIsLocationOnPath:path:geodesic:tolerance:")]
+		bool IsLocationOnPath (CLLocationCoordinate2D point, Google.Maps.Path path, bool geodesic, double tolerance);
+
+		[Static, Export ("geometryIsLocationOnPath:path:geodesic:")]
+		bool IsLocationOnPath (CLLocationCoordinate2D point, Google.Maps.Path path, bool geodesic);
+
+		[Static, Export ("geometryDistance:to:")]
+		double Distance (CLLocationCoordinate2D fromCoord, CLLocationCoordinate2D toCoord);
+
+		[Static, Export ("geometryLength:")]
+		double Length (Google.Maps.Path path);
+
+		[Static, Export ("geometryArea:")]
+		double Area (Google.Maps.Path path);
+
+		[Static, Export ("geometrySignedArea:")]
+		double SignedArea (Google.Maps.Path path);
+
+		[Static, Export ("geometryHeading:to:")]
+		double Heading (CLLocationCoordinate2D fromCoord, CLLocationCoordinate2D toCoord);
+
+		[Static, Export ("geometryOffset:distance:heading:")]
+		CLLocationCoordinate2D Offset (CLLocationCoordinate2D fromCoord, double distance, double heading);
+
+		[Static, Export ("geometryInterpolate:to:fraction:")]
+		CLLocationCoordinate2D Interpolate (CLLocationCoordinate2D fromCoord, CLLocationCoordinate2D toCoord, double fraction);
+
+		[Static, Export ("styleSpansFrom:andStyles:andLengths:andLenghtKind:")]
+		StyleSpan[] StyleSpans (Path path, StrokeStyle[] styles, NSNumber[] lengths, LengthKind lengthKind);
+
+		[Static, Export ("styleSpansFrom:andStyles:andLengths:andLenghtKind:andLengthOffset:")]
+		StyleSpan[] StyleSpans (Path path, StrokeStyle[] styles, NSNumber[] lengths, LengthKind lengthKind, double lengthOffset);
 	}
 	#endregion
 
+	[BaseType (typeof (NSObject), Name="GMSAddress")]
+	interface Address : INSCopying {
+
+		[Export ("coordinate")]
+		CLLocationCoordinate2D Coordinate { get; }
+
+		[Export ("thoroughfare", ArgumentSemantic.Copy)]
+		string Thoroughfare { get; }
+
+		[Export ("locality", ArgumentSemantic.Copy)]
+		string Locality { get; }
+
+		[Export ("subLocality", ArgumentSemantic.Copy)]
+		string SubLocality { get; }
+
+		[Export ("administrativeArea", ArgumentSemantic.Copy)]
+		string AdministrativeArea { get; }
+
+		[Export ("postalCode", ArgumentSemantic.Copy)]
+		string PostalCode { get; }
+
+		[Export ("country", ArgumentSemantic.Copy)]
+		string Country { get; }
+
+		[Export ("lines", ArgumentSemantic.Copy)]
+		string [] Lines { get; }
+
+		[Export ("addressLine1")] [Obsolete]
+		string AddressLine1 { get; }
+
+		[Export ("addressLine2")] [Obsolete]
+		string AddressLine2 { get; }
+	}
+
 	[BaseType (typeof (NSObject), Name="GMSCameraPosition")]
-	interface CameraPosition {
+	interface CameraPosition : INSCopying, INSMutableCopying {
+
+		[Export ("target")]
+		CLLocationCoordinate2D Target { get; }
+
+		[Export ("zoom")]
+		float Zoom { get; }
+
+		[Export ("bearing")]
+		double Bearing { get; }
+
+		[Export ("viewingAngle")]
+		double ViewingAngle { get; }
 
 		[Export ("initWithTarget:zoom:bearing:viewingAngle:")]
 		IntPtr Constructor (CLLocationCoordinate2D target, float zoom, double bearing, double viewingAngle);
@@ -73,19 +202,24 @@ namespace Google.Maps
 		CameraPosition FromCamera (double latitude, double longitude, float zoom, double bearing, double viewingAngle);
 
 		[Static, Export ("zoomAtCoordinate:forMeters:perPoints:")]
-		float ZoomAtCoordinate (CLLocationCoordinate2D coord, float meters, float points);
+		float ZoomAtCoordinate (CLLocationCoordinate2D coord, double meters, float points);
+	}
 
-		[Export ("target")]
-		CLLocationCoordinate2D Target { [Bind ("targetAsCoordinate")] get; }
+	[BaseType (typeof (CameraPosition), Name="GMSMutableCameraPosition")]
+	interface MutableCameraPosition {
 
-		[Export ("zoom")]
-		float Zoom { get; }
+		[Export ("target", ArgumentSemantic.Assign)] [New]
+		CLLocationCoordinate2D Target { get; set; }
 
-		[Export ("bearing")]
-		double Bearing { get; }
+		[Export ("zoom", ArgumentSemantic.Assign)] [New]
+		float Zoom { get; set; }
 
-		[Export ("viewingAngle")]
-		double ViewingAngle { get; }
+		[Export ("bearing", ArgumentSemantic.Assign)] [New]
+		double Bearing { get; set; }
+
+		[Export ("viewingAngle", ArgumentSemantic.Assign)] [New]
+		double ViewingAngle { get; set; }
+
 	}
 
 	[DisableDefaultCtor]
@@ -119,6 +253,9 @@ namespace Google.Maps
 		[Static, Export ("fitBounds:withPadding:")]
 		CameraUpdate FitBounds (CoordinateBounds bounds, float padding);
 
+		[Static, Export ("fitBounds:withEdgeInsets:")]
+		CameraUpdate FitBounds (CoordinateBounds bounds, UIEdgeInsets edgeInsets);
+
 		[Static, Export ("scrollByX:Y:")]
 		CameraUpdate Scroll (float x, float y);
 
@@ -133,7 +270,7 @@ namespace Google.Maps
 		CLLocationCoordinate2D Position { get; set; }
 
 		[Export ("radius", ArgumentSemantic.Assign)]
-		float Radius { get; set; }
+		double Radius { get; set; }
 
 		[Export ("strokeWidth", ArgumentSemantic.Assign)]
 		float StrokeWidth { get; set; }
@@ -145,7 +282,7 @@ namespace Google.Maps
 		UIColor FillColor { get; set; }
 
 		[Static, Export ("circleWithPosition:radius:")]
-		Circle FromPosition (CLLocationCoordinate2D position, float radius);
+		Circle FromPosition (CLLocationCoordinate2D position, double radius);
 	}
 
 	[BaseType (typeof (NSObject), Name="GMSCoordinateBounds")]
@@ -156,6 +293,9 @@ namespace Google.Maps
 
 		[Export ("southWest")]
 		CLLocationCoordinate2D SouthWest { get; }
+
+		[Export ("valid")]
+		bool Valid { [Bind ("isValid")] get; }
 
 		[Export ("initWithCoordinate:coordinate:")]
 		IntPtr Constructor (CLLocationCoordinate2D coord1, CLLocationCoordinate2D coord2);
@@ -180,9 +320,6 @@ namespace Google.Maps
 
 		[Export ("intersectsBounds:")]
 		bool IntersectsBounds (CoordinateBounds bounds);
-
-		[Export ("valid")]
-		bool Valid { [Bind ("isValid")] get; }
 	}
 
 	delegate void ReverseGeocodeCallback (ReverseGeocodeResponse response, NSError error);
@@ -209,23 +346,76 @@ namespace Google.Maps
 		[Export ("icon")]
 		UIImage Icon { get; set; }
 
-		[Export ("zoomLevel", ArgumentSemantic.Assign)]
-		float ZoomLevel { get; set; }
-
 		[Export ("bearing", ArgumentSemantic.Assign)]
 		double Bearing { get; set; }
 
 		[Export ("bounds")]
 		CoordinateBounds Bounds { get; set; }
 
-		[Static, Export ("groundOverlayWithPosition:icon:")]
-		GroundOverlay GetGroundOverlay (CLLocationCoordinate2D position, UIImage icon);
-
 		[Static, Export ("groundOverlayWithBounds:icon:")]
 		GroundOverlay GetGroundOverlay (CoordinateBounds bounds, UIImage icon);
+
+		[Static, Export ("groundOverlayWithPosition:icon:zoomLevel:")]
+		GroundOverlay GetGroundOverlay (CLLocationCoordinate2D position, UIImage icon, float zoomLevel);
 	}
 
-	[BaseType (typeof (CALayer), Name="GMSMapLayer")]
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name="GMSIndoorBuilding")]
+	interface IndoorBuilding {
+		[Export ("levels", ArgumentSemantic.Retain)] [PostGet ("Underground")]
+		IndoorLevel [] Levels { get; }
+
+		[Export ("defaultLevelIndex", ArgumentSemantic.Assign)]
+		uint DefaultLevelIndex { get; }
+
+		[Export ("underground", ArgumentSemantic.Assign)]
+		bool Underground { [Bind ("isUnderground")] get; }
+	}
+
+	//TODO: Check IndoorDisplay Events
+
+	[BaseType (typeof (NSObject), Name="GMSIndoorDisplayDelegate")]
+	[Model]
+	[Protocol]
+	interface IndoorDisplayDelegate {
+
+		[Export ("didChangeActiveBuilding:"), EventArgs ("GMSIndoorDisplayDidChangeActiveBuilding"), EventName ("ActiveBuildingChanged")]
+		void DidChangeActiveBuilding (IndoorBuilding building);
+
+		[Export ("didChangeActiveLevel:"), EventArgs ("GMSIndoorDisplayDidChangeActiveLevel"), EventName ("ActiveLevelChanged")]
+		void DidChangeActiveLevel (IndoorLevel level);
+	}
+
+	[BaseType (typeof (NSObject), Name="GMSIndoorDisplay",
+	Delegates=new string [] {"WeakDelegate"},
+	Events=new Type [] { typeof (IndoorDisplayDelegate) })]
+	interface IndoorDisplay {
+
+		[Wrap ("WeakDelegate")]
+		IndoorDisplayDelegate Delegate { get; set; }
+
+		[Export ("delegate", ArgumentSemantic.Assign)][NullAllowed]
+		NSObject WeakDelegate { get; set; }
+
+		[Export ("activeBuilding", ArgumentSemantic.Retain)]
+		IndoorBuilding ActiveBuilding { get; }
+
+		[Export ("activeLevel", ArgumentSemantic.Retain)]
+		IndoorLevel ActiveLevel { get; }
+	}
+
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name="GMSIndoorLevel")]
+	interface IndoorLevel {
+		[Export ("name", ArgumentSemantic.Copy)]
+		string Name { get; }
+
+		[Export ("shortName", ArgumentSemantic.Copy)]
+		string ShortName { get; }
+	}
+
+
+	[BaseType (typeof (GMSCALayer), Name="GMSMapLayer")]
 	interface MapLayer {
 		
 		[Export ("cameraLatitude", ArgumentSemantic.Assign)]
@@ -246,10 +436,17 @@ namespace Google.Maps
 
 	[BaseType (typeof (NSObject), Name="GMSMapViewDelegate")]
 	[Model]
+	[Protocol]
 	interface MapViewDelegate {
+
+		[Export ("mapView:willMove:"), EventArgs ("GMSWillMove"), EventName ("WillMove")]
+		void WillMove (MapView mapView, bool gesture);
 
 		[Export ("mapView:didChangeCameraPosition:"), EventArgs ("GMSCamera"), EventName ("CameraPositionChanged")]
 		void DidChangeCameraPosition (MapView mapView, CameraPosition position);
+
+		[Export ("mapView:idleAtCameraPosition:"), EventArgs ("GMSCamera"), EventName ("CameraPositionIdle")]
+		void IdleAtCameraPosition (MapView mapView, CameraPosition position);
 		
 		[Export ("mapView:didTapAtCoordinate:"), EventArgs ("GMSCoord"), EventName ("Tapped")]
 		void DidTapAtCoordinate (MapView mapView, CLLocationCoordinate2D coordinate);
@@ -267,7 +464,19 @@ namespace Google.Maps
 		void DidTapOverlay (MapView mapView, Overlay overlay);
 
 		[Export ("mapView:markerInfoWindow:"), DelegateName ("GMSInfoFor"), DefaultValue(null)]
-		UIView InfoFor (MapView mapView, Marker marker);
+		UIView MarkerInfoWindow (MapView mapView, Marker marker);
+
+		[Export ("mapView:didBeginDraggingMarker:"), EventArgs ("GMSMarkerEvent"), EventName ("SartedDraggingMarker")]
+		void DidBeginDraggingMarker (MapView mapView, Marker marker);
+
+		[Export ("mapView:didEndDraggingMarker:"), EventArgs ("GMSMarkerEvent"), EventName ("EndedDraggingMarker")]
+		void DidEndDraggingMarker (MapView mapView, Marker marker);
+
+		[Export ("mapView:didDragMarker:"), EventArgs ("GMSMarkerEvent"), EventName ("DraggingMarker")]
+		void DidDragMarker (MapView mapView, Marker marker);
+
+		[Export ("didTapMyLocationButtonForMapView:"), DelegateName ("GMSDidTapMyLocation"), DefaultValue(false)]
+		bool DidTapMyLocationButton (MapView mapView);
 	}
 
 	[BaseType (typeof (UIView), Name="GMSMapView",
@@ -275,13 +484,16 @@ namespace Google.Maps
 	Events=new Type [] { typeof (MapViewDelegate) })]
 	interface MapView {
 
+		[Export ("initWithFrame:")]
+		IntPtr Constructor (RectangleF frame);
+
 		[Wrap ("WeakDelegate")]
 		MapViewDelegate Delegate { get; set; }
 		
 		[Export ("delegate", ArgumentSemantic.Assign)][NullAllowed]
 		NSObject WeakDelegate { get; set; }
 
-		[Export ("camera")]
+		[Export ("camera", ArgumentSemantic.Copy)]
 		CameraPosition Camera { get; set; }
 
 		[Export ("projection")]
@@ -302,41 +514,54 @@ namespace Google.Maps
 		[Export ("mapType", ArgumentSemantic.Assign)]
 		MapViewType MapType { get; set; }
 
+		[Export ("minZoom", ArgumentSemantic.Assign)]
+		float MinZoom { get; }
+
+		[Export ("maxZoom", ArgumentSemantic.Assign)]
+		float MaxZoom { get; }
+
 		[Export ("buildingsEnabled", ArgumentSemantic.Assign)]
 		bool BuildingsEnabled {[Bind ("isBuildingsEnabled")] get; set; }
+
+		[Export ("indoorEnabled", ArgumentSemantic.Assign)]
+		bool IndoorEnabled {[Bind ("isIndoorEnabled")] get; set; }
+
+		[Export ("indoorDisplay", ArgumentSemantic.Retain)]
+		IndoorDisplay IndoorDisplay { get; }
 
 		[Export ("settings")]
 		UISettings Settings { get; }
 
-		[Export ("layer")] [New]
+		[Export ("padding", ArgumentSemantic.Assign)]
+		UIEdgeInsets Padding { get; set; }
+
+		[Export ("accessibilityElementsHidden", ArgumentSemantic.Assign)] [New]
+		bool AccessibilityElementsHidden { get; set; }
+
+		[Export ("layer", ArgumentSemantic.Retain)] [New]
 		MapLayer Layer { get; }
 		
 		[Static]
 		[Export ("mapWithFrame:camera:")]
 		MapView FromCamera (RectangleF frame, CameraPosition camera);
 		
-		[Export ("startRendering")]
+		[Export ("startRendering")] [Obsolete ("Available but deprecated")]
 		void StartRendering ();
 		
-		[Export ("stopRendering")]
+		[Export ("stopRendering")] [Obsolete ("Available but deprecated")]
 		void StopRendering ();
 
 		[Export ("clear")]
 		void Clear ();
 
+		[Export ("setMinZoom:maxZoom:")]
+		void SetMinMaxZoom (float minZoom, float maxZoom);
+
+		[Export ("cameraForBounds:insets:")]
+		CameraPosition CameraForBounds (CoordinateBounds bounds, UIEdgeInsets insets);
+
 		[Export ("moveCamera:")]
 		void MoveCamera (CameraUpdate update);
-
-		// MapView + Overlays 
-
-		[Export ("markers"), Obsolete ("Maintain your own references to overlays that you have added to a MapView")]
-		Marker [] Markers { get; }
-		
-		[Export ("groundOverlays"), Obsolete ("Maintain your own references to overlays that you have added to a MapView")]
-		GroundOverlay [] GroundOverlays { get; }
-		
-		[Export ("polylines"), Obsolete ("Maintain your own references to overlays that you have added to a MapView")]
-		Polyline [] Polylines { get; }
 	}
 
 	[BaseType (typeof (MapView))]
@@ -380,17 +605,52 @@ namespace Google.Maps
 		[Export ("infoWindowAnchor", ArgumentSemantic.Assign)]
 		PointF InfoWindowAnchor { get; set; }
 
-		[Export ("animated", ArgumentSemantic.Assign)]
-		bool Animated { [Bind ("isAnimated")] get; set; }
+		[Export ("appearAnimation", ArgumentSemantic.Assign)]
+		MarkerAnimation AppearAnimation { get; set; }
+
+		[Export ("draggable", ArgumentSemantic.Assign)]
+		bool Draggable { [Bind ("isDraggable")] get; set; }
+
+		[Export ("flat", ArgumentSemantic.Assign)]
+		bool Flat { [Bind ("isFlat")] get; set; }
+
+		[Export ("rotation", ArgumentSemantic.Assign)]
+		double Rotation { get; set; }
+
+		[Export ("opacity", ArgumentSemantic.Assign)]
+		float Opacity { get; set; }
 		
 		[Export ("userData")]
 		NSObject UserData { get; set; }
+
+		[Export ("layer", ArgumentSemantic.Retain)]
+		MarkerLayer Layer { get; }
+
+		[Export ("panoramaView")]
+		PanoramaView PanoramaView { get; set; }
 
 		[Static, Export ("markerWithPosition:")]
 		Marker FromPosition (CLLocationCoordinate2D position);
 
 		[Static, Export ("markerImageWithColor:")]
 		UIImage MarkerImage (UIColor color);
+	}
+
+	[DisableDefaultCtor]
+	[BaseType (typeof (CALayer), Name="GMSMarkerLayer")]
+	interface MarkerLayer {
+
+		[Export ("latitude", ArgumentSemantic.Assign)]
+		double Latitude { get; set; }
+
+		[Export ("longitude", ArgumentSemantic.Assign)]
+		double Longitude { get; set; }
+
+		[Export ("rotation", ArgumentSemantic.Assign)]
+		double Rotation { get; set; }
+
+		[Export ("opacity", ArgumentSemantic.Assign)] [New]
+		float Opacity { get; set; }
 	}
 
 	[BaseType (typeof (Path), Name="GMSMutablePath")]
@@ -430,10 +690,222 @@ namespace Google.Maps
 
 		[Export ("tappable", ArgumentSemantic.Assign)]
 		bool Tappable { [Bind ("isTappable")] get; set; }
+
+		[Export ("zIndex", ArgumentSemantic.Assign)]
+		int ZIndex { get; set; }
+	}
+
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name="GMSPanorama")]
+	interface Panorama {
+
+		[Export ("coordinate")]
+		CLLocationCoordinate2D Coordinate { get; }
+
+		[Export ("panoramaID")]
+		string PanoramaID { get; }
+
+		[Export ("links")]
+		PanoramaLink [] Links { get; }
+	}
+
+	[BaseType (typeof (NSObject), Name="GMSPanoramaCamera")]
+	interface PanoramaCamera {
+
+		[Export ("initWithOrientation:zoom:FOV:")]
+		IntPtr Constructor (Orientation orientation, float zoom, double fov);
+
+		[Static]
+		[Export ("cameraWithOrientation:zoom:")]
+		PanoramaCamera FromOrientation (Orientation orientation, float zoom);
+
+		[Static]
+		[Export ("cameraWithHeading:pitch:zoom:")]
+		PanoramaCamera FromHeading (double heading, double pitch, float zoom);
+
+		[Static]
+		[Export ("cameraWithOrientation:zoom:FOV:")]
+		PanoramaCamera FromOrientation (Orientation orientation, float zoom, double fov);
+
+		[Static]
+		[Export ("cameraWithHeading:pitch:zoom:FOV:")]
+		PanoramaCamera FromHeading (double heading, double pitch, float zoom, double fov);
+
+		[Export ("FOV", ArgumentSemantic.Assign)]
+		double Fov { get; }
+
+		[Export ("zoom", ArgumentSemantic.Assign)]
+		float Zoom { get; }
+
+		[Export ("orientation", ArgumentSemantic.Assign)]
+		Orientation Orientation { get; }
+	}
+
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name="GMSPanoramaCameraUpdate")]
+	interface PanoramaCameraUpdate {
+
+		[Static]
+		[Export ("rotateBy:")]
+		PanoramaCameraUpdate Rotate (float deltaHeading);
+
+		[Static]
+		[Export ("setHeading:")]
+		PanoramaCameraUpdate SetHeading (float heading);
+
+		[Static]
+		[Export ("setPitch:")]
+		PanoramaCameraUpdate SetPitch (float pitch);
+
+		[Static]
+		[Export ("setZoom:")]
+		PanoramaCameraUpdate SetZoom (float zoom);
+	}
+	
+	[DisableDefaultCtor]
+	[BaseType (typeof (CALayer), Name="GMSPanoramaLayer")]
+	interface PanoramaLayer {
+
+		[Export ("cameraHeading", ArgumentSemantic.Assign)]
+		double CameraHeading { get; set; }
+
+		[Export ("cameraPitch", ArgumentSemantic.Assign)]
+		double CameraPitch { get; set; }
+
+		[Export ("cameraZoom", ArgumentSemantic.Assign)]
+		float CameraZoom { get; set; }
+
+		[Export ("cameraFOV", ArgumentSemantic.Assign)]
+		double CameraFOV { get; set; }
+	}
+
+	[BaseType (typeof (NSObject), Name="GMSPanoramaLink")]
+	interface PanoramaLink {
+
+		[Export ("heading", ArgumentSemantic.Assign)]
+		float Heading { get; set; }
+
+		[Export ("panoramaID", ArgumentSemantic.Copy)]
+		string PanoramaID { get; set; }
+	}
+
+	delegate void PanoramaCallback (Panorama panorama, NSError error);
+
+	[BaseType (typeof (NSObject), Name="GMSPanoramaService")]
+	interface PanoramaService {
+		[Export ("requestPanoramaNearCoordinate:callback:")]
+		void RequestPanorama (CLLocationCoordinate2D coordinate, PanoramaCallback callback);
+
+		[Export ("requestPanoramaNearCoordinate:radius:callback:")]
+		void RequestPanorama (CLLocationCoordinate2D coordinate, uint radius, PanoramaCallback callback);
+
+		[Export ("requestPanoramaWithID:callback:")]
+		void RequestPanorama (string panoramaID, PanoramaCallback callback);
+	}
+
+	[BaseType (typeof (NSObject), Name="GMSPanoramaViewDelegate")]
+	[Model]
+	[Protocol]
+	interface PanoramaViewDelegate {
+
+		[Export ("panoramaView:willMoveToPanoramaID:"), EventArgs ("GMSPanoramaWillMove")]
+		void WillMoveToPanoramaId (PanoramaView view, string panoramaID);
+
+		[Export ("panoramaView:didMoveToPanorama:"), EventArgs ("GMSPanoramaDidMoveToPanorama")]
+		void DidMoveToPanorama (PanoramaView view, Panorama panorama);
+
+		[Export ("panoramaView:didMoveToPanorama:nearCoordinate:"), EventArgs ("GMSPanoramaDidMoveToPanoramaNearCoordinate")]
+		void DidMoveToPanoramaNearCoordinate (PanoramaView view, Panorama panorama, CLLocationCoordinate2D coordinate);
+
+		[Export ("panoramaView:error:onMoveNearCoordinate:"), EventArgs ("GMSPanoramaOnMoveNearCoordinate")]
+		void OnMoveNearCoordinate (PanoramaView view, NSError error, CLLocationCoordinate2D coordinate);
+
+		[Export ("panoramaView:error:onMoveToPanoramaID:"), EventArgs ("GMSPanoramaOnMoveToPanoramaID")]
+		void OnMoveToPanoramaID (PanoramaView view, NSError error, string panoramaId);
+
+		[Export ("panoramaView:didMoveCamera:"), EventArgs ("GMSPanoramaDidMoveCamera")]
+		void DidMoveCamera (PanoramaView view, PanoramaCamera camera);
+
+		[Export ("panoramaView:didTap:"), EventArgs ("GMSPanoramaDidTap")]
+		void DidTap (PanoramaView view, PointF point);
+
+		[Export ("panoramaView:didTapMarker:"), DelegateName ("GMSTappedPanoramaMarker"), DefaultValue(false)]
+		bool TappedMarker (PanoramaView view, Marker marker);
+	}
+
+	[BaseType (typeof (UIView), Name="GMSPanoramaView",
+	Delegates=new string [] {"WeakDelegate"},
+	Events=new Type [] { typeof (PanoramaViewDelegate) })]
+	interface PanoramaView {
+
+		[Export ("initWithFrame:")]
+		IntPtr Constructor (RectangleF frame);
+
+		[Export ("panorama", ArgumentSemantic.Retain)][NullAllowed]
+		Panorama Panorama { get; set; }
+
+		[Wrap ("WeakDelegate")]
+		PanoramaViewDelegate Delegate { get; set; }
+
+		[Export ("delegate", ArgumentSemantic.Assign)][NullAllowed]
+		NSObject WeakDelegate { get; set; }
+
+		[Export ("setAllGesturesEnabled:")]
+		void SetAllGesturesEnabled (bool enabled);
+
+		[Export ("orientationGestures", ArgumentSemantic.Assign)]
+		bool OrientationGestures { get; set; }
+
+		[Export ("zoomGestures", ArgumentSemantic.Assign)]
+		bool ZoomGestures { get; set; }
+
+		[Export ("navigationGestures", ArgumentSemantic.Assign)]
+		bool NavigationGestures { get; set; }
+
+		[Export ("navigationLinksHidden", ArgumentSemantic.Assign)]
+		bool NavigationLinksHidden { get; set; }
+
+		[Export ("streetNamesHidden", ArgumentSemantic.Assign)]
+		bool StreetNamesHidden { get; set; }
+
+		[Export ("camera", ArgumentSemantic.Retain)][NullAllowed]
+		PanoramaCamera Camera { get; set; }
+
+		[Export ("layer", ArgumentSemantic.Retain)][New]
+		PanoramaLayer Layer { get; set; }
+
+		[Export ("animateToCamera:animationDuration:")]
+		void AnimateToCamera (PanoramaCamera camera, double duration);
+
+		[Export ("updateCamera:animationDuration:")]
+		void UpdateCamera (PanoramaCameraUpdate cameraUpdate, double duration);
+
+		[Export ("moveNearCoordinate:")]
+		void MoveNearCoordinate (CLLocationCoordinate2D coordinate);
+
+		[Export ("moveNearCoordinate:radius:")]
+		void MoveNearCoordinate (CLLocationCoordinate2D coordinate, uint radius);
+
+		[Export ("moveToPanoramaID:")]
+		void MoveToPanoramaId (string panoramaId);
+
+		[Export ("pointForOrientation:")]
+		PointF PointForOrientation (Orientation orientation);
+
+		[Export ("orientationForPoint:")]
+		Orientation OrientationForPoint (PointF point);
+
+		[Static]
+		[Export ("panoramaWithFrame:nearCoordinate:")]
+		PanoramaView FromFrame (RectangleF frame, CLLocationCoordinate2D coordinate);
+
+		[Static]
+		[Export ("panoramaWithFrame:nearCoordinate:radius:")]
+		PanoramaView FromFrame (RectangleF frame, CLLocationCoordinate2D coordinate, uint radius);
 	}
 
 	[BaseType (typeof (NSObject), Name="GMSPath")]
-	interface Path {
+	interface Path : INSCopying, INSMutableCopying {
 		
 		[Static, Export ("path")]
 		Path GetPath { get; }
@@ -452,6 +924,17 @@ namespace Google.Maps
 
 		[Export ("encodedPath")]
 		string EncodedPath { get; }
+
+		[Export ("pathOffsetByLatitude:longitude:")]
+		Path PathOffsetByLatitude (double deltaLatitude, double deltaLongitude);
+
+		// GMSPath (GMSPathLength) Category
+
+		[Export ("segmentsForLength:kind:")]
+		double SegmentsForLength (double length, LengthKind kind);
+
+		[Export ("lengthOfKind:")]
+		double LengthOfKind (LengthKind kind);
 	}
 
 	[BaseType (typeof (Overlay), Name="GMSPolygon")]
@@ -476,6 +959,40 @@ namespace Google.Maps
 		Polygon FromPath (Google.Maps.Path path);
 	}
 
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name="GMSStrokeStyle")]
+	interface StrokeStyle {
+
+		[Static, Export ("solidColor:")]
+		StrokeStyle GetSolidColor (UIColor color);
+
+		[Static, Export ("gradientFromColor:toColor:")]
+		StrokeStyle GetGradient (UIColor fromColor, UIColor toColor);
+	}
+
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name="GMSStyleSpan")]
+	interface StyleSpan {
+
+		[Static, Export ("spanWithColor:")]
+		StyleSpan FromSolidColor (UIColor color);
+
+		[Static, Export ("spanWithColor:segments:")]
+		StyleSpan FromSolidColor (UIColor color, double segments);
+
+		[Static, Export ("spanWithStyle:")]
+		StyleSpan FromStyle (StrokeStyle style);
+
+		[Static, Export ("spanWithStyle:segments:")]
+		StyleSpan FromStyle (StrokeStyle style, double segments);
+
+		[Export ("style")]
+		StrokeStyle Style { get; }
+
+		[Export ("segments")]
+		double Segments { get; }
+	}
+
 	[BaseType (typeof (Overlay), Name="GMSPolyline")]
 	interface Polyline {
 
@@ -493,6 +1010,9 @@ namespace Google.Maps
 
 		[Static, Export ("polylineWithPath:")]
 		Polyline FromPath (Google.Maps.Path path);
+
+		[Export ("spans", ArgumentSemantic.Copy)] [NullAllowed]
+		StyleSpan [] Spans { get; set; }
 	}
 
 	[BaseType (typeof (NSObject), Name="GMSProjection")]
@@ -505,7 +1025,7 @@ namespace Google.Maps
 		CLLocationCoordinate2D CoordinateForPoint (PointF point);
 		
 		[Export ("pointsForMeters:atCoordinate:")]
-		float PointsForMeters (float meters, CLLocationCoordinate2D coordinate);
+		float PointsForMeters (double meters, CLLocationCoordinate2D coordinate);
 
 		[Export ("containsCoordinate:")]
 		bool ContainsCoordinate (CLLocationCoordinate2D coordinate);
@@ -514,29 +1034,23 @@ namespace Google.Maps
 		VisibleRegion VisibleRegion { get; }	
 	}
 
-	[BaseType (typeof (NSObject), Name="GMSReverseGeocodeResult")]
-	interface ReverseGeocodeResult {
-
-		[Export ("addressLine1")]
-		string AddressLine1 { get; }
-		
-		[Export ("addressLine2")]
-		string AddressLine2 { get; }	
-	}
-
 	[BaseType (typeof (NSObject), Name="GMSReverseGeocodeResponse")]
-	interface ReverseGeocodeResponse {
+	interface ReverseGeocodeResponse : INSCopying {
 
 		[Export ("firstResult")]
-		ReverseGeocodeResult FirstResult { get; }
+		Address FirstResult { get; }
 		
 		[Export ("results")]
-		ReverseGeocodeResult [] Results { get; }
+		Address [] Results { get; }
 	}
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name="GMSServices")]
 	interface MapServices {
+
+		[Static]
+		[Export ("sharedServices")]
+		MapServices SharedServices { get; }
 
 		[Static]
 		[Export ("provideAPIKey:")]
@@ -560,17 +1074,21 @@ namespace Google.Maps
 
 	[BaseType (typeof (NSObject), Name="GMSTileReceiver")]
 	[Model]
+	[Protocol]
 	interface TileReceiver {
 
+		[Abstract]
 		[Export ("receiveTileWithX:y:zoom:image:")]
-		void RecieveTile (uint x, uint y, uint zoom, UIImage image);
+		void ReceiveTile (uint x, uint y, uint zoom, [NullAllowed] UIImage image);
 	}
+
+	interface ITileReceiver {}
 
 	[BaseType (typeof (NSObject), Name="GMSTileLayer")]
 	interface TileLayer {
 
-		[Export ("requestTileForX:y:zoom:image:receiver:")]
-		void RequestTile (uint x, uint y, uint zoom, TileReceiver receiver);
+		[Export ("requestTileForX:y:zoom:receiver:")]
+		void RequestTile (uint x, uint y, uint zoom, ITileReceiver receiver);
 
 		[Export ("clearTileCache")]
 		void ClearTileCache ();
@@ -579,7 +1097,16 @@ namespace Google.Maps
 		MapView Map { get; [NullAllowed] set; }
 
 		[Export ("zIndex", ArgumentSemantic.Assign)]
-		uint ZIndex { get; set; }
+		int ZIndex { get; set; }
+
+		[Export ("tileSize", ArgumentSemantic.Assign)]
+		int TileSize { get; set; }
+
+		[Export ("opacity", ArgumentSemantic.Assign)]
+		float Opacity { get; set; }
+
+		[Export ("fadeIn", ArgumentSemantic.Assign)]
+		bool FadeIn { get; set; }
 	}
 
 	[BaseType (typeof (NSObject), Name="GMSUISettings")]
@@ -600,11 +1127,17 @@ namespace Google.Maps
 		[Export ("rotateGestures", ArgumentSemantic.Assign)]
 		bool RotateGestures { get; set; }
 
+		[Export ("consumesGesturesInView", ArgumentSemantic.Assign)]
+		bool ConsumesGesturesInView { get; set; }
+
 		[Export ("compassButton", ArgumentSemantic.Assign)]
 		bool CompassButton { get; set; }
 
 		[Export ("myLocationButton", ArgumentSemantic.Assign)]
 		bool MyLocationButton { get; set; }
+
+		[Export ("indoorPicker", ArgumentSemantic.Assign)]
+		bool IndoorPicker { get; set; }
 	}
 
 	delegate NSUrl TileURLConstructor (uint x, uint y, uint zoom);
@@ -618,6 +1151,12 @@ namespace Google.Maps
 
 		[Export ("userAgent", ArgumentSemantic.Copy)] [NullAllowed]
 		string UserAgent { get; set; }
+	}
+
+	[DisableDefaultCtor]
+	[BaseType (typeof (CALayer))]
+	interface GMSCALayer {
+
 	}
 }
 
