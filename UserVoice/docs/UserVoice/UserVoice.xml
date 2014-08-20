@@ -106,6 +106,27 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Bundle">
+      <MemberSignature Language="C#" Value="public static MonoTouch.Foundation.NSBundle Bundle { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.Foundation.NSBundle Bundle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("bundle")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSBundle</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ClassHandle">
       <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
@@ -146,6 +167,75 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="GetUserVoiceContactUsFormForModalDisplay">
+      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIViewController GetUserVoiceContactUsFormForModalDisplay { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.UIKit.UIViewController GetUserVoiceContactUsFormForModalDisplay" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("getUserVoiceContactUsFormForModalDisplay")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.UIKit.UIViewController</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Initialize">
+      <MemberSignature Language="C#" Value="public static void Initialize (UserVoice.UVConfig config);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Initialize(class UserVoice.UVConfig config) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("initialize:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="config" Type="UserVoice.UVConfig" />
+      </Parameters>
+      <Docs>
+        <param name="config">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentUserVoiceContactUsFormForParentViewController">
+      <MemberSignature Language="C#" Value="public static void PresentUserVoiceContactUsFormForParentViewController (MonoTouch.UIKit.UIViewController parentViewController);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PresentUserVoiceContactUsFormForParentViewController(class MonoTouch.UIKit.UIViewController parentViewController) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentUserVoiceContactUsFormForParentViewController:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="parentViewController" Type="MonoTouch.UIKit.UIViewController" />
+      </Parameters>
+      <Docs>
+        <param name="parentViewController">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="PresentUserVoiceContactUsFormForParentViewController">
       <MemberSignature Language="C#" Value="public static void PresentUserVoiceContactUsFormForParentViewController (MonoTouch.UIKit.UIViewController parentViewController, UserVoice.UVConfig config);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PresentUserVoiceContactUsFormForParentViewController(class MonoTouch.UIKit.UIViewController parentViewController, class UserVoice.UVConfig config) cil managed" />
@@ -173,6 +263,30 @@
       </Docs>
     </Member>
     <Member MemberName="PresentUserVoiceForumForParentViewController">
+      <MemberSignature Language="C#" Value="public static void PresentUserVoiceForumForParentViewController (MonoTouch.UIKit.UIViewController parentViewController);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PresentUserVoiceForumForParentViewController(class MonoTouch.UIKit.UIViewController parentViewController) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentUserVoiceForumForParentViewController:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="parentViewController" Type="MonoTouch.UIKit.UIViewController" />
+      </Parameters>
+      <Docs>
+        <param name="parentViewController">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentUserVoiceForumForParentViewController">
       <MemberSignature Language="C#" Value="public static void PresentUserVoiceForumForParentViewController (MonoTouch.UIKit.UIViewController parentViewController, UserVoice.UVConfig config);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PresentUserVoiceForumForParentViewController(class MonoTouch.UIKit.UIViewController parentViewController, class UserVoice.UVConfig config) cil managed" />
       <MemberType>Method</MemberType>
@@ -194,6 +308,30 @@
       <Docs>
         <param name="parentViewController">To be added.</param>
         <param name="config">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentUserVoiceInterfaceForParentViewController">
+      <MemberSignature Language="C#" Value="public static void PresentUserVoiceInterfaceForParentViewController (MonoTouch.UIKit.UIViewController parentViewController);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PresentUserVoiceInterfaceForParentViewController(class MonoTouch.UIKit.UIViewController parentViewController) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentUserVoiceInterfaceForParentViewController:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="parentViewController" Type="MonoTouch.UIKit.UIViewController" />
+      </Parameters>
+      <Docs>
+        <param name="parentViewController">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -323,6 +461,30 @@
       </Docs>
     </Member>
     <Member MemberName="PresentUserVoiceNewIdeaFormForParentViewController">
+      <MemberSignature Language="C#" Value="public static void PresentUserVoiceNewIdeaFormForParentViewController (MonoTouch.UIKit.UIViewController parentViewController);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PresentUserVoiceNewIdeaFormForParentViewController(class MonoTouch.UIKit.UIViewController parentViewController) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("presentUserVoiceNewIdeaFormForParentViewController:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="parentViewController" Type="MonoTouch.UIKit.UIViewController" />
+      </Parameters>
+      <Docs>
+        <param name="parentViewController">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PresentUserVoiceNewIdeaFormForParentViewController">
       <MemberSignature Language="C#" Value="public static void PresentUserVoiceNewIdeaFormForParentViewController (MonoTouch.UIKit.UIViewController parentViewController, UserVoice.UVConfig config);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig void PresentUserVoiceNewIdeaFormForParentViewController(class MonoTouch.UIKit.UIViewController parentViewController, class UserVoice.UVConfig config) cil managed" />
       <MemberType>Method</MemberType>
@@ -370,6 +532,56 @@
       <Docs>
         <param name="identifier">To be added.</param>
         <param name="scope">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Track">
+      <MemberSignature Language="C#" Value="public static void Track (string eventName);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Track(string eventName) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("track:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="eventName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="eventName">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Track">
+      <MemberSignature Language="C#" Value="public static void Track (string eventName, MonoTouch.Foundation.NSDictionary properties);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Track(string eventName, class MonoTouch.Foundation.NSDictionary properties) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("track:properties:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="eventName" Type="System.String" />
+        <Parameter Name="properties" Type="MonoTouch.Foundation.NSDictionary" />
+      </Parameters>
+      <Docs>
+        <param name="eventName">To be added.</param>
+        <param name="properties">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>

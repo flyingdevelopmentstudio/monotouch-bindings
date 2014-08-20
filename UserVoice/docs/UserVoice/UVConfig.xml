@@ -106,6 +106,55 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="AddAttachmentNamed">
+      <MemberSignature Language="C#" Value="public virtual void AddAttachmentNamed (string fileName, string contentType, string data);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void AddAttachmentNamed(string fileName, string contentType, string data) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>MonoTouch.Foundation.Export("addAttachmentNamed:contentType:base64EncodedData:")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="fileName" Type="System.String" />
+        <Parameter Name="contentType" Type="System.String" />
+        <Parameter Name="data" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="fileName">To be added.</param>
+        <param name="contentType">To be added.</param>
+        <param name="data">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Attachments">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSObject[] Attachments { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSObject[] Attachments" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("attachments")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSObject[]</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ClassHandle">
       <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
@@ -251,10 +300,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("customFields", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("customFields", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setCustomFields:", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setCustomFields:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -275,10 +324,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("displayName", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("displayName", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setDisplayName:", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setDisplayName:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -318,10 +367,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("email", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("email", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setEmail:", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setEmail:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -342,10 +391,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("extraTicketInfo", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("extraTicketInfo", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setExtraTicketInfo:", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setExtraTicketInfo:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -390,10 +439,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("guid", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("guid", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setGuid:", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setGuid:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -442,10 +491,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("key", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("key", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setKey:", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setKey:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -466,10 +515,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("secret", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("secret", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setSecret:", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setSecret:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -586,10 +635,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("site", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("site", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setSite:", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setSite:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -610,10 +659,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("ssoToken", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("ssoToken", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setSsoToken:", MonoTouch.ObjCRuntime.ArgumentSemantic.Retain)</AttributeName>
+          <AttributeName>set: MonoTouch.Foundation.Export("setSsoToken:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -642,6 +691,51 @@
       </Attributes>
       <ReturnValue>
         <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Traits">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSDictionary Traits { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSDictionary Traits" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("traits")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSDictionary</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UserTraits">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.Foundation.NSDictionary UserTraits { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.Foundation.NSDictionary UserTraits" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("userTraits", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setUserTraits:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.Foundation.NSDictionary</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

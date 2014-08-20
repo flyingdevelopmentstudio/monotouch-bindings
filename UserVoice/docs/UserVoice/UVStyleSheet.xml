@@ -106,69 +106,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="AlertTextColor">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor AlertTextColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor AlertTextColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("alertTextColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="BackgroundColor">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor BackgroundColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor BackgroundColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("backgroundColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="BottomSeparatorColor">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor BottomSeparatorColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor BottomSeparatorColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("bottomSeparatorColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="ClassHandle">
       <MemberSignature Language="C#" Value="public override IntPtr ClassHandle { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance native int ClassHandle" />
@@ -178,409 +115,6 @@
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.IntPtr</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="CurrentAlertTextColor">
-      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIColor CurrentAlertTextColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.UIKit.UIColor CurrentAlertTextColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("alertTextColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="CurrentBackgroundColor">
-      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIColor CurrentBackgroundColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.UIKit.UIColor CurrentBackgroundColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("backgroundColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="CurrentBottomSeparatorColor">
-      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIColor CurrentBottomSeparatorColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.UIKit.UIColor CurrentBottomSeparatorColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("bottomSeparatorColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="CurrentDarkZebraBgColor">
-      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIColor CurrentDarkZebraBgColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.UIKit.UIColor CurrentDarkZebraBgColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("darkZebraBgColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="CurrentLabelTextColor">
-      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIColor CurrentLabelTextColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.UIKit.UIColor CurrentLabelTextColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("labelTextColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="CurrentLightZebraBgColor">
-      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIColor CurrentLightZebraBgColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.UIKit.UIColor CurrentLightZebraBgColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("lightZebraBgColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="CurrentLinkTextColor">
-      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIColor CurrentLinkTextColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.UIKit.UIColor CurrentLinkTextColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("linkTextColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="CurrentNavigationBarBackgroundImage">
-      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIImage CurrentNavigationBarBackgroundImage { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.UIKit.UIImage CurrentNavigationBarBackgroundImage" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("navigationBarBackgroundImage")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIImage</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="CurrentNavigationBarTextColor">
-      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIColor CurrentNavigationBarTextColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.UIKit.UIColor CurrentNavigationBarTextColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("navigationBarTextColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="CurrentNavigationBarTextShadowColor">
-      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIColor CurrentNavigationBarTextShadowColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.UIKit.UIColor CurrentNavigationBarTextShadowColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("navigationBarTextShadowColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="CurrentNavigationBarTintColor">
-      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIColor CurrentNavigationBarTintColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.UIKit.UIColor CurrentNavigationBarTintColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("navigationBarTintColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="CurrentPrimaryTextColor">
-      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIColor CurrentPrimaryTextColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.UIKit.UIColor CurrentPrimaryTextColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("primaryTextColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="CurrentSecondaryTextColor">
-      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIColor CurrentSecondaryTextColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.UIKit.UIColor CurrentSecondaryTextColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("secondaryTextColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="CurrentSignedInUserTextColor">
-      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIColor CurrentSignedInUserTextColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.UIKit.UIColor CurrentSignedInUserTextColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("signedInUserTextColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="CurrentTableViewHeaderColor">
-      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIColor CurrentTableViewHeaderColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.UIKit.UIColor CurrentTableViewHeaderColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("tableViewHeaderColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="CurrentTableViewHeaderShadowColor">
-      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIColor CurrentTableViewHeaderShadowColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.UIKit.UIColor CurrentTableViewHeaderShadowColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("tableViewHeaderShadowColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="CurrentTopSeparatorColor">
-      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIColor CurrentTopSeparatorColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class MonoTouch.UIKit.UIColor CurrentTopSeparatorColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("topSeparatorColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="CurrentZebraBgColor">
-      <MemberSignature Language="C#" Value="public static MonoTouch.UIKit.UIColor CurrentZebraBgColor (bool dark);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class MonoTouch.UIKit.UIColor CurrentZebraBgColor(bool dark) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>MonoTouch.Foundation.Export("zebraBgColor:")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="dark" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="dark">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DarkZebraBgColor">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor DarkZebraBgColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor DarkZebraBgColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("darkZebraBgColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -607,16 +141,40 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="LabelTextColor">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor LabelTextColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor LabelTextColor" />
+    <Member MemberName="Instance">
+      <MemberSignature Language="C#" Value="public static UserVoice.UVStyleSheet Instance { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class UserVoice.UVStyleSheet Instance" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("labelTextColor")</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("instance")</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>UserVoice.UVStyleSheet</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LoadingViewBackgroundColor">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor LoadingViewBackgroundColor { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor LoadingViewBackgroundColor" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("loadingViewBackgroundColor", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setLoadingViewBackgroundColor:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -628,16 +186,19 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="LightZebraBgColor">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor LightZebraBgColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor LightZebraBgColor" />
+    <Member MemberName="NavigationBarActivityIndicatorColor">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor NavigationBarActivityIndicatorColor { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor NavigationBarActivityIndicatorColor" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("lightZebraBgColor")</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("navigationBarActivityIndicatorColor", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setNavigationBarActivityIndicatorColor:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -649,16 +210,19 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="LinkTextColor">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor LinkTextColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor LinkTextColor" />
+    <Member MemberName="NavigationBarBackgroundColor">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor NavigationBarBackgroundColor { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor NavigationBarBackgroundColor" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("linkTextColor")</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("navigationBarBackgroundColor", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setNavigationBarBackgroundColor:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -671,7 +235,7 @@
       </Docs>
     </Member>
     <Member MemberName="NavigationBarBackgroundImage">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIImage NavigationBarBackgroundImage { get; }" />
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIImage NavigationBarBackgroundImage { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIImage NavigationBarBackgroundImage" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -679,7 +243,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("navigationBarBackgroundImage")</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("navigationBarBackgroundImage", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setNavigationBarBackgroundImage:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -691,8 +258,32 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="NavigationBarFont">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIFont NavigationBarFont { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIFont NavigationBarFont" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>get: MonoTouch.Foundation.Export("navigationBarFont", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setNavigationBarFont:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>MonoTouch.UIKit.UIFont</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="NavigationBarTextColor">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor NavigationBarTextColor { get; }" />
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor NavigationBarTextColor { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor NavigationBarTextColor" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -700,7 +291,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("navigationBarTextColor")</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("navigationBarTextColor", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setNavigationBarTextColor:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -713,7 +307,7 @@
       </Docs>
     </Member>
     <Member MemberName="NavigationBarTextShadowColor">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor NavigationBarTextShadowColor { get; }" />
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor NavigationBarTextShadowColor { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor NavigationBarTextShadowColor" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -721,7 +315,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("navigationBarTextShadowColor")</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("navigationBarTextShadowColor", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setNavigationBarTextShadowColor:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -734,7 +331,7 @@
       </Docs>
     </Member>
     <Member MemberName="NavigationBarTintColor">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor NavigationBarTintColor { get; }" />
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor NavigationBarTintColor { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor NavigationBarTintColor" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -742,7 +339,10 @@
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("navigationBarTintColor")</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("navigationBarTintColor", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setNavigationBarTintColor:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -754,20 +354,23 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="PrimaryTextColor">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor PrimaryTextColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor PrimaryTextColor" />
+    <Member MemberName="PreferredStatusBarStyle">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIStatusBarStyle PreferredStatusBarStyle { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype MonoTouch.UIKit.UIStatusBarStyle PreferredStatusBarStyle" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("primaryTextColor")</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("preferredStatusBarStyle")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setPreferredStatusBarStyle:")</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
+        <ReturnType>MonoTouch.UIKit.UIStatusBarStyle</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -775,16 +378,19 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SecondaryTextColor">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor SecondaryTextColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor SecondaryTextColor" />
+    <Member MemberName="TableViewBackgroundColor">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor TableViewBackgroundColor { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor TableViewBackgroundColor" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("secondaryTextColor")</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("tableViewBackgroundColor", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setTableViewBackgroundColor:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -796,16 +402,19 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SignedInUserTextColor">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor SignedInUserTextColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor SignedInUserTextColor" />
+    <Member MemberName="TintColor">
+      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor TintColor { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor TintColor" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Attributes>
         <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("signedInUserTextColor")</AttributeName>
+          <AttributeName>get: MonoTouch.Foundation.Export("tintColor", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>set: MonoTouch.Foundation.Export("setTintColor:", MonoTouch.ObjCRuntime.ArgumentSemantic.Strong)</AttributeName>
         </Attribute>
       </Attributes>
       <ReturnValue>
@@ -814,115 +423,6 @@
       <Docs>
         <summary>To be added.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="StyleSheet">
-      <MemberSignature Language="C#" Value="public static UserVoice.UVStyleSheet StyleSheet { set; }" />
-      <MemberSignature Language="ILAsm" Value=".property class UserVoice.UVStyleSheet StyleSheet" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>set: MonoTouch.Foundation.Export("setStyleSheet:")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>UserVoice.UVStyleSheet</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="TableViewHeaderColor">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor TableViewHeaderColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor TableViewHeaderColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("tableViewHeaderColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="TableViewHeaderShadowColor">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor TableViewHeaderShadowColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor TableViewHeaderShadowColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("tableViewHeaderShadowColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="TopSeparatorColor">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor TopSeparatorColor { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance class MonoTouch.UIKit.UIColor TopSeparatorColor" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>get: MonoTouch.Foundation.Export("topSeparatorColor")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="ZebraBgColor">
-      <MemberSignature Language="C#" Value="public virtual MonoTouch.UIKit.UIColor ZebraBgColor (bool dark);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class MonoTouch.UIKit.UIColor ZebraBgColor(bool dark) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>MonoTouch.Foundation.Export("zebraBgColor:")</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>MonoTouch.UIKit.UIColor</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="dark" Type="System.Boolean" />
-      </Parameters>
-      <Docs>
-        <param name="dark">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
