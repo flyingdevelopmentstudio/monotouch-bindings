@@ -316,10 +316,17 @@ namespace MonoTouch.FacebookConnect
 
 		[Static, Export ("canPresentShareDialogWithParams:")]
 		bool CanPresentShareDialog (FBShareDialogParams aParams);
+		
+		[Static, Export ("canPresentShareDialogWithPhotos")]
+		bool CanPresentShareDialog ();
 
 		[Async (ResultTypeName = "FBDialogAppCallResult")]
 		[Static, Export ("presentShareDialogWithParams:clientState:handler:")]
 		FBAppCall PresentShareDialog (FBShareDialogParams aParams, [NullAllowed] NSDictionary clientState, [NullAllowed] FBDialogAppCallCompletionHandler handler);
+
+		[Async (ResultTypeName = "FBDialogAppCallResult")]
+		[Static, Export ("presentShareDialogWithPhotoParams:clientState:handler:")]
+		FBAppCall PresentShareDialog ([NullAllowed] FBShareDialogPhotoParams aParams, [NullAllowed] NSDictionary clientState, [NullAllowed] FBDialogAppCallCompletionHandler handler);
 
 		[Async (ResultTypeName = "FBDialogAppCallResult")]
 		[Static, Export ("presentShareDialogWithLink:handler:")]
@@ -333,6 +340,14 @@ namespace MonoTouch.FacebookConnect
 		[Static, Export ("presentShareDialogWithLink:name:caption:description:picture:clientState:handler:")]
 		FBAppCall PresentShareDialog ([NullAllowed] NSUrl link, [NullAllowed] string name, [NullAllowed] string caption, [NullAllowed] string description, [NullAllowed] NSUrl picture, [NullAllowed] NSDictionary clientState, [NullAllowed] FBDialogAppCallCompletionHandler handler);
 
+		[Async (ResultTypeName = "FBDialogAppCallResult")]
+		[Static, Export ("presentShareDialogWithPhotos:handler:")]
+		FBAppCall PresentShareDialog ([NullAllowed] UIImage [] photos, [NullAllowed] FBDialogAppCallCompletionHandler handler);
+		
+		[Async (ResultTypeName = "FBDialogAppCallResult")]
+		[Static, Export ("presentShareDialogWithPhotos:clientState:handler:")]
+		FBAppCall PresentShareDialog ([NullAllowed] UIImage [] photos, [NullAllowed] NSDictionary clientState, [NullAllowed] FBDialogAppCallCompletionHandler handler);
+		
 		[Static, Export ("canPresentShareDialogWithOpenGraphActionParams:")]
 		bool CanPresentShareDialog (FBOpenGraphActionShareDialogParams aParams);
 
@@ -369,6 +384,22 @@ namespace MonoTouch.FacebookConnect
 	interface FBDialogsParams 
 	{
 
+	}
+	
+	[BaseType (typeof (FBDialogsParams))]
+	interface FBShareDialogPhotoParams 
+	{
+		[Export ("friends", ArgumentSemantic.Copy)]
+		IFBGraphUser [] Friends { get; set; }
+		
+		[Export ("place", ArgumentSemantic.Copy)]
+		IFBGraphPlace Place { get; set; }
+		
+		[Export ("dataFailuresFatal", ArgumentSemantic.Assign)]
+		bool DataFailuresFatal { get; set; }
+		
+		[Export ("photos", ArgumentSemantic.Copy)]
+		UIImage [] Photos { get; set; }
 	}
 
 	[BaseType (typeof (NSError))]
@@ -443,6 +474,9 @@ namespace MonoTouch.FacebookConnect
 
 		[Field ("FBErrorDialogInvalidOpenGraphActionParameters", "__Internal")]
 		NSString DialogInvalidOpenGraphActionParameters { get; }
+		
+		[Field ("FBErrorDialogInvalidShareParameters", "__Internal")]
+		NSString DialogInvalidShareParameters { get; }
 
 		[Field ("FBErrorAppEventsReasonKey", "__Internal")]
 		NSString AppEventsReasonKey { get; }
@@ -579,6 +613,8 @@ namespace MonoTouch.FacebookConnect
 		void HandleError (FBFriendPickerViewController friendPicker, NSError error);
 	}
 
+	interface IFBGraphLocation { }
+
 	[BaseType (typeof (NSObject))]
 	[Protocol]
 	interface FBGraphLocation : FBGraphObjectProtocol
@@ -700,10 +736,10 @@ namespace MonoTouch.FacebookConnect
 		void SetCategory (string category);
 
 		[Bind ("location")]
-		IFBGraphPlace GetLocation ();
+		IFBGraphLocation GetLocation ();
 
 		[Bind ("setLocation")]
-		void SetLocation (IFBGraphPlace location);
+		void SetLocation (IFBGraphLocation location);
 	}
 
 	interface IFBGraphUser { }
@@ -1599,36 +1635,43 @@ namespace MonoTouch.FacebookConnect
 		NSString TokenInformationPermissionsRefreshDateKey { get; }
 	}
 
+	[Static]
+	interface FBLoggingBehavior
+	{
+		[Field ("FBLoggingBehaviorFBRequests", "__Internal")]
+		NSString FBRequests { get; }
+
+		[Field ("FBLoggingBehaviorFBURLConnections", "__Internal")]
+		NSString FBURLConnections { get; }
+
+		[Field ("FBLoggingBehaviorAccessTokens", "__Internal")]
+		NSString AccessTokens { get; }
+
+		[Field ("FBLoggingBehaviorSessionStateTransitions", "__Internal")]
+		NSString SessionStateTransitions { get; }
+
+		[Field ("FBLoggingBehaviorPerformanceCharacteristics", "__Internal")]
+		NSString PerformanceCharacteristics { get; }
+
+		[Field ("FBLoggingBehaviorAppEvents", "__Internal")]
+		NSString AppEvents { get; }
+
+		[Field ("FBLoggingBehaviorInformational", "__Internal")]
+		NSString Informational { get; }
+		
+		[Field ("FBLoggingBehaviorCacheErrors", "__Internal")]
+		NSString CacheErrors { get; }
+
+		[Field ("FBLoggingBehaviorDeveloperErrors", "__Internal")]
+		NSString DeveloperErrors { get; }
+	}
+	
 	delegate void FBInstallResponseDataHandler (IFBGraphObjectProtocol response, NSError error);
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject))]
 	interface FBSettings 
 	{
-		[Field ("FBLoggingBehaviorFBRequests", "__Internal")]
-		NSString LoggingBehaviorFBRequests { get; }
-
-		[Field ("FBLoggingBehaviorFBURLConnections", "__Internal")]
-		NSString LoggingBehaviorFBURLConnections { get; }
-
-		[Field ("FBLoggingBehaviorAccessTokens", "__Internal")]
-		NSString LoggingBehaviorAccessTokens { get; }
-
-		[Field ("FBLoggingBehaviorSessionStateTransitions", "__Internal")]
-		NSString LoggingBehaviorSessionStateTransitions { get; }
-
-		[Field ("FBLoggingBehaviorPerformanceCharacteristics", "__Internal")]
-		NSString LoggingBehaviorPerformanceCharacteristics { get; }
-
-		[Field ("FBLoggingBehaviorAppEvents", "__Internal")]
-		NSString LoggingBehaviorAppEvents { get; }
-
-		[Field ("FBLoggingBehaviorInformational", "__Internal")]
-		NSString LoggingBehaviorInformational { get; }
-
-		[Field ("FBLoggingBehaviorDeveloperErrors", "__Internal")]
-		NSString LoggingBehaviorDeveloperErrors { get; }
-
 		[Static]
 		[Export ("sdkVersion")]
 		string SdkVersion { get; }

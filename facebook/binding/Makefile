@@ -8,13 +8,13 @@ MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
 
 # 	If you updated the binding to a newer Facebook version don't forget to change
 #	the Git TAG of newer the version you are binding against
-FBVERSIONTAG=sdk-version-3.12.0
+FBVERSIONTAG=sdk-version-3.13.1
 
 all: MonoTouch.FacebookConnect.dll
 
 facebook-ios-sdk:
 	git clone git@github.com:facebook/facebook-ios-sdk.git && cd facebook-ios-sdk && git checkout tags/$(FBVERSIONTAG)
-
+	
 libFacebook-i386.a: facebook-ios-sdk
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphonesimulator -configuration Release clean build
 	-mv $(PROJECT_ROOT)/build/Release-iphonesimulator/libfacebook_ios_sdk.a $@
