@@ -10,7 +10,8 @@ namespace GoogleAdMobAds
 	#region CustomLib
 	// This is a custom class created by me and is not part of Google Admob lib
 	// But it is necesary for this binding to work
-	[BaseType (typeof (NSObject), Name="libAdmobExporter")]
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name="AdmobExporter")]
 	interface GADAdSizeCons
 	{
 		[Static, Export ("kGADAdSizeBannerGlobal")]
@@ -51,7 +52,7 @@ namespace GoogleAdMobAds
 	[BaseType (typeof (NSObject))]
 	interface GADAdMobExtras : GADAdNetworkExtras
 	{
-		[Export ("additionalParameters", ArgumentSemantic.Retain)]
+		[Export ("additionalParameters", ArgumentSemantic.Copy)]
 		NSDictionary AdditionalParameters { get; set; }
 	}
 	
@@ -80,7 +81,7 @@ namespace GoogleAdMobAds
 		[Export ("rootViewController", ArgumentSemantic.Assign)]
 		UIViewController RootViewController {get; set; }
 		
-		[Export ("adSize")]
+		[Export ("adSize", ArgumentSemantic.Assign)]
 		GADAdSize AdSize { get; set; }
 		
 		[Wrap ("WeakDelegate")][NullAllowed]
@@ -97,6 +98,9 @@ namespace GoogleAdMobAds
 		
 		[Export ("mediatedAdView")]
 		UIView MediatedAdView { get; }
+
+		[Export ("adNetworkClassName")]
+		string AdNetworkClassName { get; }
 	}
 	
 	[BaseType (typeof (NSObject))]
@@ -143,11 +147,14 @@ namespace GoogleAdMobAds
 		[Export ("loadAndDisplayRequest:usingWindow:initialImage:")]
 		void LoadAndDisplayRequest (GADRequest request, UIWindow window, UIImage image);
 		
-		[Export ("isReady")]
+		[Export ("isReady", ArgumentSemantic.Assign)]
 		bool IsReady { get; }
 		
-		[Export ("hasBeenUsed")]
+		[Export ("hasBeenUsed", ArgumentSemantic.Assign)]
 		bool HasBeenUsed { get; }
+
+		[Export ("adNetworkClassName")]
+		string AdNetworkClassName { get; }
 		
 		[Export ("presentFromRootViewController:")]
 		void PresentFromRootViewController(UIViewController rootViewController);
@@ -194,13 +201,13 @@ namespace GoogleAdMobAds
 		[Export ("removeAdNetworkExtrasFor:")]
 		void RemoveAdNetworkExtrasFor (Class clazz);
 		
-		[Export ("mediationExtras", ArgumentSemantic.Retain)]
+		[Export ("mediationExtras", ArgumentSemantic.Copy)]
 		NSDictionary MediationExtras { get; set; }
 		
 		[Static, Export ("sdkVersion")]
 		string SdkVersion { get; }
 		
-		[Export ("testDevices", ArgumentSemantic.Retain)]
+		[Export ("testDevices", ArgumentSemantic.Copy)]
 		string [] TestDevices { get; set; }
 		
 		[Export ("gender", ArgumentSemantic.Assign)]
@@ -228,10 +235,10 @@ namespace GoogleAdMobAds
 		void AddKeyword (string keyword);
 		
 		#region "Deprecated GAdRequest Methods"		
-		[Export ("additionalParameters", ArgumentSemantic.Retain), Obsolete ("Please use void RegisterAdNetworkExtras(GADAdNetworkExtras extras) instead")]
+		[Export ("additionalParameters", ArgumentSemantic.Copy), Obsolete ("Please use void RegisterAdNetworkExtras(GADAdNetworkExtras extras) instead")]
 		NSDictionary AdditionalParameters { get; set; }
 		
-		[Export ("testing"), Obsolete ("Please set TestDevices instead.")]
+		[Export ("testing", ArgumentSemantic.Assign), Obsolete ("Please set TestDevices instead.")]
 		bool Testing { [Bind("isTesting")] get; set; }
 		#endregion
 		
@@ -272,22 +279,22 @@ namespace GoogleAdMobAds
 		[Export ("fontFamily", ArgumentSemantic.Copy)]
 		string FontFamily { get; set; }
 		
-		[Export ("headerTextSize")]
+		[Export ("headerTextSize", ArgumentSemantic.Assign)]
 		int HeaderTextSize { get; set; }
 		
 		[Export ("borderColor", ArgumentSemantic.Retain)]
 		UIColor BorderColor { get; set; }
 		
-		[Export ("borderType")]
+		[Export ("borderType", ArgumentSemantic.Assign)]
 		GADSearchBorderType BorderType { get; set; }
 		
-		[Export ("borderThickness")]
+		[Export ("borderThickness", ArgumentSemantic.Assign)]
 		int BorderThickness { get; set; }
 		
 		[Export ("customChannels", ArgumentSemantic.Copy)]
 		string CustomChannels { get; set; }
 
-		[Export ("callButtonColor")]
+		[Export ("callButtonColor", ArgumentSemantic.Assign)]
 		GADSearchCallButtonColor CallButtonColor { get; set; }
 		
 		[Export ("request")]
@@ -340,7 +347,7 @@ namespace GoogleAdMobAds
 		[Export ("validAdSizes", ArgumentSemantic.Retain)]
 		NSArray ValidAdSizes { get; set; }
 
-		[Export ("enableManualImpressions")]
+		[Export ("enableManualImpressions", ArgumentSemantic.Assign)]
 		bool EnableManualImpressions { get; set; }
 
 		[Export ("recordImpression")]
@@ -424,9 +431,8 @@ namespace GoogleAdMobAds
 	
 	#region Mediation
 	
-	[BaseType (typeof (NSObject),
-	Delegates= new string [] {"WeakDelegate" },
-	Events=new Type [] { typeof (GADCustomEventBannerDelegate) } )]
+	[BaseType (typeof (NSObject))]
+	[Protocol]
 	interface GADCustomEventBanner 
 	{
 		[Export ("requestBannerAd:parameter:label:request:")]
@@ -444,28 +450,28 @@ namespace GoogleAdMobAds
 	[Protocol]
 	interface GADCustomEventBannerDelegate 
 	{
-		[Export ("customEventBanner:didReceiveAd:"), EventArgs("GADCustomEventBannerView")]
+		[Export ("customEventBanner:didReceiveAd:")]
 		void DidReceiveAd (GADCustomEventBanner customEvent, UIView view);
 		
-		[Export ("customEventBanner:didFailAd:"), EventArgs("GADCustomEventBannerDidReceiveAd")]
+		[Export ("customEventBanner:didFailAd:")]
 		void DidFailAd (GADCustomEventBanner customEvent, NSError error);
 		
-		[Export ("customEventBanner:clickDidOccurInAd:"), EventArgs("GADCustomEventBannerView")]
+		[Export ("customEventBanner:clickDidOccurInAd:")]
 		void DidClickInAd (GADCustomEventBanner customEvent, UIView view);
 		
 		[Export ("viewControllerForPresentingModalView")]
 		UIViewController ViewControllerForPresentingModalView { get; }
 		
-		[Export ("customEventBannerWillPresentModal:"), EventArgs("GADCustomEventModal")]
+		[Export ("customEventBannerWillPresentModal:")]
 		void WillPresentModal (GADCustomEventBanner customEvent);
 		
-		[Export ("customEventBannerWillDismissModal:"), EventArgs("GADCustomEventModal")]
+		[Export ("customEventBannerWillDismissModal:")]
 		void WillDismissModal (GADCustomEventBanner customEvent);
 		
-		[Export ("customEventBannerDidDismissModal:"), EventArgs("GADCustomEventModal")]
+		[Export ("customEventBannerDidDismissModal:")]
 		void DidDismissModal (GADCustomEventBanner customEvent);
 		
-		[Export ("customEventBannerWillLeaveApplication:"), EventArgs("GADCustomEventModal")]
+		[Export ("customEventBannerWillLeaveApplication:")]
 		void WillLeaveApplication (GADCustomEventBanner customEvent);
 	}
 	
@@ -485,9 +491,8 @@ namespace GoogleAdMobAds
 		NSDictionary AllExtras { get; }
 	}
 	
-	[BaseType (typeof (NSObject),
-	Delegates= new string [] {"WeakDelegate" },
-	Events=new Type [] { typeof (GADCustomEventInterstitialDelegate) } )]
+	[BaseType (typeof (NSObject))]
+	[Protocol]
 	interface GADCustomEventInterstitial 
 	{
 		[Export ("requestInterstitialAdWithParameter:label:request:")]
@@ -508,22 +513,22 @@ namespace GoogleAdMobAds
 	[Protocol]
 	interface GADCustomEventInterstitialDelegate 
 	{
-		[Export ("customEventInterstitial:didReceiveAd:"), EventArgs("GADCustomEventInterstitialAd")]
+		[Export ("customEventInterstitial:didReceiveAd:")]
 		void DidReceiveAd (GADCustomEventInterstitial customEvent, NSObject ad);
 		
-		[Export ("customEventInterstitial:didFailAd:"), EventArgs("GADCustomEventInterstitialError")]
+		[Export ("customEventInterstitial:didFailAd:")]
 		void DidFailAd (GADCustomEventInterstitial customEvent, NSError error);
 		
-		[Export ("customEventInterstitialWillPresent:"), EventArgs("GADCustomEventInterstitialCustom")]
+		[Export ("customEventInterstitialWillPresent:")]
 		void WillPresent (GADCustomEventInterstitial customEvent);
 		
-		[Export ("customEventInterstitialWillDismiss:"), EventArgs("GADCustomEventInterstitialCustom")]
+		[Export ("customEventInterstitialWillDismiss:")]
 		void WillDismiss (GADCustomEventInterstitial customEvent);
 		
-		[Export ("customEventInterstitialDidDismiss:"), EventArgs("GADCustomEventInterstitialCustom")]
+		[Export ("customEventInterstitialDidDismiss:")]
 		void DidDismiss (GADCustomEventInterstitial customEvent);
 		
-		[Export ("customEventInterstitialWillLeaveApplication:"), EventArgs("GADCustomEventInterstitialCustom")]
+		[Export ("customEventInterstitialWillLeaveApplication:")]
 		void WillLeaveApplication (GADCustomEventInterstitial customEvent);
 	}
 	

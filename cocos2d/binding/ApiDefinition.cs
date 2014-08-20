@@ -975,6 +975,7 @@ namespace MonoTouch.Cocos2D {
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface CCDirectorDelegate {
 		//[Export ("updateProjection")]
 		//void UpdateProjection ();
@@ -1194,12 +1195,14 @@ namespace MonoTouch.Cocos2D {
 
 #if !MONOMAC
 	[Model]
+	[Protocol]
 	interface CCAccelerometerDelegate {
 		[Export ("accelerometer:didAccelerate:")]
 		void DidAccelerate (UIAccelerometer accelerometer, UIAcceleration acceleration);
 	}
 
 	[Model]
+	[Protocol]
 	interface CCTargetedTouchDelegate {
 		[Export ("ccTouchBegan:withEvent:")]
 		bool OnTouchBegan(UITouch touch, UIEvent ev);
@@ -1215,6 +1218,7 @@ namespace MonoTouch.Cocos2D {
 	}
 
 	[Model]
+	[Protocol]
 	interface CCStandardTouchDelegate {
 		[Export ("ccTouchesBegan:withEvent:")]
 		void OnTouchesBegan(NSSet touches, UIEvent ev);
@@ -1230,6 +1234,7 @@ namespace MonoTouch.Cocos2D {
 	}
 #else
 	[Model]
+	[Protocol]
 	interface CCKeyboardEventDelegate {
 		[Export ("ccKeyUp:")]
 		bool OnKeyUp(NSEvent ev);
@@ -1242,6 +1247,7 @@ namespace MonoTouch.Cocos2D {
 	}
 
 	[Model]
+	[Protocol]
 	interface CCMouseEventDelegate {
 		[Export ("ccMouseDown:")]
 		bool OnMouseDown (NSEvent ev);
@@ -1374,19 +1380,19 @@ namespace MonoTouch.Cocos2D {
 		[Export ("initWithString:fontName:fontSize:")]
 		IntPtr Constructor (string label, string fontName, float fontSize);
 
-		[Export ("initWithString:fontName:fontSize:dimensions:halignment:")]
+		[Export ("initWithString:fontName:fontSize:dimensions:hAlignment:")]
 		[PrologueSnippet ("if ((int)halignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"halignment\");")]
 		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment);
 
-		[Export ("initWithString:fontName:fontSize:dimensions:halignment:lineBreakMode:")]
+		[Export ("initWithString:fontName:fontSize:dimensions:hAlignment:lineBreakMode:")]
 		[PrologueSnippet ("if ((int)halignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"halignment\");")]
 		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment, UILineBreakMode lineBreakMode);
 
-		[Export ("initWithString:fontName:fontSize:dimensions:halignment:vAlignment:")]
+		[Export ("initWithString:fontName:fontSize:dimensions:hAlignment:vAlignment:")]
 		[PrologueSnippet ("if ((int)halignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"halignment\");")]
 		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment, CCVerticalTextAlignment vertAlignment);
 
-		[Export ("initWithString:fontName:fontSize:dimensions:halignment:vAlignment:lineBreakMode:")]
+		[Export ("initWithString:fontName:fontSize:dimensions:hAlignment:vAlignment:lineBreakMode:")]
 		[PrologueSnippet ("if ((int)halignment >= 3) throw new ArgumentException (\"Justified and Natural alignments not supported\", \"halignment\");")]
 		IntPtr Constructor (string label, string fontName, float fontSize, SizeF dimensions, UITextAlignment halignment, CCVerticalTextAlignment vertAlignment, UILineBreakMode lineBreakMode);
 	}
@@ -2016,11 +2022,11 @@ namespace MonoTouch.Cocos2D {
 		void AlignItemsHorizontally (float padding);
 
 		[Internal]
-		[Export ("alignItemsInColumns:")]
+		[Export ("alignItemsInColumns:", IsVariadic = true)]
 		void AlignItemsInColumns (NSNumber firstItem, IntPtr itemPtr);
 
 		[Internal]
-		[Export ("alignItemsInRows:")]
+		[Export ("alignItemsInRows:", IsVariadic = true)]
 		void AlignItemsInRows (NSNumber firstItem, IntPtr itemPtr);
 
 		[Export ("handlerPriority")]

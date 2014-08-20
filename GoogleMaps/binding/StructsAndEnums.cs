@@ -21,6 +21,25 @@ namespace Google.Maps
 		None	
 	} 
 
+	public enum MarkerAnimation
+	{
+		None = 0,
+		Pop
+	}
+
+	public enum GeocoderErrorCode
+	{
+		InvalidCoordinate = 1,
+		ErrorInternal
+	}
+
+	public enum LengthKind
+	{
+		Geodesic,
+		Rhumb,
+		Projected
+	}
+
 	[StructLayout (LayoutKind.Sequential)]
 	public struct VisibleRegion {
 
@@ -50,6 +69,18 @@ namespace Google.Maps
 		{
 			Heading = heading;
 			Pitch = pitch;
+		}
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct MapPoint {
+		public double X;
+		public double Y;
+
+		public MapPoint (float x, float y)
+		{
+			X = x;
+			Y = y;
 		}
 	}
 }

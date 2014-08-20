@@ -1,16 +1,20 @@
+BUILD_FLAGS=-unsafe -target:library -nowarn:436 -nowarn:219
+BTOUCH=/Developer/MonoTouch/usr/bin/btouch
+SMCS=/Developer/MonoTouch/usr/bin/smcs
+CLANG=clang -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk
 MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
 
-all: GoogleAnalytics.dll
+all: GoogleAnalytics.iOS.dll
 
-GoogleAnalyticsiOS_2.0beta4.zip:
-	curl -O http://dl.google.com/dl/gaformobileapps/GoogleAnalyticsiOS_2.0beta4.zip
+GoogleAnalyticsServicesiOS_3.03c.zip:
+	curl -O http://dl.google.com/googleanalyticsservices/GoogleAnalyticsServicesiOS_3.03c.zip
 
-libGoogleAnalytics.a: GoogleAnalyticsiOS_2.0beta4.zip
-	unzip -p $< 'GoogleAnalyticsiOS_2.0beta4/Library/libGoogleAnalytics.a' > $@
+libGoogleAnalyticsServices.a: GoogleAnalyticsServicesiOS_3.03c.zip
+	unzip -p $< 'GoogleAnalyticsServicesiOS_3.03c/libGoogleAnalyticsServices.a' > $@
 
-GoogleAnalytics.dll: Makefile libGoogleAnalytics.a
-	$(MONOXBUILD) /p:Configuration=Release Googleanalytics.csproj
-	cp bin/Release/GoogleAnalytics.dll GoogleAnalytics.dll
-	
+GoogleAnalytics.iOS.dll: Makefile ApiDefinition.cs StructsAndEnums.cs libGoogleAnalyticsServices.a
+	$(MONOXBUILD) /p:Configuration=Release GoogleAnalytics.iOS.csproj
+	cp bin/Release/GoogleAnalytics.iOS.dll GoogleAnalytics.iOS.dll
+
 clean:
-	-rm -rf bin obj *.a *.dll *.zip
+	-rm -rf list ios libGoogleAnalyticsServices.a *.dll *.o *.zip bin/ obj/

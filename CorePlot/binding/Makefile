@@ -7,7 +7,7 @@ MONOMAC_DLL=$(MONOMAC)/src/MonoMac.dll
 BMAC=mono --debug $(MONOMAC)/src/bmac.exe
 XAM_BMAC=/Library/Frameworks/Xamarin.Mac.framework/Versions/Current/usr/bin/bmac
 XAMMAC_DLL=/Library/Frameworks/Xamarin.Mac.framework/Versions/Current/usr/lib/mono/XamMac.dll
-VERSION=0.9
+VERSION=1.4
 
 PROJECT_ROOT=CorePlot_$(VERSION)/Source/framework
 PROJECT=$(PROJECT_ROOT)/CorePlot-CocoaTouch.xcodeproj
@@ -41,7 +41,8 @@ Mono.CoreplotMacOS.dll: Makefile coreplot.cs enums.cs extras.cs
 
 CorePlotiOS.dll: Makefile ios/coreplot.cs ios/enums.cs ios/extras.cs AssemblyInfo.cs libCorePlot-CocoaTouch.a
 	@mkdir -p ios
-	$(BTOUCH) --ns CorePlot -o $@ -d=MONOTOUCH -e ios/coreplot.cs -s ios/enums.cs -x ios/extras.cs -x AssemblyInfo.cs --tmpdir=ios --link-with=libCorePlot-CocoaTouch.a,libCorePlot-CocoaTouch.a
+	$(BTOUCH) -unsafe -o $@ -d=MONOTOUCH ios/coreplot.cs -s ios/enums.cs -x ios/extras.cs -x AssemblyInfo.cs --tmpdir=ios --link-with=libCorePlot-CocoaTouch.a,libCorePlot-CocoaTouch.a --baselib=/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll
+#	$(BTOUCH) --ns CorePlot -o $@ -d=MONOTOUCH ios/coreplot.cs -s ios/enums.cs -x ios/extras.cs -x AssemblyInfo.cs --tmpdir=ios --link-with=libCorePlot-CocoaTouch.a,libCorePlot-CocoaTouch.a
 
 ios/coreplot.cs: coreplot.cs
 	@mkdir -p ios

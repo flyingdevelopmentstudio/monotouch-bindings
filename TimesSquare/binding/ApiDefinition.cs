@@ -10,22 +10,23 @@ namespace TimesSquare.iOS
 	[BaseType (typeof (UITableViewCell))]
 	interface TSQCalendarCell {
 
-		[Export ("firstOfMonth")]
+		[Export ("firstOfMonth", ArgumentSemantic.Retain)]
 		NSDate FirstOfMonth { get; set; }
 
 		[Export ("daysInWeek")]
-		uint DaysInWeek { get; set; }
+		uint DaysInWeek { get; }
 
-		[Export ("calendar")]
+		[Export ("calendar", ArgumentSemantic.Retain)]
 		NSCalendar Calendar { get; set; }
 
-		[Export ("calendarView")]
+		[Export ("calendarView", ArgumentSemantic.Assign)]
 		TSQCalendarView CalendarView { get; set; }
 
+		[Static]
 		[Export ("cellHeight")]
 		float CellHeight { get; }
 
-		[Export ("textColor")]
+		[Export ("textColor", ArgumentSemantic.Retain)]
 		UIColor TextColor { get; set; }
 
 		[Export ("shadowOffset")]
@@ -60,19 +61,19 @@ namespace TimesSquare.iOS
 		[Export ("initWithCalendar:reuseIdentifier:")]
 		IntPtr Constructor (NSCalendar calendar, string reuseIdentifier);
 
-		[Export ("backgroundImage")]
+		[Export ("backgroundImage", ArgumentSemantic.Assign)]
 		UIImage BackgroundImage { get; }
 
-		[Export ("selectedBackgroundImage")]
+		[Export ("selectedBackgroundImage", ArgumentSemantic.Assign)]
 		UIImage SelectedBackgroundImage { get; }
 
-		[Export ("todayBackgroundImage")]
+		[Export ("todayBackgroundImage", ArgumentSemantic.Assign)]
 		UIImage TodayBackgroundImage { get; }
 
-		[Export ("notThisMonthBackgroundImage")]
+		[Export ("notThisMonthBackgroundImage", ArgumentSemantic.Assign)]
 		UIImage NotThisMonthBackgroundImage { get; }
 
-		[Export ("beginningDate")]
+		[Export ("beginningDate", ArgumentSemantic.Retain)]
 		NSDate BeginningDate { get; set; }
 
 		[Export ("bottomRow")]
@@ -83,30 +84,27 @@ namespace TimesSquare.iOS
 	}
 
 	[BaseType (typeof (UIView),
-	Delegates=new string [] {"WeakDelegate"},
+	Delegates=new string [] {"Delegate"},
 	Events=new Type [] { typeof (TSQCalendarViewDelegate) })]
 	interface TSQCalendarView {
 
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (RectangleF frame);
 
-		[Export ("firstDate")]
+		[Export ("firstDate", ArgumentSemantic.Retain)]
 		NSDate FirstDate { get; set; }
 
-		[Export ("lastDate")]
+		[Export ("lastDate", ArgumentSemantic.Retain)]
 		NSDate LastDate { get; set; }
 
-		[Export ("selectedDate")]
+		[Export ("selectedDate", ArgumentSemantic.Retain)]
 		NSDate SelectedDate { get; set; }
 
-		[Export ("calendar")]
+		[Export ("calendar", ArgumentSemantic.Retain)]
 		NSCalendar Calendar { get; set; }
-
-		[Wrap ("WeakDelegate")][NullAllowed]
-		TSQCalendarViewDelegate Delegate { get; set; }
 		
 		[Export ("delegate", ArgumentSemantic.Assign)][NullAllowed]
-		NSObject WeakDelegate { get; set; }
+		ITSQCalendarViewDelegate Delegate { get; set; }
 
 		[Export ("pinsHeaderToTop")]
 		bool PinsHeaderToTop { get; set; }
@@ -125,13 +123,19 @@ namespace TimesSquare.iOS
 
 		[Export ("rowCellClass")]
 		Class RowCellClass { get; set; }
+
+		[Export ("scrollToDate:animated:")]
+		void ScrollToDate (NSDate date, bool animated);
 	}
+
+	interface ITSQCalendarViewDelegate { }
 
 	[BaseType (typeof (NSObject))]
 	[Model]
+	[Protocol]
 	interface TSQCalendarViewDelegate {
 
-		[Export ("calendarView:shouldSelectDate:"), DelegateName ("TSQCalendarViewDelegateS"), DefaultValue (true)]
+		[Export ("calendarView:shouldSelectDate:"), DelegateName ("TSQCalendarViewDelegateS"), NoDefaultValue]
 		bool ShouldSelectDate (TSQCalendarView calendarView, NSDate date);
 
 		[Export ("calendarView:didSelectDate:"), EventArgs("TSQCalendarViewDelegateA")]
