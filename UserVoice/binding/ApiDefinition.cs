@@ -5,7 +5,7 @@ using MonoTouch.UIKit;
 
 namespace UserVoice 
 {
-	[Model, BaseType (typeof (NSObject))]
+	[BaseType (typeof (NSObject)), Model, Protocol]
 	public partial interface UVDelegate 
 	{
 		[Export ("userVoiceWasDismissed")]
