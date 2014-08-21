@@ -86,4 +86,9 @@
     <BundleResource Include="Resources\uv_idea.png" />
     <BundleResource Include="Resources\uv_idea%402x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="libUserVoice.linkwith.cs">
+      <DependentUpon>libUserVoice.a</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>
