@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Resources\UVResources\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
   <ItemGroup>
@@ -44,5 +45,45 @@
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingNativeLibrary Include="libUserVoice.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ca.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\cs.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\da.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\de.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\el.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\en.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\en-GB.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\es.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\fi.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\fr.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\hr.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\hu.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\id.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\it.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\ja.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\ko.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\ms.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\nb.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\nl.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\pl.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\pt.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\pt-PT.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\ro.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\ru.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\sk.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\sv.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\th.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\tr.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\uk.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\vi.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\zh-Hans.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\zh-Hant.lproj\UserVoice.strings" />
+    <BundleResource Include="Resources\uv_article.png" />
+    <BundleResource Include="Resources\uv_article%402x.png" />
+    <BundleResource Include="Resources\uv_heart.png" />
+    <BundleResource Include="Resources\uv_heart%402x.png" />
+    <BundleResource Include="Resources\uv_idea.png" />
+    <BundleResource Include="Resources\uv_idea%402x.png" />
   </ItemGroup>
 </Project>
