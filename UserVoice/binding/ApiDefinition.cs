@@ -5,7 +5,7 @@ using MonoTouch.UIKit;
 
 namespace UserVoice 
 {
-	[BaseType (typeof (NSObject)), Model, Protocol]
+	[BaseType (typeof (NSObject)), Model]
 	public partial interface UVDelegate 
 	{
 		[Export ("userVoiceWasDismissed")]
@@ -15,7 +15,7 @@ namespace UserVoice
 		void UserVoiceRequestsDismissal ();
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType (typeof (NSObject)), Protocol]
 	public partial interface UVStyleSheet 
 	{
 		[Static, Export ("instance")]
@@ -55,7 +55,7 @@ namespace UserVoice
 		UIStatusBarStyle PreferredStatusBarStyle { get; set; }
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType (typeof (NSObject)), Protocol]
 	public partial interface UVConfig 
 	{
 		[Static, Export ("configWithSite:")]
@@ -131,7 +131,7 @@ namespace UserVoice
 		NSObject [] Attachments { get; }
 	}
 
-	[BaseType (typeof (NSObject))]
+	[BaseType (typeof (NSObject)), Protocol]
 	public partial interface UserVoice
 	{
 		[Static, Export ("initialize:")]
