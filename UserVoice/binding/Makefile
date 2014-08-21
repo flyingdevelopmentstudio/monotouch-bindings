@@ -1,8 +1,8 @@
 BTOUCH=/Developer/MonoTouch/usr/bin/btouch
 SMCS=/Developer/MonoTouch/usr/bin/smcs
 MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
-VERSION=2.0.12
-# UseerVoice SDK Version 2.0.12
+VERSION=3.1.2
+# UserVoice SDK Version 3.1.2
 
 all: UserVoice.dll
 
