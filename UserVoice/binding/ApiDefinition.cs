@@ -95,10 +95,10 @@ namespace UserVoice
 		NSDictionary CustomFields { get; set; }
 
 		[Export ("topicId")]
-		int TopicId { get; set; }
+		nint TopicId { get; set; }
 
 		[Export ("forumId")]
-		int ForumId { get; set; }
+		nint ForumId { get; set; }
 
 		[Export ("showForum")]
 		bool ShowForum { get; set; }
